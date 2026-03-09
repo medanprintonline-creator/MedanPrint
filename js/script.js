@@ -24,7 +24,7 @@ document.getElementById("total").innerText =
 
 function sendWhatsapp(){
 
-const phone = "6281234567890"
+const phone = "6285277930703"
 
 const text = encodeURIComponent(
 "Halo MedanPrint, saya ingin print. Total harga Rp" + totalPrice
