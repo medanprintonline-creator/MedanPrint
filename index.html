@@ -1,91 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedanPrint - Print Online Medan</title>
-<link rel="stylesheet" href="css/style.css">
+<title>MedanPrint.online</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0f172a;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+padding:40px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+p{
+font-size:18px;
+opacity:0.8;
+margin-bottom:40px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-primary{
+background:#38bdf8;
+color:#0f172a;
+}
+
+.btn-secondary{
+background:#1e293b;
+color:white;
+border:1px solid #334155;
+}
+
+.features{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.feature{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+font-size:14px;
+}
+
+@media(max-width:700px){
+
+h1{
+font-size:30px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<header class="navbar">
-<div class="container nav">
-<img src="assets/logo-horizontal.svg" class="logo">
-<nav>
-<a href="#home">Home</a>
-<a href="#upload">Upload</a>
-<a href="#harga">Harga</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="container">
+
+<div class="logo">
+MedanPrint<span>.online</span>
 </div>
-</header>
 
-<section class="hero" id="home">
-<div class="container hero-grid">
-<div>
-<h1>Platform Print Online Pertama di Medan</h1>
-<p>Upload file, hitung harga otomatis, dan pesan cetak langsung via WhatsApp.</p>
-<a href="#upload" class="btn">Mulai Cetak</a>
+<h1>Print Dokumen Online di Medan</h1>
+
+<p>
+Upload file PDF → Bayar QRIS → Cetak → Ambil atau Kirim
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary" href="https://wa.me/628xxxx">
+Order via WhatsApp
+</a>
+
+<a class="btn btn-secondary" href="#">
+Upload File
+</a>
+
 </div>
-<div class="hero-card">
-<h3>Preview File</h3>
-<iframe id="preview"></iframe>
-</div>
-</div>
-</section>
 
-<section class="upload container" id="upload">
-<h2>Upload File Print</h2>
-<input type="file" id="fileInput" accept="application/pdf">
-</section>
+<div class="features">
 
-<section class="pricing container" id="harga">
-<h2>Kalkulator Harga</h2>
-
-<label>Jumlah Halaman</label>
-<input type="number" id="pages" value="1">
-
-<label>Jumlah Copy</label>
-<input type="number" id="copies" value="1">
-
-<label>Jenis Print</label>
-<select id="color">
-<option value="500">Hitam Putih</option>
-<option value="1000">Berwarna</option>
-</select>
-
-<button onclick="calculate()">Hitung Harga</button>
-
-<h3 id="total">Total: Rp0</h3>
-
-<button onclick="sendWhatsapp()" class="btn">Pesan via WhatsApp</button>
-</section>
-
-<section class="features container">
 <div class="feature">
-<img src="assets/icons/print.svg">
-<h3>Print Cepat</h3>
-<p>Proses print cepat dan profesional.</p>
+📄 A4 & F4
 </div>
 
 <div class="feature">
-<img src="assets/icons/delivery.svg">
-<h3>Delivery</h3>
-<p>Kami antar hasil print ke rumah.</p>
+🖨️ Hitam Putih & Warna
 </div>
 
 <div class="feature">
-<img src="assets/icons/design.svg">
-<h3>Design</h3>
-<p>Bantu desain sebelum cetak.</p>
+💳 Pembayaran QRIS
 </div>
-</section>
 
-<footer id="contact">
-<p>© 2026 MedanPrint</p>
-</footer>
+</div>
 
-<script src="js/script.js"></script>
+</div>
+
 </body>
 </html>
