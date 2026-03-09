@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedanPrint - Print Online Medan</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+<div class="container nav">
+<img src="assets/logo-horizontal.svg" class="logo">
+<nav>
+<a href="#home">Home</a>
+<a href="#upload">Upload</a>
+<a href="#harga">Harga</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<h1>Platform Print Online Pertama di Medan</h1>
+<p>Upload file, hitung harga otomatis, dan pesan cetak langsung via WhatsApp.</p>
+<a href="#upload" class="btn">Mulai Cetak</a>
+</div>
+<div class="hero-card">
+<h3>Preview File</h3>
+<iframe id="preview"></iframe>
+</div>
+</div>
+</section>
+
+<section class="upload container" id="upload">
+<h2>Upload File Print</h2>
+<input type="file" id="fileInput" accept="application/pdf">
+</section>
+
+<section class="pricing container" id="harga">
+<h2>Kalkulator Harga</h2>
+
+<label>Jumlah Halaman</label>
+<input type="number" id="pages" value="1">
+
+<label>Jumlah Copy</label>
+<input type="number" id="copies" value="1">
+
+<label>Jenis Print</label>
+<select id="color">
+<option value="500">Hitam Putih</option>
+<option value="1000">Berwarna</option>
+</select>
+
+<button onclick="calculate()">Hitung Harga</button>
+
+<h3 id="total">Total: Rp0</h3>
+
+<button onclick="sendWhatsapp()" class="btn">Pesan via WhatsApp</button>
+</section>
+
+<section class="features container">
+<div class="feature">
+<img src="assets/icons/print.svg">
+<h3>Print Cepat</h3>
+<p>Proses print cepat dan profesional.</p>
+</div>
+
+<div class="feature">
+<img src="assets/icons/delivery.svg">
+<h3>Delivery</h3>
+<p>Kami antar hasil print ke rumah.</p>
+</div>
+
+<div class="feature">
+<img src="assets/icons/design.svg">
+<h3>Design</h3>
+<p>Bantu desain sebelum cetak.</p>
+</div>
+</section>
+
+<footer id="contact">
+<p>© 2026 MedanPrint</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
