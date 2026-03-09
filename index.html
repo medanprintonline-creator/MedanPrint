@@ -1,155 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MedanPrint.online</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Inter',sans-serif;
-background:#0f172a;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-text-align:center;
-}
-
-.container{
-max-width:700px;
-padding:40px;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-margin-bottom:20px;
-}
-
-.logo span{
-color:#38bdf8;
-}
-
-h1{
-font-size:42px;
-margin-bottom:15px;
-}
-
-p{
-font-size:18px;
-opacity:0.8;
-margin-bottom:40px;
-}
-
-.buttons{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:14px 28px;
-border-radius:10px;
-text-decoration:none;
-font-weight:600;
-}
-
-.btn-primary{
-background:#38bdf8;
-color:#0f172a;
-}
-
-.btn-secondary{
-background:#1e293b;
-color:white;
-border:1px solid #334155;
-}
-
-.features{
-margin-top:50px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.feature{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-font-size:14px;
-}
-
-@media(max-width:700px){
-
-h1{
-font-size:30px;
-}
-
-.features{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
 </head>
 
 <body>
 
-<div class="container">
+<header class="navbar">
 
-<div class="logo">
-MedanPrint<span>.online</span>
-</div>
+<div class="logo">MedanPrint.online</div>
+
+<a href="#order" class="btn">Order Print</a>
+
+</header>
+
+<section class="hero">
 
 <h1>Print Dokumen Online di Medan</h1>
 
-<p>
-Upload file PDF → Bayar QRIS → Cetak → Ambil atau Kirim
-</p>
+<p>Upload PDF → Hitung Harga → Kirim Order</p>
 
-<div class="buttons">
+</section>
 
-<a class="btn btn-primary" href="https://wa.me/628xxxx">
-Order via WhatsApp
-</a>
+<section id="order" class="order">
 
-<a class="btn btn-secondary" href="#">
-Upload File
-</a>
+<h2>Upload File</h2>
 
-</div>
+<div id="drop-area">
 
-<div class="features">
+<p>Drag & Drop PDF di sini</p>
 
-<div class="feature">
-📄 A4 & F4
-</div>
-
-<div class="feature">
-🖨️ Hitam Putih & Warna
-</div>
-
-<div class="feature">
-💳 Pembayaran QRIS
-</div>
+<input type="file" id="fileElem" accept="application/pdf">
 
 </div>
 
+<div class="options">
+
+<select id="warna">
+<option value="500">Hitam Putih</option>
+<option value="2500">Warna</option>
+</select>
+
+<select id="ukuran">
+<option>A4</option>
+<option>F4</option>
+</select>
+
+<select id="sisi">
+<option value="1">1 Sisi</option>
+<option value="0.7">Bolak Balik</option>
+</select>
+
 </div>
+
+<div id="totalHarga">Total: Rp0</div>
+
+<button onclick="kirimWA()">Kirim ke WhatsApp</button>
+
+<div id="preview"></div>
+
+</section>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
