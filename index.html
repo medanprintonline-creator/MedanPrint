@@ -1,187 +1,392 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedanPrint.online | Print Online Medan</title>
+  <!-- Font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<title>MedanPrint.online | Print Online Medan</title>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    /* header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-<style>
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 24px;
+    }
 
-body{
-font-family:Poppins;
-margin:0;
-background:#f8fafc;
-color:#0f172a;
-}
+    .logo i {
+      font-size: 32px;
+      color: #2563eb;
+      background: #e0e7ff;
+      padding: 8px;
+      border-radius: 14px;
+    }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
+    .logo span {
+      color: #2563eb;
+    }
 
-.logo{
-font-weight:600;
-font-size:22px;
-}
+    .btn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid transparent;
+    }
 
-.logo span{
-color:#2563eb;
-}
+    .btn i {
+      font-size: 18px;
+    }
 
-.btn{
-background:#2563eb;
-color:white;
-padding:10px 18px;
-border-radius:8px;
-text-decoration:none;
-}
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+    }
 
-.hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(135deg,#2563eb,#10b981);
-color:white;
-}
+    .btn-outline {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
 
-.hero h1{
-font-size:42px;
-margin-bottom:10px;
-}
+    .btn-outline:hover {
+      background: white;
+      color: #2563eb;
+      border-color: white;
+    }
 
-.hero p{
-font-size:18px;
-}
+    /* hero section dengan background gambar */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 140px 20px;
+      color: white;
+      isolation: isolate;
+      background: url('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    }
 
-.hero-buttons{
-margin-top:30px;
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37,99,235,0.85), rgba(16,185,129,0.85));
+      z-index: -1;
+    }
 
-.hero-buttons a{
-margin:10px;
-display:inline-block;
-}
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-.section{
-padding:80px 10%;
-text-align:center;
-}
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      opacity: 0.95;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:40px;
-}
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
-}
+    /* section umum */
+    .section {
+      padding: 80px 10%;
+      text-align: center;
+    }
 
-footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:30px;
-}
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+    }
 
-</style>
+    .section h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #2563eb;
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
 
+    .subhead {
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+    }
+
+    /* grid cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 36px 20px;
+      border-radius: 24px;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -12px rgba(37,99,235,0.2);
+    }
+
+    .card i {
+      font-size: 48px;
+      color: #2563eb;
+      background: #e0e7ff;
+      width: 80px;
+      height: 80px;
+      line-height: 80px !important;
+      border-radius: 30px;
+      margin-bottom: 24px;
+      display: inline-block;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover i {
+      background: #2563eb;
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 1rem;
+    }
+
+    /* footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+    }
+
+    footer .social {
+      margin: 20px 0 10px;
+    }
+
+    footer .social a {
+      color: white;
+      background: #1e293b;
+      width: 42px;
+      height: 42px;
+      display: inline-block;
+      line-height: 42px;
+      border-radius: 50%;
+      margin: 0 6px;
+      transition: 0.3s;
+    }
+
+    footer .social a:hover {
+      background: #2563eb;
+      transform: scale(1.1);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: #334155;
+      margin: 24px auto;
+      max-width: 400px;
+    }
+
+    /* responsif */
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 20px;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-MedanPrint<span>.online</span>
-</div>
-
-<a class="btn" href="https://wa.me/">Chat Admin</a>
-
+  <div class="logo">
+    <i class="fas fa-print"></i> <!-- Ikon printer sebagai logo -->
+    MedanPrint<span>.online</span>
+  </div>
+  <a class="btn" href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20order%20print" target="_blank">
+    <i class="fab fa-whatsapp"></i> Chat Admin
+  </a>
 </header>
 
+<!-- Hero dengan background gambar -->
 <section class="hero">
-
-<h1>Print Dokumen Online di Medan</h1>
-
-<p>
-Upload file PDF → Bayar QRIS → Dokumen dicetak → Ambil / Kirim
-</p>
-
-<div class="hero-buttons">
-
-<a class="btn" href="https://wa.me/">Order via WhatsApp</a>
-
-</div>
-
+  <h1>Print Dokumen Online di Medan</h1>
+  <p>
+    <i class="fas fa-cloud-upload-alt"></i> Upload PDF • 
+    <i class="fas fa-qrcode"></i> Bayar QRIS • 
+    <i class="fas fa-bicycle"></i> Ambil / Kirim
+  </p>
+  <div class="hero-buttons">
+    <a class="btn" href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20order%20print" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order via WhatsApp
+    </a>
+    <a class="btn btn-outline" href="#layanan">
+      <i class="fas fa-chevron-down"></i> Lihat Layanan
+    </a>
+  </div>
 </section>
 
+<!-- Cara order -->
 <section class="section">
-
-<h2>Cara Order</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Upload File</h3>
-<p>Kirim file PDF siap cetak</p>
-</div>
-
-<div class="card">
-<h3>Pilih Print</h3>
-<p>Hitam putih / warna</p>
-</div>
-
-<div class="card">
-<h3>Bayar QRIS</h3>
-<p>Setelah bayar langsung diproses</p>
-</div>
-
-</div>
-
+  <h2>Cara Order</h2>
+  <div class="subhead">Tiga langkah mudah, cetak langsung jadi</div>
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <h3>Upload File</h3>
+      <p>Kirim file PDF atau Word via WhatsApp. Pastikan siap cetak.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-paint-brush"></i>
+      <h3>Pilih Print</h3>
+      <p>Hitam putih / warna, 1 sisi / bolak-balik, ukuran A4/F4.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-qrcode"></i>
+      <h3>Bayar QRIS</h3>
+      <p>Scan QRIS yang dikirim admin. Begitu masuk, langsung diproses.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-
-<h2>Layanan Print</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Ukuran</h3>
-<p>A4 dan F4 / Folio</p>
-</div>
-
-<div class="card">
-<h3>Jenis</h3>
-<p>Hitam Putih & Warna</p>
-</div>
-
-<div class="card">
-<h3>Sisi Cetak</h3>
-<p>1 sisi / bolak balik</p>
-</div>
-
-</div>
-
+<!-- Layanan Print (dengan ikon lebih detail) -->
+<section class="section" id="layanan">
+  <h2>Layanan Print</h2>
+  <div class="subhead">Berbagai pilihan sesuai kebutuhanmu</div>
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-file-alt"></i>
+      <h3>Ukuran</h3>
+      <p>A4 dan F4 / Folio. Kertas berkualitas, tidak buram.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-palette"></i>
+      <h3>Jenis</h3>
+      <p>Hitam Putih (Rp500/lbr) & Warna (Rp2000/lbr).</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-layer-group"></i>
+      <h3>Sisi Cetak</h3>
+      <p>1 sisi atau bolak-balik (hemat kertas).</p>
+    </div>
+  </div>
 </section>
 
+<!-- Mengapa kami / keunggulan (opsional, tapi menambah daya tarik) -->
+<section class="section" style="background: #f1f5f9; padding: 70px 10%;">
+  <h2>Kenapa Pilih MedanPrint.online?</h2>
+  <div class="grid" style="margin-top: 40px;">
+    <div class="card" style="background: white;">
+      <i class="fas fa-bolt"></i>
+      <h3>Cepat</h3>
+      <p>Proses cetak 1-2 jam, siap diambil atau diantar (area Medan).</p>
+    </div>
+    <div class="card" style="background: white;">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Aman & Terpercaya</h3>
+      <p>File kamu dihapus setelah cetak. Privasi terjaga.</p>
+    </div>
+    <div class="card" style="background: white;">
+      <i class="fas fa-phone-alt"></i>
+      <h3>Dukungan 24/7</h3>
+      <p>Admin siap bantu via WhatsApp kapan saja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer dengan ikon sosial media (kosong, hanya hiasan) -->
 <footer>
-
-<p>© 2026 MedanPrint.online</p>
-<p>Print Online Medan</p>
-
+  <div class="logo" style="justify-content: center; color: white; margin-bottom: 16px;">
+    <i class="fas fa-print" style="background: #1e293b; color: #2563eb;"></i>
+    MedanPrint<span style="color:#3b82f6;">.online</span>
+  </div>
+  <p style="max-width: 400px; margin: 0 auto; color: #94a3b8;">
+    <i class="fas fa-map-pin"></i> Jl. Gatot Subroto No.123, Medan 
+    <br><i class="fas fa-clock"></i> Buka Senin-Sabtu 08.00-20.00
+  </p>
+  <div class="social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <hr>
+  <p>© 2026 MedanPrint.online — Print Online Medan #langsungJadi</p>
 </footer>
 
+<!-- Catatan: nomor WhatsApp masih contoh, ganti dengan nomor asli -->
 </body>
 </html>
