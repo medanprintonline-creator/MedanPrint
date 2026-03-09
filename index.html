@@ -3,98 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedanPrint.online - Print Online Medan</title>
-<link rel="stylesheet" href="style.css">
+
+<title>MedanPrint.online | Print Online Medan</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+margin:0;
+background:#f8fafc;
+color:#0f172a;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+font-weight:600;
+font-size:22px;
+}
+
+.logo span{
+color:#2563eb;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+}
+
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(135deg,#2563eb,#10b981);
+color:white;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.hero-buttons{
+margin-top:30px;
+}
+
+.hero-buttons a{
+margin:10px;
+display:inline-block;
+}
+
+.section{
+padding:80px 10%;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
-<h2 class="logo">MedanPrint<span>.online</span></h2>
-<a class="btn" href="#order">Upload File</a>
+
+<div class="logo">
+MedanPrint<span>.online</span>
 </div>
+
+<a class="btn" href="https://wa.me/">Chat Admin</a>
+
 </header>
 
 <section class="hero">
-<div class="container hero-content">
 
 <h1>Print Dokumen Online di Medan</h1>
 
 <p>
-Upload file PDF → Bayar QRIS → Dokumen dicetak → 
-Ambil atau dikirim.
+Upload file PDF → Bayar QRIS → Dokumen dicetak → Ambil / Kirim
 </p>
 
-<div class="buttons">
-<a class="btn-primary" href="#order">Upload File</a>
-<a class="btn-secondary" href="https://wa.me/">Chat WhatsApp</a>
-</div>
+<div class="hero-buttons">
+
+<a class="btn" href="https://wa.me/">Order via WhatsApp</a>
 
 </div>
+
 </section>
 
-<section class="steps">
+<section class="section">
 
 <h2>Cara Order</h2>
 
-<div class="step-grid">
+<div class="grid">
 
-<div class="step">
-<h3>1. Upload File</h3>
-<p>Upload dokumen PDF siap cetak.</p>
+<div class="card">
+<h3>Upload File</h3>
+<p>Kirim file PDF siap cetak</p>
 </div>
 
-<div class="step">
-<h3>2. Pilih Print</h3>
-<p>Hitam putih / warna dan jumlah halaman.</p>
+<div class="card">
+<h3>Pilih Print</h3>
+<p>Hitam putih / warna</p>
 </div>
 
-<div class="step">
-<h3>3. Bayar QRIS</h3>
-<p>Setelah bayar, file langsung diproses.</p>
+<div class="card">
+<h3>Bayar QRIS</h3>
+<p>Setelah bayar langsung diproses</p>
 </div>
 
 </div>
+
 </section>
 
-<section class="service">
+<section class="section">
 
 <h2>Layanan Print</h2>
 
-<div class="service-grid">
+<div class="grid">
 
 <div class="card">
-<h3>Ukuran Kertas</h3>
+<h3>Ukuran</h3>
 <p>A4 dan F4 / Folio</p>
 </div>
 
 <div class="card">
-<h3>Jenis Print</h3>
+<h3>Jenis</h3>
 <p>Hitam Putih & Warna</p>
 </div>
 
 <div class="card">
 <h3>Sisi Cetak</h3>
-<p>1 sisi atau bolak-balik</p>
+<p>1 sisi / bolak balik</p>
 </div>
 
 </div>
-
-</section>
-
-<section id="order" class="order">
-
-<h2>Upload File Cetak</h2>
-
-<p>File wajib format PDF dan siap cetak.</p>
-
-<input type="file">
-
-<br><br>
-
-<a class="btn-primary" href="https://wa.me/">Kirim ke WhatsApp</a>
 
 </section>
 
