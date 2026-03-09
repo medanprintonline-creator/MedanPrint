@@ -4,106 +4,190 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MedanPrint.online - Print Online Medan</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f6fb;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+header p{
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 28px;
+background:#22c55e;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.btn2{
+background:#0ea5e9;
+}
+
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:white;
+width:260px;
+margin:15px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin-top:0;
+}
+
+.steps{
+max-width:600px;
+margin:auto;
+text-align:left;
+}
+
+.cta{
+background:#2563eb;
+color:white;
+padding:60px 20px;
+text-align:center;
+}
+
+footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
-<h2 class="logo">MedanPrint<span>.online</span></h2>
-<a class="btn" href="#order">Upload File</a>
-</div>
+
+<h1>PRINT ONLINE MEDAN</h1>
+
+<p>Upload File • Bayar QRIS • Cetak Cepat</p>
+
+<a class="btn" href="#">Upload File PDF</a>
+
+<a class="btn btn2" href="https://wa.me/628123456789">Order WhatsApp</a>
+
 </header>
 
-<section class="hero">
-<div class="container hero-content">
 
-<h1>Print Dokumen Online di Medan</h1>
+<section class="section">
 
-<p>
-Upload file PDF → Bayar QRIS → Dokumen dicetak → 
-Ambil atau dikirim.
-</p>
+<h2>Layanan Kami</h2>
 
-<div class="buttons">
-<a class="btn-primary" href="#order">Upload File</a>
-<a class="btn-secondary" href="https://wa.me/">Chat WhatsApp</a>
+<div class="cards">
+
+<div class="card">
+<h3>Print Hitam Putih</h3>
+<p>Cetak dokumen cepat dan hemat.</p>
+</div>
+
+<div class="card">
+<h3>Print Warna</h3>
+<p>Hasil tajam menggunakan tinta pigment.</p>
+</div>
+
+<div class="card">
+<h3>Print Skripsi</h3>
+<p>Cocok untuk tugas kuliah dan laporan.</p>
+</div>
+
+<div class="card">
+<h3>Print Dokumen Kantor</h3>
+<p>Cetak dokumen dalam jumlah besar.</p>
 </div>
 
 </div>
+
 </section>
 
-<section class="steps">
+
+<section class="section">
 
 <h2>Cara Order</h2>
 
-<div class="step-grid">
+<div class="steps">
 
-<div class="step">
-<h3>1. Upload File</h3>
-<p>Upload dokumen PDF siap cetak.</p>
-</div>
+<p>1️⃣ Kirim file PDF ke admin</p>
 
-<div class="step">
-<h3>2. Pilih Print</h3>
-<p>Hitam putih / warna dan jumlah halaman.</p>
-</div>
+<p>2️⃣ Admin cek file & konfirmasi harga</p>
 
-<div class="step">
-<h3>3. Bayar QRIS</h3>
-<p>Setelah bayar, file langsung diproses.</p>
-</div>
+<p>3️⃣ Pembayaran QRIS / Transfer</p>
 
-</div>
-</section>
-
-<section class="service">
-
-<h2>Layanan Print</h2>
-
-<div class="service-grid">
-
-<div class="card">
-<h3>Ukuran Kertas</h3>
-<p>A4 dan F4 / Folio</p>
-</div>
-
-<div class="card">
-<h3>Jenis Print</h3>
-<p>Hitam Putih & Warna</p>
-</div>
-
-<div class="card">
-<h3>Sisi Cetak</h3>
-<p>1 sisi atau bolak-balik</p>
-</div>
+<p>4️⃣ Dokumen dicetak & dikirim</p>
 
 </div>
 
 </section>
 
-<section id="order" class="order">
 
-<h2>Upload File Cetak</h2>
+<section class="cta">
 
-<p>File wajib format PDF dan siap cetak.</p>
+<h2>Butuh Print Cepat di Medan?</h2>
 
-<input type="file">
+<p>Upload file atau chat admin sekarang.</p>
 
-<br><br>
-
-<a class="btn-primary" href="https://wa.me/">Kirim ke WhatsApp</a>
+<a class="btn" href="https://wa.me/628123456789">Chat WhatsApp</a>
 
 </section>
+
 
 <footer>
 
 <p>© 2026 MedanPrint.online</p>
-<p>Print Online Medan</p>
 
 </footer>
+
+
+<a class="whatsapp" href="https://wa.me/628123456789">Chat</a>
 
 </body>
 </html>
