@@ -3,98 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedanPrint.online - Print Online Medan</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>MedanPrint.online</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0f172a;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 0;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+.nav-btn{
+background:#38bdf8;
+color:#0f172a;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+}
+
+.hero{
+padding:120px 0;
+text-align:center;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+opacity:0.8;
+font-size:18px;
+margin-bottom:40px;
+}
+
+.hero-buttons a{
+margin:10px;
+display:inline-block;
+padding:14px 28px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-primary{
+background:#38bdf8;
+color:#0f172a;
+}
+
+.btn-secondary{
+border:1px solid #334155;
+color:white;
+}
+
+.features{
+padding:80px 0;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.services{
+padding:80px 0;
+text-align:center;
+background:#020617;
+}
+
+.price{
+padding:80px 0;
+text-align:center;
+}
+
+.price-card{
+background:#1e293b;
+padding:40px;
+border-radius:12px;
+}
+
+.price-card h3{
+margin-bottom:10px;
+}
+
+.cta{
+padding:100px 0;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#10b981);
+}
+
+.cta h2{
+font-size:36px;
+margin-bottom:20px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#020617;
+opacity:0.8;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:34px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header>
-<div class="container nav">
-<h2 class="logo">MedanPrint<span>.online</span></h2>
-<a class="btn" href="#order">Upload File</a>
+<header class="container">
+
+<div class="logo">
+MedanPrint<span>.online</span>
 </div>
+
+<a class="nav-btn" href="https://wa.me/628xxxx">
+Chat Admin
+</a>
+
 </header>
 
 <section class="hero">
-<div class="container hero-content">
+
+<div class="container">
 
 <h1>Print Dokumen Online di Medan</h1>
 
 <p>
-Upload file PDF → Bayar QRIS → Dokumen dicetak → 
-Ambil atau dikirim.
+Upload PDF → Bayar QRIS → Cetak → Ambil / Kirim
 </p>
 
-<div class="buttons">
-<a class="btn-primary" href="#order">Upload File</a>
-<a class="btn-secondary" href="https://wa.me/">Chat WhatsApp</a>
+<div class="hero-buttons">
+
+<a class="btn-primary" href="https://wa.me/628xxxx">
+Order via WhatsApp
+</a>
+
+<a class="btn-secondary" href="#">
+Upload File
+</a>
+
 </div>
 
 </div>
+
 </section>
 
-<section class="steps">
+<section class="features container">
 
-<h2>Cara Order</h2>
+<h2>Kenapa MedanPrint?</h2>
 
-<div class="step-grid">
+<div class="grid">
 
-<div class="step">
-<h3>1. Upload File</h3>
-<p>Upload dokumen PDF siap cetak.</p>
+<div class="card">
+<h3>⚡ Cepat</h3>
+<p>File langsung diproses setelah pembayaran</p>
 </div>
 
-<div class="step">
-<h3>2. Pilih Print</h3>
-<p>Hitam putih / warna dan jumlah halaman.</p>
+<div class="card">
+<h3>🎨 Tinta Pigment</h3>
+<p>Hasil tajam dan tidak mudah luntur</p>
 </div>
 
-<div class="step">
-<h3>3. Bayar QRIS</h3>
-<p>Setelah bayar, file langsung diproses.</p>
+<div class="card">
+<h3>📍 Khusus Medan</h3>
+<p>Bisa pickup atau kirim</p>
 </div>
 
 </div>
+
 </section>
 
-<section class="service">
+<section class="services">
+
+<div class="container">
 
 <h2>Layanan Print</h2>
 
-<div class="service-grid">
+<div class="grid">
 
 <div class="card">
-<h3>Ukuran Kertas</h3>
-<p>A4 dan F4 / Folio</p>
+<h3>A4 / F4</h3>
+<p>Ukuran kertas standar dokumen</p>
 </div>
 
 <div class="card">
-<h3>Jenis Print</h3>
-<p>Hitam Putih & Warna</p>
+<h3>Hitam Putih</h3>
+<p>Print dokumen ekonomis</p>
 </div>
 
 <div class="card">
-<h3>Sisi Cetak</h3>
-<p>1 sisi atau bolak-balik</p>
+<h3>Full Color</h3>
+<p>Cocok untuk presentasi</p>
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<section id="order" class="order">
+<section class="price container">
 
-<h2>Upload File Cetak</h2>
+<h2>Harga Print</h2>
 
-<p>File wajib format PDF dan siap cetak.</p>
+<div class="grid">
 
-<input type="file">
+<div class="price-card">
 
-<br><br>
+<h3>Hitam Putih</h3>
+<p>Rp500 / lembar</p>
 
-<a class="btn-primary" href="https://wa.me/">Kirim ke WhatsApp</a>
+</div>
+
+<div class="price-card">
+
+<h3>Warna</h3>
+<p>Rp2500 / lembar</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Siap Cetak Dokumen Anda?</h2>
+
+<a class="btn-primary" href="https://wa.me/628xxxx">
+Upload File Sekarang
+</a>
 
 </section>
 
