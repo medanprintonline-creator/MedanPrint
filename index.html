@@ -1,123 +1,109 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedanPrint.online - Print Online Profesional</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedanPrint.online - Print Online Medan</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <img src="assets/logo-horizontal.png" alt="MedanPrint.online" class="logo">
-            <ul class="nav-links">
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#order">Cara Order</a></li>
-                <li><a href="#pricing">Harga</a></li>
-                <li><a href="#testimoni">Testimoni</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <a href="#order" class="btn-primary">Order Sekarang</a>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Print Online Cepat & Profesional di Medan</h1>
-            <p>Hitam Putih atau Warna, A4/F4, Hasil Tajam & Anti Luntur</p>
-            <a href="#order" class="btn-primary">Mulai Cetak Sekarang</a>
-        </div>
-        <div class="hero-image">
-            <img src="assets/background-hero.jpg" alt="Printer Modern">
-        </div>
-    </section>
+<header>
+<div class="container nav">
+<h2 class="logo">MedanPrint<span>.online</span></h2>
+<a class="btn" href="#order">Upload File</a>
+</div>
+</header>
 
-    <!-- Layanan -->
-    <section id="services" class="services">
-        <h2>Layanan Kami</h2>
-        <div class="service-cards">
-            <div class="card">
-                <img src="assets/icons/print.svg" alt="Print Dokumen">
-                <h3>Print Dokumen</h3>
-                <p>PDF siap cetak, HVS A4/F4, warna & hitam putih.</p>
-            </div>
-            <div class="card">
-                <img src="assets/icons/delivery.svg" alt="Pickup & Delivery">
-                <h3>Pickup & Delivery</h3>
-                <p>Pesan dari rumah, kami antar sampai tujuan.</p>
-            </div>
-            <div class="card">
-                <img src="assets/icons/design.svg" alt="Desain Poster">
-                <h3>Desain Poster/Banner</h3>
-                <p>Desain siap cetak untuk banner, poster, flyer.</p>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="container hero-content">
 
-    <!-- Cara Order -->
-    <section id="order" class="order">
-        <h2>Cara Order</h2>
-        <div class="order-steps">
-            <div class="step">
-                <h3>1. Upload File</h3>
-                <p>File PDF siap cetak via form dibawah.</p>
-            </div>
-            <div class="step">
-                <h3>2. Pilih Jenis Print</h3>
-                <p>Hitam Putih / Warna, A4 / F4, 1 sisi / bolak-balik.</p>
-            </div>
-            <div class="step">
-                <h3>3. Bayar & Pickup</h3>
-                <p>Bayar via QRIS, kami antar ke lokasi atau pickup.</p>
-            </div>
-        </div>
+<h1>Print Dokumen Online di Medan</h1>
 
-        <!-- Form Order -->
-        <form class="order-form" action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Nama Lengkap" required>
-            <input type="tel" name="phone" placeholder="No. WhatsApp" required>
-            <input type="email" name="email" placeholder="Email (opsional)">
-            <input type="file" name="file_pdf" accept=".pdf" required>
-            <select name="jenis_print" required>
-                <option value="">Pilih Jenis Print</option>
-                <option value="hitamputih_a4">Hitam Putih A4</option>
-                <option value="warna_a4">Warna A4</option>
-                <option value="hitamputih_f4">Hitam Putih F4</option>
-                <option value="warna_f4">Warna F4</option>
-            </select>
-            <button type="submit" class="btn-primary">Kirim Order</button>
-        </form>
-    </section>
-    <!-- Testimoni -->
-    <section id="testimoni" class="testimoni">
-        <h2>Testimoni Pelanggan</h2>
-        <div class="carousel">
-            <div class="testimonial-card">
-                <p>“Hasil print sangat tajam, cepat dan antarannya profesional!”</p>
-                <span>- Rina, Medan</span>
-            </div>
-            <div class="testimonial-card">
-                <p>“Mudah order online, harga terjangkau, recommended!”</p>
-                <span>- Andi, Medan</span>
-            </div>
-        </div>
-    </section>
+<p>
+Upload file PDF → Bayar QRIS → Dokumen dicetak → 
+Ambil atau dikirim.
+</p>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <img src="assets/logo-horizontal.png" alt="MedanPrint.online">
-            <p>📍 Medan | 📞 WhatsApp: <a href="https://wa.me/62852xxxxxxx">0852xxxxxxx</a></p>
-            <div class="social-icons">
-                <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-                <a href="#"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
-            </div>
-        </div>
-    </footer>
+<div class="buttons">
+<a class="btn-primary" href="#order">Upload File</a>
+<a class="btn-secondary" href="https://wa.me/">Chat WhatsApp</a>
+</div>
 
-    <script src="js/script.js"></script>
+</div>
+</section>
+
+<section class="steps">
+
+<h2>Cara Order</h2>
+
+<div class="step-grid">
+
+<div class="step">
+<h3>1. Upload File</h3>
+<p>Upload dokumen PDF siap cetak.</p>
+</div>
+
+<div class="step">
+<h3>2. Pilih Print</h3>
+<p>Hitam putih / warna dan jumlah halaman.</p>
+</div>
+
+<div class="step">
+<h3>3. Bayar QRIS</h3>
+<p>Setelah bayar, file langsung diproses.</p>
+</div>
+
+</div>
+</section>
+
+<section class="service">
+
+<h2>Layanan Print</h2>
+
+<div class="service-grid">
+
+<div class="card">
+<h3>Ukuran Kertas</h3>
+<p>A4 dan F4 / Folio</p>
+</div>
+
+<div class="card">
+<h3>Jenis Print</h3>
+<p>Hitam Putih & Warna</p>
+</div>
+
+<div class="card">
+<h3>Sisi Cetak</h3>
+<p>1 sisi atau bolak-balik</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="order" class="order">
+
+<h2>Upload File Cetak</h2>
+
+<p>File wajib format PDF dan siap cetak.</p>
+
+<input type="file">
+
+<br><br>
+
+<a class="btn-primary" href="https://wa.me/">Kirim ke WhatsApp</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 MedanPrint.online</p>
+<p>Print Online Medan</p>
+
+</footer>
+
 </body>
 </html>
