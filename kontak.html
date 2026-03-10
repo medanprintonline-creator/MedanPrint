@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
             <a href="index.html">
@@ -26,24 +27,42 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
     <header class="page-header">
         <h1>Kontak Kami</h1>
         <p>Hubungi kami untuk informasi lebih lanjut</p>
     </header>
 
+    <!-- Section Kontak -->
     <section class="section">
         <div class="contact-container">
+            <!-- Informasi Kontak (bisa diklik) -->
             <div class="contact-info">
                 <h3>Alamat</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Medan</p>
-                <h3>Telepon</h3>
-                <p><i class="fas fa-phone"></i> 0812-3456-789</p>
+                <p>
+                    <a href="https://maps.google.com/?q=Jl. Kelambir Lima Dusun Sidomulyo Desa Klambir Lima Kebun, Kec. Hamparan Perak,Sumatera Utara 20374" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-map-marker-alt"></i>Jl. Kelambir Lima Dusun Sidomulyo Desa Klambir Lima Kebun, Kec. Hamparan Perak,Sumatera Utara 20374
+                    </a>
+                </p>
+                <h3>Telepon (WhatsApp)</h3>
+                <p>
+                    <a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> 02852-7793-0703
+                    </a>
+                </p>
                 <h3>Email</h3>
-                <p><i class="fas fa-envelope"></i> info@medanprint.online</p>
+                <p>
+                    <a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-envelope"></i> medanprintonline@gmail.com
+                    </a>
+                </p>
                 <h3>Jam Operasional</h3>
-                <p>Senin - Sabtu: 08.00 - 20.00</p>
-                <p>Minggu: 09.00 - 15.00</p>
+                <p>Senin - Kamis: 08.00 - 22.00</p>
+                <p>Jum'at: 02.00 - 22.00</p>                
+                <p>Minggu: 15.00 - 22.00</p>
             </div>
+
+            <!-- Form Kontak -->
             <div class="contact-form">
                 <h3>Kirim Pesan</h3>
                 <form>
@@ -54,11 +73,22 @@
                 </form>
             </div>
         </div>
+
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.756853902627!2d98.59137187588158!3d3.6428496499175926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fa6d7681c7b%3A0xb56cc03dd12b9157!2sSETIA%20COM%20FOTO%20COPY!5e0!3m2!1sen!2sid!4v1773104426397!5m2!1sen!2sid" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <!-- sama seperti sebelumnya -->
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
@@ -75,17 +105,18 @@
             </div>
             <div class="footer-section">
                 <h4>Kontak</h4>
-                <p><i class="fas fa-phone"></i> 0812-3456-789</p>
+                <p><i class="fas fa-phone"></i> 0852-7793-0703</p>
                 <p><i class="fas fa-envelope"></i> info@medanprint.online</p>
                 <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 MedanPrint.online. All rights reserved.</p>
-        </div>
+        <<div class="footer-bottom">
+    <p>&copy; <span id="currentYear"></span> MedanPrint.online. All rights reserved.</p>
+    </div>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/628123456789">
+    <!-- Tombol WhatsApp Fixed -->
+    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Chat
     </a>
 
