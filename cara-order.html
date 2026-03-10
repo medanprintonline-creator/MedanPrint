@@ -7,14 +7,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Style khusus untuk kalkulator di halaman cara order */
-        .calculator-container {
-            max-width: 700px;
-            margin: 0 auto;
+        /* Steps navigasi */
+        .steps-nav {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .step-item {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .step-item.active {
+            opacity: 1;
+        }
+        .step-item.completed {
+            opacity: 1;
+        }
+        .step-item.completed .step-icon {
+            background: #22c55e;
+            color: white;
+        }
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: #2563eb;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+        .step-item.active .step-icon {
+            background: #2563eb;
+            color: white;
+            transform: scale(1.05);
+        }
+        .step-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #0f172a;
+        }
+        /* Konten setiap langkah */
+        .step-content {
             background: white;
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 30px;
+            display: none;
+        }
+        .step-content.active {
+            display: block;
+        }
+        /* Kalkulator */
+        .calculator-container {
+            max-width: 700px;
+            margin: 0 auto;
         }
         .form-group {
             margin-bottom: 20px;
@@ -67,20 +125,41 @@
             text-align: right;
             margin-top: 15px;
         }
-        .btn-order {
+        .btn-next {
             background: #2563eb;
             color: white;
             width: 100%;
             padding: 16px;
             font-size: 1.2rem;
             margin-top: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
         }
-        .btn-order:hover {
+        .btn-next:hover {
             background: #1e40af;
         }
-        /* Anchor untuk kalkulator */
-        #kalkulator {
-            scroll-margin-top: 100px;
+        .qris-image {
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
+        .file-preview {
+            background: #e6f0ff;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .file-preview i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+        .disabled-step {
+            pointer-events: none;
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -105,149 +184,199 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <h1>Cara Order</h1>
-        <p>Langkah mudah memesan cetakan Anda</p>
+        <h1><i class="fas fa-shopping-cart"></i> Cara Order</h1>
+        <p>Ikuti langkah-langkah berikut untuk memesan cetakan Anda</p>
     </header>
 
-    <!-- Langkah-langkah Order -->
     <section class="section">
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <i class="fas fa-calculator"></i>
-                <h3>Hitung Biaya</h3>
-                <p>Gunakan kalkulator di bawah untuk estimasi harga.</p>
+        <!-- Steps Navigation -->
+        <div class="steps-nav" id="stepsNav">
+            <div class="step-item active" data-step="1" id="step1">
+                <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="step-label">Upload File</div>
             </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <i class="fas fa-upload"></i>
-                <h3>Upload File</h3>
-                <p>Kirim file PDF melalui form di kalkulator.</p>
+            <div class="step-item" data-step="2" id="step2">
+                <div class="step-icon"><i class="fas fa-calculator"></i></div>
+                <div class="step-label">Kalkulator</div>
             </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <i class="fas fa-qrcode"></i>
-                <h3>Pembayaran</h3>
-                <p>Scan QRIS atau transfer via bank.</p>
+            <div class="step-item" data-step="3" id="step3">
+                <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="step-label">Konfirmasi WA</div>
             </div>
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <i class="fas fa-truck"></i>
-                <h3>Cetak & Ambil</h3>
-                <p>Dokumen siap diambil atau diantar via ojek online.</p>
+            <div class="step-item" data-step="4" id="step4">
+                <div class="step-icon"><i class="fas fa-qrcode"></i></div>
+                <div class="step-label">QRIS</div>
+            </div>
+            <div class="step-item" data-step="5" id="step5">
+                <div class="step-icon"><i class="fas fa-print"></i></div>
+                <div class="step-label">Cetak & Ambil</div>
             </div>
         </div>
-    </section>
 
-    <!-- Kalkulator Cetak (dengan anchor) -->
-    <section class="section bg-light" id="kalkulator">
-        <h2><i class="fas fa-calculator"></i> Kalkulator Cetak</h2>
-        <p>Hitung perkiraan biaya sebelum order</p>
-        <div class="calculator-container">
-            <!-- Upload File -->
-            <div class="form-group">
-                <label>Upload File PDF <span style="color: #2563eb;">(Google Drive)</span></label>
-                <div class="upload-area" id="uploadArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>Klik untuk upload file ke Google Drive</p>
-                    <p style="font-size: 0.9rem; color: #64748b;">File akan tersimpan aman di Drive Anda</p>
-                    <input type="file" id="fileInput" style="display: none;" accept=".pdf">
-                </div>
-                <div id="fileInfo" style="margin-top: 10px; padding: 10px; background: #e6f0ff; border-radius: 8px; display: none;">
-                    <i class="fas fa-check-circle" style="color: #22c55e;"></i> File siap: <span id="fileName"></span>
+        <!-- Konten Langkah 1: Upload File -->
+        <div class="step-content active" id="content1">
+            <h2 style="margin-bottom: 20px;">Langkah 1: Upload File ke Google Drive</h2>
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Klik untuk memilih file dari komputer atau Google Drive</p>
+                <p style="font-size: 0.9rem; color: #64748b;">Format PDF maksimal 50MB</p>
+                <input type="file" id="fileInput" style="display: none;" accept=".pdf">
+            </div>
+            <div id="fileInfo" style="display: none;" class="file-preview">
+                <i class="fas fa-file-pdf"></i>
+                <div>
+                    <p><strong id="fileName"></strong></p>
+                    <p style="font-size: 0.9rem;">File siap diupload</p>
                 </div>
             </div>
+            <button class="btn-next" id="uploadNext" onclick="step1Complete()">Lanjut ke Kalkulator</button>
+        </div>
 
-            <!-- Jumlah Halaman -->
-            <div class="form-group">
-                <label>Jumlah Halaman <i class="fas fa-question-circle" style="color: #94a3b8;" title="Masukkan jumlah halaman file Anda"></i></label>
-                <input type="number" id="jumlahHalaman" min="1" value="1" onchange="hitungHarga()">
-            </div>
-
-            <!-- Jumlah Copy -->
-            <div class="form-group">
-                <label>Jumlah Copy</label>
-                <input type="number" id="jumlahCopy" min="1" value="1" onchange="hitungHarga()">
-            </div>
-
-            <!-- Tipe Cetak -->
-            <div class="form-group">
-                <label>Tipe Cetak</label>
-                <select id="tipeCetak" onchange="hitungHarga()">
-                    <option value="bw">Hitam Putih</option>
-                    <option value="warna">Warna</option>
-                </select>
-            </div>
-
-            <!-- 1 Sisi / 2 Sisi -->
-            <div class="form-group">
-                <label>Pencetakan</label>
-                <select id="sisiCetak" onchange="hitungHarga()">
-                    <option value="1">1 Sisi</option>
-                    <option value="2">2 Sisi (hemat kertas)</option>
-                </select>
-            </div>
-
-            <!-- Ukuran Kertas -->
-            <div class="form-group">
-                <label>Ukuran Kertas</label>
-                <select id="ukuranKertas" onchange="hitungHarga()">
-                    <option value="a4">A4</option>
-                    <option value="folio">Folio/F4</option>
-                    <option value="a3">A3</option>
-                </select>
-            </div>
-
-            <!-- Ringkasan Harga -->
-            <div class="summary-box" id="summaryBox">
-                <h3 style="margin-bottom: 15px;">Ringkasan Order</h3>
-                <div class="summary-row">
-                    <span>Jumlah halaman efektif:</span>
-                    <span id="efektifHalaman">1</span>
+        <!-- Konten Langkah 2: Kalkulator -->
+        <div class="step-content" id="content2">
+            <h2 style="margin-bottom: 20px;">Langkah 2: Hitung Biaya Cetak</h2>
+            <div class="calculator-container">
+                <div class="form-group">
+                    <label>Jumlah Halaman</label>
+                    <input type="number" id="jumlahHalaman" min="1" value="1" onchange="hitungHarga()">
                 </div>
-                <div class="summary-row">
-                    <span>Total lembar:</span>
-                    <span id="totalLembar">1</span>
+                <div class="form-group">
+                    <label>Jumlah Copy</label>
+                    <input type="number" id="jumlahCopy" min="1" value="1" onchange="hitungHarga()">
                 </div>
-                <div class="summary-row">
-                    <span>Harga per lembar:</span>
-                    <span id="hargaLembar">Rp 300</span>
+                <div class="form-group">
+                    <label>Tipe Cetak</label>
+                    <select id="tipeCetak" onchange="hitungHarga()">
+                        <option value="bw">Hitam Putih</option>
+                        <option value="warna">Warna</option>
+                    </select>
                 </div>
-                <div class="total-price">
-                    Total: <span id="totalHarga">Rp 300</span>
+                <div class="form-group">
+                    <label>Pencetakan</label>
+                    <select id="sisiCetak" onchange="hitungHarga()">
+                        <option value="1">1 Sisi</option>
+                        <option value="2">2 Sisi (hemat kertas)</option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label>Ukuran Kertas</label>
+                    <select id="ukuranKertas" onchange="hitungHarga()">
+                        <option value="a4">A4</option>
+                        <option value="folio">Folio/F4</option>
+                        <option value="a3">A3</option>
+                    </select>
+                </div>
+                <div class="summary-box">
+                    <h3 style="margin-bottom: 15px;">Ringkasan</h3>
+                    <div class="summary-row">
+                        <span>Jumlah halaman efektif:</span>
+                        <span id="efektifHalaman">1</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total lembar:</span>
+                        <span id="totalLembar">1</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Harga per lembar:</span>
+                        <span id="hargaLembar">Rp 300</span>
+                    </div>
+                    <div class="total-price">
+                        Total: <span id="totalHarga">Rp 300</span>
+                    </div>
+                </div>
+                <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
             </div>
+        </div>
 
-            <!-- Tombol Lanjut ke Pembayaran -->
-            <button class="btn btn-order" onclick="lanjutPembayaran()">
-                <i class="fas fa-credit-card"></i> Lanjut ke Pembayaran
+        <!-- Konten Langkah 3: Konfirmasi WhatsApp -->
+        <div class="step-content" id="content3">
+            <h2 style="margin-bottom: 20px;">Langkah 3: Konfirmasi via WhatsApp</h2>
+            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin.</p>
+            <button class="btn-next" id="waButton" onclick="sendWA()">
+                <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
             </button>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Setelah konfirmasi, admin akan memproses order Anda.</p>
+            <button class="btn-next" onclick="step3Complete()" style="background: #22c55e;">Saya sudah konfirmasi, lanjut</button>
+        </div>
+
+        <!-- Konten Langkah 4: QRIS -->
+        <div class="step-content" id="content4">
+            <h2 style="margin-bottom: 20px;">Langkah 4: Pembayaran QRIS</h2>
+            <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
+            <img src="images/qris-example.png" alt="QRIS" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
+            <p style="margin-top: 10px;">Atau transfer ke: <strong>Bank BCA 123456789 a.n. MedanPrint</strong></p>
+            <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
+        </div>
+
+        <!-- Konten Langkah 5: Cetak & Ambil -->
+        <div class="step-content" id="content5">
+            <h2 style="margin-bottom: 20px;">Langkah 5: Cetak dan Ambil</h2>
+            <p>Pesanan Anda sedang diproses. Status akan diinformasikan via WhatsApp.</p>
+            <div style="background: #e6f0ff; padding: 20px; border-radius: 12px;">
+                <i class="fas fa-check-circle" style="color: #22c55e; font-size: 3rem;"></i>
+                <h3>Pesanan Selesai!</h3>
+                <p>Silakan ambil di toko kami atau pesan ojek online.</p>
+                <a href="https://maps.google.com/?q=Jl. Kelambir Lima Medan" class="btn" style="margin-top: 10px;">Lihat Peta</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (salin dari index) -->
     <footer>
-        ... (sama seperti footer di halaman lain)
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MedanPrint.online</h4>
+                <p>Solusi cetak online mudah, cepat, dan terpercaya di Medan.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>
+                    <a href="https://wa.me/6285277930703" target="_blank">
+                        <i class="fab fa-whatsapp"></i> 0852-7793-0703
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:medanprintonline@gmail.com" target="_blank">
+                        <i class="fas fa-envelope"></i> medanprintonline@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank">
+                        <i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online</p>
+        </div>
     </footer>
 
     <!-- Tombol WhatsApp Fixed -->
-    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
+    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank">
         <i class="fab fa-whatsapp"></i> Chat
     </a>
 
     <script>
-        // Upload file handling (simulasi)
-        document.getElementById('uploadArea').addEventListener('click', function() {
-            document.getElementById('fileInput').click();
-        });
-
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                const file = e.target.files[0];
-                document.getElementById('fileName').textContent = file.name;
-                document.getElementById('fileInfo').style.display = 'block';
-            }
-        });
+        // Data order
+        let orderData = {
+            fileName: '',
+            jumlahHalaman: 1,
+            jumlahCopy: 1,
+            tipeCetak: 'bw',
+            sisiCetak: '1',
+            ukuranKertas: 'a4',
+            totalHarga: 300
+        };
 
         // Harga dasar
         const hargaDasar = {
@@ -255,7 +384,47 @@
             warna: { a4: 1000, folio: 1500, a3: 2500 }
         };
 
-        function hitungHarga() {
+        // Inisialisasi step
+        let currentStep = 1;
+        const steps = document.querySelectorAll('.step-item');
+        const contents = document.querySelectorAll('.step-content');
+
+        function activateStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            document.querySelector(`.step-item[data-step="${step}"]`).classList.add('active');
+            document.getElementById(`content${step}`).classList.add('active');
+            currentStep = step;
+        }
+
+        // Step 1: Upload file
+        document.getElementById('uploadArea').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const file = e.target.files[0];
+                orderData.fileName = file.name;
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileInfo').style.display = 'flex';
+                // Simulasi upload ke drive (nanti integrasi Google Picker)
+            }
+        });
+
+        window.step1Complete = function() {
+            if (!orderData.fileName) {
+                alert('Silakan pilih file terlebih dahulu.');
+                return;
+            }
+            // Tandai step 1 selesai
+            document.getElementById('step1').classList.add('completed');
+            // Pindah ke step 2
+            activateStep(2);
+        };
+
+        // Step 2: Kalkulator
+        window.hitungHarga = function() {
             const jumlahHalaman = parseInt(document.getElementById('jumlahHalaman').value) || 1;
             const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
             const tipe = document.getElementById('tipeCetak').value;
@@ -267,16 +436,62 @@
             const hargaPerLembar = hargaDasar[tipe][ukuran];
             const total = totalLembar * hargaPerLembar;
 
+            // Simpan ke orderData
+            orderData.jumlahHalaman = jumlahHalaman;
+            orderData.jumlahCopy = jumlahCopy;
+            orderData.tipeCetak = tipe;
+            orderData.sisiCetak = sisi;
+            orderData.ukuranKertas = ukuran;
+            orderData.totalHarga = total;
+
             document.getElementById('efektifHalaman').textContent = efektif;
             document.getElementById('totalLembar').textContent = totalLembar;
             document.getElementById('hargaLembar').textContent = `Rp ${hargaPerLembar.toLocaleString()}`;
             document.getElementById('totalHarga').textContent = `Rp ${total.toLocaleString()}`;
-        }
+        };
 
-        function lanjutPembayaran() {
-            const total = document.getElementById('totalHarga').textContent;
-            alert(`Total order: ${total}\n\nSilakan scan QRIS untuk membayar.\n\n(Implementasi QRIS menyusul)`);
-        }
+        window.step2Complete = function() {
+            document.getElementById('step2').classList.add('completed');
+            activateStep(3);
+        };
+
+        // Step 3: Konfirmasi WA
+        window.sendWA = function() {
+            // Format pesan
+            const pesan = `Halo MedanPrint.online, saya ingin order cetak:
+- File: ${orderData.fileName}
+- Jumlah halaman: ${orderData.jumlahHalaman}
+- Jumlah copy: ${orderData.jumlahCopy}
+- Tipe cetak: ${orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna'}
+- Sisi cetak: ${orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi'}
+- Ukuran kertas: ${orderData.ukuranKertas.toUpperCase()}
+- Total harga: Rp ${orderData.totalHarga.toLocaleString()}
+
+Mohon konfirmasi dan instruksi pembayaran. Terima kasih.`;
+            const encoded = encodeURIComponent(pesan);
+            window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
+        };
+
+        window.step3Complete = function() {
+            document.getElementById('step3').classList.add('completed');
+            // Set total bayar di step 4
+            document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
+            activateStep(4);
+        };
+
+        // Step 4: QRIS
+        window.step4Complete = function() {
+            document.getElementById('step4').classList.add('completed');
+            activateStep(5);
+        };
+
+        // Step 5: Selesai
+
+        // Tahun otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Panggil hitungHarga pertama kali
+        hitungHarga();
     </script>
 </body>
 </html>
