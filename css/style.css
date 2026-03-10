@@ -321,6 +321,18 @@ header p {
     color: #2563eb;
 }
 
+.contact-info a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.contact-info a:hover {
+    text-decoration: none;
+    color: #2563eb;
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -408,6 +420,17 @@ footer {
     color: white;
 }
 
+/* Link kontak di footer */
+.footer-section p a {
+    color: #ffffff; /* putih */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section p a:hover {
+    color: #2563eb; /* biru saat hover */
+}
+
 .footer-section p i {
     width: 20px;
     margin-right: 5px;
@@ -446,24 +469,6 @@ footer {
 .whatsapp:hover {
     transform: scale(1.05);
     background: #20b859;
-}
-
-/* ===== KONTAK ===== */
-.contact-info a {
-    color: inherit;
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-    color: #2563eb;
-}
-
-.contact-info i {
-    width: 25px;
-    color: #2563eb;
 }
 
 /* ===== GOOGLE MAPS ===== */
