@@ -6,6 +6,8 @@
     <title>Cara Order - MedanPrint.online</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- PDF.js dari CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
         /* ===== STEP NAVIGATION ===== */
         .steps-nav {
@@ -109,23 +111,33 @@
             margin-bottom: 10px;
         }
 
-       /* ===== RADIO GROUP ===== */
-.radio-group {
-    display: flex;
-    gap: 20px;
-    flex-wrap: nowrap;      /* pastikan satu baris */
-    overflow-x: auto;       /* scroll jika perlu */
-    padding-bottom: 5px;
-    margin-top: 5px;
-}
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-weight: normal;
-    cursor: pointer;
-    white-space: nowrap;    /* teks tidak putus */
-}
+        /* ===== RADIO GROUP ===== */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .inline-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .inline-inputs input {
+            width: 100px;
+        }
+
         /* ===== SUMMARY ===== */
         .summary-box {
             background: #f8fafc;
@@ -210,6 +222,11 @@
             color: #64748b;
             margin-top: 5px;
             font-style: italic;
+        }
+        .loading {
+            color: #2563eb;
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -327,9 +344,9 @@
                     </select>
                 </div>
 
-                <!-- Jumlah Halaman Total (dari preview, diisi manual) -->
+                <!-- Jumlah Halaman Total (akan diisi otomatis dari PDF) -->
                 <div class="form-group">
-                    <label>Jumlah Halaman Total (sesuai file):</label>
+                    <label>Jumlah Halaman Total (dari file):</label>
                     <input type="number" id="totalPages" min="1" value="1" onchange="hitungHarga()">
                 </div>
 
@@ -408,7 +425,7 @@
             <h2 style="margin-bottom: 20px;">Langkah 4: Pembayaran QRIS</h2>
             <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
             <img src="images/qris.png" alt="QRIS" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
-            <p style="margin-top: 10px;">MedanPrint.Online <strong>SATU QRIS UNTUK SEMUA</strong></p>
+            <p style="margin-top: 10px;">Atau transfer ke: <strong>Bank BCA 123456789 a.n. MedanPrint</strong></p>
             <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
         </div>
 
@@ -489,8 +506,6 @@
             totalHarga: 500
         };
 
-        // Harga dasar akan dihitung di fungsi hitungHarga
-
         let selectedFile = null;
         let currentStep = 1;
         const steps = document.querySelectorAll('.step-item');
@@ -505,16 +520,23 @@
             currentStep = step;
         }
 
-        // ==================== STEP 1: UPLOAD & PREVIEW ====================
+        // ==================== STEP 1: UPLOAD & PREVIEW + BACA JUMLAH HALAMAN ====================
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
 
-        document.getElementById('fileInput').addEventListener('change', function(e) {
+        // Fungsi untuk membaca jumlah halaman PDF menggunakan PDF.js
+        async function getPDFPageCount(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            return pdf.numPages;
+        }
+
+        document.getElementById('fileInput').addEventListener('change', async function(e) {
             const file = e.target.files[0];
             if (!file) return;
 
-            // Validasi
+            // Validasi ukuran
             if (file.size > 50 * 1024 * 1024) {
                 alert('Ukuran file maksimal 50MB.');
                 return;
@@ -524,19 +546,31 @@
                 return;
             }
 
-            selectedFile = file;
-            orderData.fileName = file.name;
-            orderData.fileSize = formatBytes(file.size);
-
-            // Tampilkan info file
-            document.getElementById('fileName').textContent = file.name;
-            document.getElementById('fileSize').textContent = orderData.fileSize;
+            // Tampilkan loading (opsional)
             document.getElementById('fileInfo').style.display = 'flex';
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileSize').textContent = formatBytes(file.size);
 
             // Preview PDF
             const fileURL = URL.createObjectURL(file);
             document.getElementById('pdfPreview').src = fileURL;
             document.getElementById('pdfPreviewContainer').style.display = 'block';
+
+            // Baca jumlah halaman
+            try {
+                const numPages = await getPDFPageCount(file);
+                document.getElementById('totalPages').value = numPages;
+                orderData.totalPages = numPages;
+                // Update efektif halaman di kalkulator nanti
+            } catch (error) {
+                console.error('Gagal membaca jumlah halaman:', error);
+                alert('Gagal membaca jumlah halaman PDF. Silakan isi manual.');
+                document.getElementById('totalPages').value = 1;
+            }
+
+            selectedFile = file;
+            orderData.fileName = file.name;
+            orderData.fileSize = formatBytes(file.size);
 
             // Aktifkan tombol lanjut
             document.getElementById('uploadNext').disabled = false;
@@ -548,7 +582,8 @@
                 return;
             }
             document.getElementById('step1').classList.add('completed');
-            // Set totalPages sesuai jumlah halaman? Sulit otomatis, biarkan user input manual.
+            // Panggil hitungHarga agar nilai totalPages terbaca
+            hitungHarga();
             activateStep(2);
         };
 
@@ -607,33 +642,30 @@
             const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
             const sisi = document.getElementById('sisiCetak').value;
 
-            // Validasi rentang
+            // Hitung jumlah halaman efektif
+            let efektifHalaman;
             if (pageRange === 'custom') {
+                // Validasi rentang
                 if (start < 1) start = 1;
                 if (end > totalPages) end = totalPages;
                 if (start > end) start = end;
                 document.getElementById('startPage').value = start;
                 document.getElementById('endPage').value = end;
-                const efektifHalaman = end - start + 1;
-                orderData.efektifHalaman = efektifHalaman;
+                efektifHalaman = end - start + 1;
             } else {
-                orderData.efektifHalaman = totalPages;
+                // Semua halaman: gunakan totalPages
+                efektifHalaman = totalPages;
             }
 
-            // Hitung lembar berdasarkan sisi
-            const efektif = orderData.efektifHalaman;
-            let lembar;
-            if (sisi === '2') {
-                lembar = Math.ceil(efektif / 2);
-            } else {
-                lembar = efektif;
-            }
+            orderData.efektifHalaman = efektifHalaman;
+
+            // Hitung lembar
+            const lembar = sisi === '2' ? Math.ceil(efektifHalaman / 2) : efektifHalaman;
             const totalLembar = lembar * jumlahCopy;
 
             // Hitung harga per lembar
             let hargaPerLembar = 0;
 
-            // Fungsi harga BW
             function getHargaBW(printer, ukuran) {
                 if (printer === 'inkjet') {
                     if (ukuran === 'a4' || ukuran === 'folio') return 500;
@@ -651,14 +683,13 @@
                     if (ukuran === 'a4' || ukuran === 'folio') hargaPerLembar = 500;
                     else if (ukuran === 'a3') hargaPerLembar = 3000;
                 } else {
-                    hargaPerLembar = 0; // tidak valid
+                    hargaPerLembar = 0;
                 }
             } else {
                 // 1 sisi
                 if (tipe === 'bw') {
                     hargaPerLembar = getHargaBW(printer, ukuran);
                 } else { // warna
-                    // Warna hanya inkjet
                     if (printer !== 'inkjet') {
                         hargaPerLembar = 0;
                     } else {
@@ -667,7 +698,7 @@
                             else if (colorType === 'full') hargaPerLembar = 2000;
                         } else if (ukuran === 'a3') {
                             if (colorType === 'full') hargaPerLembar = 8000;
-                            else hargaPerLembar = 0; // standard tidak tersedia untuk A3
+                            else hargaPerLembar = 0;
                         }
                     }
                 }
@@ -689,15 +720,10 @@
             orderData.totalHarga = total;
 
             // Update UI
-            document.getElementById('efektifHalaman').textContent = orderData.efektifHalaman;
+            document.getElementById('efektifHalaman').textContent = efektifHalaman;
             document.getElementById('totalLembar').textContent = totalLembar;
             document.getElementById('hargaLembar').textContent = hargaPerLembar ? `Rp ${hargaPerLembar.toLocaleString()}` : 'Rp 0';
             document.getElementById('totalHarga').textContent = `Rp ${total.toLocaleString()}`;
-
-            // Tampilkan peringatan jika kombinasi tidak valid
-            if (hargaPerLembar === 0) {
-                // alert('Kombinasi pilihan tidak valid. Silakan sesuaikan.'); // biarkan user melihat total 0
-            }
         }
 
         window.step2Complete = function() {
