@@ -6,10 +6,59 @@
     <title>MedanPrint.online - Print Online Medan</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- CSS Eksternal -->
+    <!-- CSS Eksternal (style.css) - pastikan file ini ada -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Style tambahan untuk tombol WhatsApp dan efek klik -->
+    <style>
+        /* Tombol Order via WA di header */
+        header .btn-header.btn2 {
+            background: #25D366 !important; /* hijau WhatsApp */
+            color: white !important;
+            border: none !important;
+            transition: all 0.2s ease !important;
+        }
+        header .btn-header.btn2:hover {
+            background: #20b859 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+        }
+        header .btn-header.btn2:active {
+            background: #1da157 !important;
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+        }
+
+        /* Tombol Chat WhatsApp di CTA bawah */
+        .cta .btn2 {
+            background: #25D366 !important;
+            color: white !important;
+            border: none !important;
+            transition: all 0.2s ease !important;
+        }
+        .cta .btn2:hover {
+            background: #20b859 !important;
+            transform: translateY(-2px);
+        }
+        .cta .btn2:active {
+            background: #1da157 !important;
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+        }
+
+        /* Tombol Hitung Biaya di CTA (latar putih) kontras dengan background biru */
+        .cta .btn {
+            background: white !important;
+            color: #1e293b !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+        }
+        .cta .btn:active {
+            background: #e2e8f0 !important;
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -36,8 +85,9 @@
             <h1><i class="fas fa-print"></i> PRINT ONLINE MEDAN</h1>
             <p class="tagline">Solusi cetak online mudah, cepat, dan terpercaya di Medan</p>
             <div class="cta-buttons">
-                <!-- Tombol utama diubah ke halaman cara order -->
+                <!-- Tombol ke halaman cara order -->
                 <a class="btn btn-header" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya Cetak</a>
+                <!-- Tombol Order via WA dengan warna hijau khas WhatsApp -->
                 <a class="btn btn-header btn2" href="https://wa.me/6285277930703"><i class="fab fa-whatsapp"></i> Order via WA</a>
             </div>
             <div class="delivery-info">
@@ -195,5 +245,9 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+        // Tahun otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
