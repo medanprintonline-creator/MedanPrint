@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* ===== STEP NAVIGATION ===== */
         .steps-nav {
             display: flex;
             justify-content: space-between;
@@ -56,6 +57,8 @@
             font-size: 0.9rem;
             color: #0f172a;
         }
+
+        /* ===== STEP CONTENT ===== */
         .step-content {
             background: white;
             border-radius: 20px;
@@ -67,6 +70,8 @@
         .step-content.active {
             display: block;
         }
+
+        /* ===== FORM ELEMENTS ===== */
         .calculator-container {
             max-width: 700px;
             margin: 0 auto;
@@ -103,6 +108,32 @@
             color: #2563eb;
             margin-bottom: 10px;
         }
+
+        /* ===== RADIO GROUP ===== */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .inline-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .inline-inputs input {
+            width: 100px;
+        }
+
+        /* ===== SUMMARY ===== */
         .summary-box {
             background: #f8fafc;
             border-radius: 12px;
@@ -122,6 +153,8 @@
             text-align: right;
             margin-top: 15px;
         }
+
+        /* ===== BUTTONS ===== */
         .btn-next {
             background: #2563eb;
             color: white;
@@ -136,11 +169,8 @@
         .btn-next:hover {
             background: #1e40af;
         }
-        .qris-image {
-            max-width: 300px;
-            margin: 20px auto;
-            display: block;
-        }
+
+        /* ===== FILE PREVIEW ===== */
         .file-preview {
             background: #e6f0ff;
             padding: 15px;
@@ -167,6 +197,26 @@
             height: 100%;
             border: none;
             border-radius: 8px;
+        }
+
+        /* ===== QRIS ===== */
+        .qris-image {
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* ===== WARNING ===== */
+        .warning {
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 5px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -247,36 +297,83 @@
         <div class="step-content" id="content2">
             <h2 style="margin-bottom: 20px;">Langkah 2: Hitung Biaya Cetak</h2>
             <div class="calculator-container">
+                <!-- Printer -->
                 <div class="form-group">
-                    <label>Jumlah Halaman</label>
-                    <input type="number" id="jumlahHalaman" min="1" value="1" onchange="hitungHarga()">
+                    <label>Printer:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="printer" value="inkjet" checked onchange="hitungHarga()"> Inkjet Pigment</label>
+                        <label><input type="radio" name="printer" value="laser" onchange="hitungHarga()"> Laser Jet</label>
+                    </div>
                 </div>
+
+                <!-- Tipe Cetak -->
                 <div class="form-group">
-                    <label>Jumlah Copy</label>
-                    <input type="number" id="jumlahCopy" min="1" value="1" onchange="hitungHarga()">
-                </div>
-                <div class="form-group">
-                    <label>Tipe Cetak</label>
-                    <select id="tipeCetak" onchange="hitungHarga()">
+                    <label>Tipe Cetak:</label>
+                    <select id="tipeCetak" onchange="toggleColorType(); hitungHarga()">
                         <option value="bw">Hitam Putih</option>
                         <option value="warna">Warna</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Pencetakan</label>
-                    <select id="sisiCetak" onchange="hitungHarga()">
-                        <option value="1">1 Sisi</option>
-                        <option value="2">2 Sisi (hemat kertas)</option>
+
+                <!-- Jenis Warna (hanya muncul jika Warna dipilih) -->
+                <div class="form-group" id="colorTypeGroup" style="display: none;">
+                    <label>Jenis Warna:</label>
+                    <select id="colorType" onchange="hitungHarga()">
+                        <option value="standard">Standard (Rp 1000 A4/F4)</option>
+                        <option value="full">Full Color (Rp 2000 A4/F4, Rp 8000 A3)</option>
                     </select>
                 </div>
+
+                <!-- Ukuran Kertas -->
                 <div class="form-group">
-                    <label>Ukuran Kertas</label>
+                    <label>Ukuran Kertas:</label>
                     <select id="ukuranKertas" onchange="hitungHarga()">
                         <option value="a4">A4</option>
-                        <option value="folio">Folio/F4</option>
+                        <option value="folio">F4/Folio</option>
                         <option value="a3">A3</option>
                     </select>
                 </div>
+
+                <!-- Jumlah Halaman Total (dari preview, diisi manual) -->
+                <div class="form-group">
+                    <label>Jumlah Halaman Total (sesuai file):</label>
+                    <input type="number" id="totalPages" min="1" value="1" onchange="hitungHarga()">
+                </div>
+
+                <!-- Rentang Halaman -->
+                <div class="form-group">
+                    <label>Halaman yang Dicetak:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="pageRange" value="all" checked onchange="togglePageRange(); hitungHarga()"> Semua halaman</label>
+                        <label><input type="radio" name="pageRange" value="custom" onchange="togglePageRange(); hitungHarga()"> Halaman tertentu</label>
+                    </div>
+                    <div id="customRange" style="display: none; margin-top: 10px;">
+                        <div class="inline-inputs">
+                            <span>Dari halaman:</span>
+                            <input type="number" id="startPage" min="1" value="1" onchange="hitungHarga()">
+                            <span>Sampai:</span>
+                            <input type="number" id="endPage" min="1" value="1" onchange="hitungHarga()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jumlah Copy -->
+                <div class="form-group">
+                    <label>Jumlah Copy:</label>
+                    <input type="number" id="jumlahCopy" min="1" value="1" onchange="hitungHarga()">
+                </div>
+
+                <!-- Sisi Cetak -->
+                <div class="form-group">
+                    <label>Pencetakan:</label>
+                    <select id="sisiCetak" onchange="validateSisi(); hitungHarga()">
+                        <option value="1">1 Sisi</option>
+                        <option value="2">2 Sisi (hemat kertas)</option>
+                    </select>
+                    <div id="sisiWarning" class="warning" style="display: none;">* 2 sisi hanya tersedia untuk Hitam Putih dengan Laser Jet</div>
+                </div>
+
+                <!-- Ringkasan Harga -->
                 <div class="summary-box">
                     <h3 style="margin-bottom: 15px;">Ringkasan</h3>
                     <div class="summary-row">
@@ -294,7 +391,10 @@
                     <div class="total-price">
                         Total: <span id="totalHarga">Rp 500</span>
                     </div>
+                    <p class="note">* Harga adalah perkiraan. Harga sebenarnya akan dikonfirmasi admin setelah cek file.</p>
+                    <p class="note">Jenis kertas: HVS 75 GSM</p>
                 </div>
+
                 <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
             </div>
         </div>
@@ -378,29 +478,32 @@
     </a>
 
     <script>
-        // Data order
+        // ==================== DATA ORDER ====================
         let orderData = {
             fileName: '',
             fileSize: '',
-            jumlahHalaman: 1,
-            jumlahCopy: 1,
+            printer: 'inkjet',
             tipeCetak: 'bw',
-            sisiCetak: '1',
+            colorType: 'standard',
             ukuranKertas: 'a4',
-            totalHarga: 300
+            totalPages: 1,
+            pageRange: 'all',
+            startPage: 1,
+            endPage: 1,
+            jumlahCopy: 1,
+            sisiCetak: '1',
+            efektifHalaman: 1,
+            totalHarga: 500
         };
 
-        // Harga dasar
-        const hargaDasar = {
-            bw: { a4: 500, folio: 500, a3: 2000 },
-            warna: { a4: 1000, folio: 1500, a3: 5000 }
-        };
+        // Harga dasar akan dihitung di fungsi hitungHarga
 
         let selectedFile = null;
         let currentStep = 1;
         const steps = document.querySelectorAll('.step-item');
         const contents = document.querySelectorAll('.step-content');
 
+        // ==================== STEP NAVIGATION ====================
         function activateStep(step) {
             steps.forEach(s => s.classList.remove('active'));
             contents.forEach(c => c.classList.remove('active'));
@@ -409,7 +512,7 @@
             currentStep = step;
         }
 
-        // ==================== STEP 1 ====================
+        // ==================== STEP 1: UPLOAD & PREVIEW ====================
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
@@ -452,57 +555,193 @@
                 return;
             }
             document.getElementById('step1').classList.add('completed');
+            // Set totalPages sesuai jumlah halaman? Sulit otomatis, biarkan user input manual.
             activateStep(2);
         };
 
-        // ==================== STEP 2 ====================
-        window.hitungHarga = function() {
-            const jumlahHalaman = parseInt(document.getElementById('jumlahHalaman').value) || 1;
-            const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
+        // ==================== STEP 2: KALKULATOR ====================
+        function toggleColorType() {
             const tipe = document.getElementById('tipeCetak').value;
-            const sisi = document.getElementById('sisiCetak').value;
-            const ukuran = document.getElementById('ukuranKertas').value;
+            const colorGroup = document.getElementById('colorTypeGroup');
+            if (tipe === 'warna') {
+                colorGroup.style.display = 'block';
+            } else {
+                colorGroup.style.display = 'none';
+            }
+            validateSisi();
+            hitungHarga();
+        }
 
-            const efektif = sisi === '2' ? Math.ceil(jumlahHalaman / 2) : jumlahHalaman;
-            const totalLembar = efektif * jumlahCopy;
-            const hargaPerLembar = hargaDasar[tipe][ukuran];
+        function togglePageRange() {
+            const range = document.querySelector('input[name="pageRange"]:checked').value;
+            const customDiv = document.getElementById('customRange');
+            if (range === 'custom') {
+                customDiv.style.display = 'block';
+            } else {
+                customDiv.style.display = 'none';
+            }
+            hitungHarga();
+        }
+
+        function validateSisi() {
+            const sisi = document.getElementById('sisiCetak').value;
+            const tipe = document.getElementById('tipeCetak').value;
+            const printer = document.querySelector('input[name="printer"]:checked').value;
+            const warning = document.getElementById('sisiWarning');
+
+            if (sisi === '2') {
+                if (tipe !== 'bw' || printer !== 'laser') {
+                    warning.style.display = 'block';
+                } else {
+                    warning.style.display = 'none';
+                }
+            } else {
+                warning.style.display = 'none';
+            }
+            hitungHarga();
+        }
+
+        function hitungHarga() {
+            // Ambil semua nilai
+            const printer = document.querySelector('input[name="printer"]:checked').value;
+            const tipe = document.getElementById('tipeCetak').value;
+            const colorType = document.getElementById('colorType') ? document.getElementById('colorType').value : 'standard';
+            const ukuran = document.getElementById('ukuranKertas').value;
+            const totalPages = parseInt(document.getElementById('totalPages').value) || 1;
+            const pageRange = document.querySelector('input[name="pageRange"]:checked').value;
+            let start = parseInt(document.getElementById('startPage').value) || 1;
+            let end = parseInt(document.getElementById('endPage').value) || 1;
+            const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
+            const sisi = document.getElementById('sisiCetak').value;
+
+            // Validasi rentang
+            if (pageRange === 'custom') {
+                if (start < 1) start = 1;
+                if (end > totalPages) end = totalPages;
+                if (start > end) start = end;
+                document.getElementById('startPage').value = start;
+                document.getElementById('endPage').value = end;
+                const efektifHalaman = end - start + 1;
+                orderData.efektifHalaman = efektifHalaman;
+            } else {
+                orderData.efektifHalaman = totalPages;
+            }
+
+            // Hitung lembar berdasarkan sisi
+            const efektif = orderData.efektifHalaman;
+            let lembar;
+            if (sisi === '2') {
+                lembar = Math.ceil(efektif / 2);
+            } else {
+                lembar = efektif;
+            }
+            const totalLembar = lembar * jumlahCopy;
+
+            // Hitung harga per lembar
+            let hargaPerLembar = 0;
+
+            // Fungsi harga BW
+            function getHargaBW(printer, ukuran) {
+                if (printer === 'inkjet') {
+                    if (ukuran === 'a4' || ukuran === 'folio') return 500;
+                    else if (ukuran === 'a3') return 3000;
+                } else { // laser
+                    if (ukuran === 'a4' || ukuran === 'folio') return 300;
+                    else if (ukuran === 'a3') return 2000;
+                }
+                return 0;
+            }
+
+            if (sisi === '2') {
+                // 2 sisi hanya untuk BW laser
+                if (tipe === 'bw' && printer === 'laser') {
+                    if (ukuran === 'a4' || ukuran === 'folio') hargaPerLembar = 500;
+                    else if (ukuran === 'a3') hargaPerLembar = 3000;
+                } else {
+                    hargaPerLembar = 0; // tidak valid
+                }
+            } else {
+                // 1 sisi
+                if (tipe === 'bw') {
+                    hargaPerLembar = getHargaBW(printer, ukuran);
+                } else { // warna
+                    // Warna hanya inkjet
+                    if (printer !== 'inkjet') {
+                        hargaPerLembar = 0;
+                    } else {
+                        if (ukuran === 'a4' || ukuran === 'folio') {
+                            if (colorType === 'standard') hargaPerLembar = 1000;
+                            else if (colorType === 'full') hargaPerLembar = 2000;
+                        } else if (ukuran === 'a3') {
+                            if (colorType === 'full') hargaPerLembar = 8000;
+                            else hargaPerLembar = 0; // standard tidak tersedia untuk A3
+                        }
+                    }
+                }
+            }
+
             const total = totalLembar * hargaPerLembar;
 
-            orderData.jumlahHalaman = jumlahHalaman;
-            orderData.jumlahCopy = jumlahCopy;
+            // Simpan ke orderData
+            orderData.printer = printer;
             orderData.tipeCetak = tipe;
-            orderData.sisiCetak = sisi;
+            orderData.colorType = colorType;
             orderData.ukuranKertas = ukuran;
+            orderData.totalPages = totalPages;
+            orderData.pageRange = pageRange;
+            orderData.startPage = start;
+            orderData.endPage = end;
+            orderData.jumlahCopy = jumlahCopy;
+            orderData.sisiCetak = sisi;
             orderData.totalHarga = total;
 
-            document.getElementById('efektifHalaman').textContent = efektif;
+            // Update UI
+            document.getElementById('efektifHalaman').textContent = orderData.efektifHalaman;
             document.getElementById('totalLembar').textContent = totalLembar;
-            document.getElementById('hargaLembar').textContent = `Rp ${hargaPerLembar.toLocaleString()}`;
+            document.getElementById('hargaLembar').textContent = hargaPerLembar ? `Rp ${hargaPerLembar.toLocaleString()}` : 'Rp 0';
             document.getElementById('totalHarga').textContent = `Rp ${total.toLocaleString()}`;
-        };
+
+            // Tampilkan peringatan jika kombinasi tidak valid
+            if (hargaPerLembar === 0) {
+                // alert('Kombinasi pilihan tidak valid. Silakan sesuaikan.'); // biarkan user melihat total 0
+            }
+        }
 
         window.step2Complete = function() {
+            if (orderData.totalHarga === 0) {
+                alert('Harap pilih kombinasi yang valid (total harga tidak boleh 0).');
+                return;
+            }
             document.getElementById('step2').classList.add('completed');
-            // Set total bayar di step 4
             document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
             activateStep(3);
         };
 
-        // ==================== STEP 3 ====================
+        // ==================== STEP 3: KONFIRMASI WA ====================
         window.sendWA = function() {
             if (!selectedFile) {
                 alert('File belum dipilih. Kembali ke langkah 1.');
                 return;
             }
+            const printerName = orderData.printer === 'inkjet' ? 'Inkjet Pigment' : 'Laser Jet';
+            const tipeName = orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna';
+            const warnaJenis = orderData.tipeCetak === 'warna' ? (orderData.colorType === 'standard' ? 'Standard' : 'Full Color') : '-';
+            const ukuranName = orderData.ukuranKertas === 'a4' ? 'A4' : (orderData.ukuranKertas === 'folio' ? 'F4' : 'A3');
+            const rentang = orderData.pageRange === 'all' ? 'Semua halaman' : `Halaman ${orderData.startPage} - ${orderData.endPage}`;
+            const sisiName = orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi';
+
             const pesan = `Halo MedanPrint.online, saya ingin order cetak:\n\n` +
                 `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n` +
-                `📄 *Jumlah halaman:* ${orderData.jumlahHalaman}\n` +
+                `🖨️ *Printer:* ${printerName}\n` +
+                `🎨 *Tipe cetak:* ${tipeName} ${orderData.tipeCetak === 'warna' ? `(${warnaJenis})` : ''}\n` +
+                `📏 *Ukuran kertas:* ${ukuranName}\n` +
+                `📄 *Jumlah halaman total:* ${orderData.totalPages}\n` +
+                `📄 *Rentang cetak:* ${rentang}\n` +
                 `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
-                `🖨️ *Tipe cetak:* ${orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna'}\n` +
-                `📄 *Sisi cetak:* ${orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi'}\n` +
-                `📏 *Ukuran kertas:* ${orderData.ukuranKertas.toUpperCase()}\n` +
-                `💰 *Total harga:* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
+                `📄 *Sisi cetak:* ${sisiName}\n` +
+                `💰 *Total harga (estimasi):* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
                 `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
+
             const encoded = encodeURIComponent(pesan);
             window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
         };
