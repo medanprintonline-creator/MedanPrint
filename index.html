@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Manifest untuk PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
     <!-- Style tambahan untuk tombol WhatsApp dan efek klik -->
     <style>
         /* Tombol Order via WA di header */
@@ -243,11 +246,25 @@
         <i class="fab fa-whatsapp"></i> Chat
     </a>
 
-    <!-- JavaScript -->
+    <!-- JavaScript utama -->
     <script src="js/main.js"></script>
+    <!-- Script untuk tahun otomatis dan registrasi service worker -->
     <script>
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Registrasi Service Worker untuk PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
