@@ -200,28 +200,50 @@ header p {
     font-size: 0.95rem;
 }
 
-/* ===== FEATURES (home) ===== */
-.features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
+/* ===== FEATURES (Mengapa Memilih Kami) ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    padding: 0 20px;
 }
 
 .feature {
-    width: 200px;
+    text-align: center;
+    padding: 20px;
 }
 
-.feature i {
-    font-size: 2.5rem;
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: #e6f0ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
     color: #2563eb;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    transition: all 0.3s;
+}
+
+.feature:hover .feature-icon {
+    background: #2563eb;
+    color: white;
 }
 
 .feature h4 {
+    margin-bottom: 10px;
     font-size: 1.2rem;
-    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.feature p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 /* ===== STEPS (cara order) ===== */
@@ -426,6 +448,35 @@ footer {
     background: #20b859;
 }
 
+/* ===== KONTAK ===== */
+.contact-info a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #2563eb;
+}
+
+.contact-info i {
+    width: 25px;
+    color: #2563eb;
+}
+
+/* ===== GOOGLE MAPS ===== */
+.map-container {
+    margin-top: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .navbar {
@@ -463,6 +514,9 @@ footer {
         width: 90%;
         max-width: 320px;
     }
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .steps-container {
         flex-direction: column;
         align-items: center;
@@ -476,31 +530,8 @@ footer {
     }
 }
 
-/* ===== KONTAK ===== */
-.contact-info a {
-    color: inherit;          /* warisi warna teks */
-    text-decoration: none;   /* tanpa garis bawah */
-    display: inline-block;   /* agar area klik lebih luas */
-    width: 100%;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-    color: #2563eb;          /* warna biru saat hover */
-}
-
-.contact-info i {
-    width: 25px;
-    color: #2563eb;
-}
-
-/* ===== GOOGLE MAPS ===== */
-.map-container {
-    margin-top: 50px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 }
