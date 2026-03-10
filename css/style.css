@@ -475,3 +475,32 @@ footer {
         flex-direction: column;
     }
 }
+
+/* ===== KONTAK ===== */
+.contact-info a {
+    color: inherit;          /* warisi warna teks */
+    text-decoration: none;   /* tanpa garis bawah */
+    display: inline-block;   /* agar area klik lebih luas */
+    width: 100%;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #2563eb;          /* warna biru saat hover */
+}
+
+.contact-info i {
+    width: 25px;
+    color: #2563eb;
+}
+
+/* ===== GOOGLE MAPS ===== */
+.map-container {
+    margin-top: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
