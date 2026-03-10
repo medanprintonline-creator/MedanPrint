@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Steps navigasi */
         .steps-nav {
             display: flex;
             justify-content: space-between;
@@ -57,7 +56,6 @@
             font-size: 0.9rem;
             color: #0f172a;
         }
-        /* Konten setiap langkah */
         .step-content {
             background: white;
             border-radius: 20px;
@@ -69,7 +67,6 @@
         .step-content.active {
             display: block;
         }
-        /* Kalkulator */
         .calculator-container {
             max-width: 700px;
             margin: 0 auto;
@@ -139,6 +136,20 @@
         .btn-next:hover {
             background: #1e40af;
         }
+        .btn-preview {
+            background: #0ea5e9;
+            color: white;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .btn-preview:hover {
+            background: #0284c7;
+        }
         .qris-image {
             max-width: 300px;
             margin: 20px auto;
@@ -160,6 +171,12 @@
         .disabled-step {
             pointer-events: none;
             opacity: 0.3;
+        }
+        .whatsapp-preview {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -185,41 +202,37 @@
     <!-- Page Header -->
     <header class="page-header">
         <h1><i class="fas fa-shopping-cart"></i> Cara Order</h1>
-        <p>Ikuti langkah-langkah berikut untuk memesan cetakan Anda</p>
+        <p>Preview file Anda via WhatsApp, lalu hitung biaya cetak</p>
     </header>
 
     <section class="section">
         <!-- Steps Navigation -->
         <div class="steps-nav" id="stepsNav">
             <div class="step-item active" data-step="1" id="step1">
-                <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                <div class="step-label">Pilih File</div>
+                <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="step-label">Preview File via WA</div>
             </div>
             <div class="step-item" data-step="2" id="step2">
                 <div class="step-icon"><i class="fas fa-calculator"></i></div>
                 <div class="step-label">Kalkulator</div>
             </div>
             <div class="step-item" data-step="3" id="step3">
-                <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
-                <div class="step-label">Konfirmasi WA</div>
-            </div>
-            <div class="step-item" data-step="4" id="step4">
                 <div class="step-icon"><i class="fas fa-qrcode"></i></div>
                 <div class="step-label">QRIS</div>
             </div>
-            <div class="step-item" data-step="5" id="step5">
+            <div class="step-item" data-step="4" id="step4">
                 <div class="step-icon"><i class="fas fa-print"></i></div>
                 <div class="step-label">Cetak & Ambil</div>
             </div>
         </div>
 
-        <!-- Konten Langkah 1: Pilih File -->
+        <!-- Konten Langkah 1: Preview via WhatsApp -->
         <div class="step-content active" id="content1">
-            <h2 style="margin-bottom: 20px;">Langkah 1: Pilih File PDF</h2>
+            <h2 style="margin-bottom: 20px;">Langkah 1: Preview File via WhatsApp</h2>
             <div class="upload-area" id="uploadArea">
                 <i class="fas fa-file-pdf"></i>
-                <p>Klik untuk memilih file dari komputer Anda</p>
-                <p style="font-size: 0.9rem; color: #64748b;">Format PDF, maksimal 50MB (file akan dikirim via WhatsApp)</p>
+                <p>Klik untuk memilih file PDF dari komputer Anda</p>
+                <p style="font-size: 0.9rem; color: #64748b;">File akan dikirim ke WhatsApp untuk preview</p>
                 <input type="file" id="fileInput" style="display: none;" accept=".pdf">
             </div>
             <div id="fileInfo" style="display: none;" class="file-preview">
@@ -229,7 +242,16 @@
                     <p style="font-size: 0.9rem;" id="fileSize"></p>
                 </div>
             </div>
-            <button class="btn-next" id="uploadNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
+            
+            <div class="whatsapp-preview" id="waPreview" style="display: none;">
+                <h3 style="margin-bottom: 10px;">Preview Pesan WhatsApp:</h3>
+                <p id="previewMessage" style="background: white; padding: 15px; border-radius: 8px;"></p>
+                <button class="btn-preview" id="sendWAPreview" onclick="sendWAPreview()">
+                    <i class="fab fa-whatsapp"></i> Kirim Preview ke WhatsApp
+                </button>
+            </div>
+            
+            <button class="btn-next" id="previewNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
         </div>
 
         <!-- Konten Langkah 2: Kalkulator -->
@@ -284,33 +306,22 @@
                         Total: <span id="totalHarga">Rp 300</span>
                     </div>
                 </div>
-                <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
+                <button class="btn-next" onclick="step2Complete()">Lanjut ke Pembayaran</button>
             </div>
         </div>
 
-        <!-- Konten Langkah 3: Konfirmasi WhatsApp -->
+        <!-- Konten Langkah 3: QRIS -->
         <div class="step-content" id="content3">
-            <h2 style="margin-bottom: 20px;">Langkah 3: Konfirmasi via WhatsApp</h2>
-            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah dipilih melalui attachment WhatsApp.</p>
-            <button class="btn-next" id="waButton" onclick="sendWA()">
-                <i class="fab fa-whatsapp"></i> Kirim Pesan ke WhatsApp
-            </button>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Setelah mengirim file dan konfirmasi, admin akan memproses order Anda.</p>
-            <button class="btn-next" onclick="step3Complete()" style="background: #22c55e;">Saya sudah konfirmasi, lanjut</button>
-        </div>
-
-        <!-- Konten Langkah 4: QRIS -->
-        <div class="step-content" id="content4">
-            <h2 style="margin-bottom: 20px;">Langkah 4: Pembayaran QRIS</h2>
+            <h2 style="margin-bottom: 20px;">Langkah 3: Pembayaran QRIS</h2>
             <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
-            <img src="images/qris-example.png" alt="QRIS" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
+            <img src="images/qris.png" alt="QRIS" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">Atau transfer ke: <strong>Bank BCA 123456789 a.n. MedanPrint</strong></p>
-            <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
+            <button class="btn-next" onclick="step3Complete()">Konfirmasi Pembayaran</button>
         </div>
 
-        <!-- Konten Langkah 5: Cetak & Ambil -->
-        <div class="step-content" id="content5">
-            <h2 style="margin-bottom: 20px;">Langkah 5: Cetak dan Ambil</h2>
+        <!-- Konten Langkah 4: Cetak & Ambil -->
+        <div class="step-content" id="content4">
+            <h2 style="margin-bottom: 20px;">Langkah 4: Cetak dan Ambil</h2>
             <p>Pesanan Anda sedang diproses. Status akan diinformasikan via WhatsApp.</p>
             <div style="background: #e6f0ff; padding: 20px; border-radius: 12px;">
                 <i class="fas fa-check-circle" style="color: #22c55e; font-size: 3rem;"></i>
@@ -401,7 +412,7 @@
             currentStep = step;
         }
 
-        // Step 1: Pilih file
+        // Step 1: Pilih file dan preview WA
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
@@ -409,6 +420,7 @@
         document.getElementById('fileInput').addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
                 const file = e.target.files[0];
+                
                 // Validasi ukuran (maks 50MB)
                 if (file.size > 50 * 1024 * 1024) {
                     alert('Ukuran file maksimal 50MB. Silakan pilih file yang lebih kecil.');
@@ -428,10 +440,32 @@
                 document.getElementById('fileSize').textContent = orderData.fileSize;
                 document.getElementById('fileInfo').style.display = 'flex';
 
-                // Aktifkan tombol lanjut
-                document.getElementById('uploadNext').disabled = false;
+                // Siapkan preview pesan WhatsApp
+                const previewMsg = `Halo, saya ingin preview file untuk dicetak:\n\n` +
+                    `📄 *File:* ${file.name} (${orderData.fileSize})\n\n` +
+                    `Saya akan melanjutkan ke kalkulator setelah preview.`;
+                
+                document.getElementById('previewMessage').textContent = previewMsg;
+                document.getElementById('waPreview').style.display = 'block';
+                
+                // Aktifkan tombol lanjut setelah preview dikirim
+                // Tapi kita beri pilihan: user bisa kirim preview dulu baru lanjut
             }
         });
+
+        window.sendWAPreview = function() {
+            if (!selectedFile) return;
+            
+            const previewMsg = `Halo, saya ingin preview file untuk dicetak:\n\n` +
+                `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n\n` +
+                `Saya akan melanjutkan ke kalkulator setelah preview.`;
+            
+            const encoded = encodeURIComponent(previewMsg);
+            window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
+            
+            // Setelah preview dikirim, aktifkan tombol lanjut
+            document.getElementById('previewNext').disabled = false;
+        };
 
         window.step1Complete = function() {
             if (!selectedFile) {
@@ -473,42 +507,15 @@
 
         window.step2Complete = function() {
             document.getElementById('step2').classList.add('completed');
+            // Set total bayar di step 3
+            document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
             activateStep(3);
         };
 
-        // Step 3: Konfirmasi WA
-        window.sendWA = function() {
-            if (!selectedFile) {
-                alert('File belum dipilih. Kembali ke langkah 1.');
-                return;
-            }
-
-            // Format pesan
-            const pesan = `Halo MedanPrint.online, saya ingin order cetak:\n\n` +
-                `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n` +
-                `📄 *Jumlah halaman:* ${orderData.jumlahHalaman}\n` +
-                `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
-                `🖨️ *Tipe cetak:* ${orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna'}\n` +
-                `📄 *Sisi cetak:* ${orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi'}\n` +
-                `📏 *Ukuran kertas:* ${orderData.ukuranKertas.toUpperCase()}\n` +
-                `💰 *Total harga:* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
-                `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
-
-            const encoded = encodeURIComponent(pesan);
-            window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
-        };
-
+        // Step 3: QRIS
         window.step3Complete = function() {
             document.getElementById('step3').classList.add('completed');
-            // Set total bayar di step 4
-            document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
             activateStep(4);
-        };
-
-        // Step 4: QRIS
-        window.step4Complete = function() {
-            document.getElementById('step4').classList.add('completed');
-            activateStep(5);
         };
 
         // Helper format bytes
