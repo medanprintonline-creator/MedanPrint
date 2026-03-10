@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        /* Penyesuaian form agar lebih rapi */
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 15px;
+        }
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+        .btn-wa:hover {
+            background: #20b859;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -41,7 +59,7 @@
                 <h3>Alamat</h3>
                 <p>
                     <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-map-marker-alt"></i>Jl. Kelambir Lima Medan - 20374
+                        <i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374
                     </a>
                 </p>
                 <h3>Telepon (WhatsApp)</h3>
@@ -57,19 +75,19 @@
                     </a>
                 </p>
                 <h3>Jam Operasional</h3>
-                <p>Senin - Kamis: 08.00 - 22.00</p>
-                <p>Jum'at : 02.00 - 22.00</p>                
-                <p>Minggu : 15.00 - 22.00</p>
+                <p>Senin - Kamis: 08.00 - 22.00 WIB</p>
+                <p>Jum'at : 14.00 - 22.00 WIB</p>                
+                <p>Minggu : 15.00 - 22.00 WIB</p>
             </div>
 
-            <!-- Form Kontak -->
+            <!-- Form Kontak (Kirim via WhatsApp) -->
             <div class="contact-form">
-                <h3>Kirim Pesan</h3>
-                <form>
-                    <input type="text" placeholder="Nama" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea rows="5" placeholder="Pesan" required></textarea>
-                    <button type="submit" class="btn">Kirim</button>
+                <h3>Kirim Pesan via WhatsApp</h3>
+                <form id="contactForm">
+                    <input type="text" id="nama" placeholder="Nama" required>
+                    <input type="email" id="email" placeholder="Email (opsional)">
+                    <textarea id="pesan" rows="5" placeholder="Pesan" required></textarea>
+                    <button type="submit" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Kirim ke WhatsApp</button>
                 </form>
             </div>
         </div>
@@ -88,49 +106,67 @@
     </section>
 
     <!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>MedanPrint.online</h4>
-            <p>Solusi cetak online mudah, cepat, dan terpercaya di Medan.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MedanPrint.online</h4>
+                <p>Solusi cetak online mudah, cepat, dan terpercaya di Medan.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>
+                    <a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> 0852-7793-0703
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-envelope"></i> medanprintonline@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374
+                    </a>
+                </p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h4>Link Cepat</h4>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="layanan.html">Layanan</a></li>
-                <li><a href="cara-order.html">Cara Order</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online. All rights reserved.</p>
         </div>
-        <div class="footer-section">
-            <h4>Kontak</h4>
-            <p>
-                <a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-whatsapp"></i> 0852-7793-0703
-                </a>
-            </p>
-            <p>
-                <a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-envelope"></i> medanprintonline@gmail.com
-                </a>
-            </p>
-            <p>
-                <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-map-marker-alt"></i>Jl. Kelambir Lima Medan - 20374
-                </a>
-            </p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; <span id="currentYear"></span> MedanPrint.online. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
+
     <!-- Tombol WhatsApp Fixed -->
     <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Chat
     </a>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Kirim form via WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const pesan = document.getElementById('pesan').value.trim();
+
+            let text = `Halo, saya ${nama}`;
+            if (email) text += ` (${email})`;
+            text += `.%0A%0APesan: ${pesan}`;
+
+            window.open(`https://wa.me/6285277930703?text=${encodeURIComponent(text)}`, '_blank');
+        });
+
+        // Tahun otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
