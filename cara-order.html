@@ -193,7 +193,7 @@
         <div class="steps-nav" id="stepsNav">
             <div class="step-item active" data-step="1" id="step1">
                 <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                <div class="step-label">Upload File</div>
+                <div class="step-label">Pilih File</div>
             </div>
             <div class="step-item" data-step="2" id="step2">
                 <div class="step-icon"><i class="fas fa-calculator"></i></div>
@@ -213,23 +213,23 @@
             </div>
         </div>
 
-        <!-- Konten Langkah 1: Upload File -->
+        <!-- Konten Langkah 1: Pilih File -->
         <div class="step-content active" id="content1">
-            <h2 style="margin-bottom: 20px;">Langkah 1: Upload File ke Google Drive</h2>
+            <h2 style="margin-bottom: 20px;">Langkah 1: Pilih File PDF</h2>
             <div class="upload-area" id="uploadArea">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <p>Klik untuk memilih file dari komputer atau Google Drive</p>
-                <p style="font-size: 0.9rem; color: #64748b;">Format PDF maksimal 50MB</p>
+                <i class="fas fa-file-pdf"></i>
+                <p>Klik untuk memilih file dari komputer Anda</p>
+                <p style="font-size: 0.9rem; color: #64748b;">Format PDF, maksimal 50MB (file akan dikirim via WhatsApp)</p>
                 <input type="file" id="fileInput" style="display: none;" accept=".pdf">
             </div>
             <div id="fileInfo" style="display: none;" class="file-preview">
                 <i class="fas fa-file-pdf"></i>
                 <div>
                     <p><strong id="fileName"></strong></p>
-                    <p style="font-size: 0.9rem;">File siap diupload</p>
+                    <p style="font-size: 0.9rem;" id="fileSize"></p>
                 </div>
             </div>
-            <button class="btn-next" id="uploadNext" onclick="step1Complete()">Lanjut ke Kalkulator</button>
+            <button class="btn-next" id="uploadNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
         </div>
 
         <!-- Konten Langkah 2: Kalkulator -->
@@ -291,11 +291,11 @@
         <!-- Konten Langkah 3: Konfirmasi WhatsApp -->
         <div class="step-content" id="content3">
             <h2 style="margin-bottom: 20px;">Langkah 3: Konfirmasi via WhatsApp</h2>
-            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin.</p>
+            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah dipilih melalui attachment WhatsApp.</p>
             <button class="btn-next" id="waButton" onclick="sendWA()">
-                <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+                <i class="fab fa-whatsapp"></i> Kirim Pesan ke WhatsApp
             </button>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Setelah konfirmasi, admin akan memproses order Anda.</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Setelah mengirim file dan konfirmasi, admin akan memproses order Anda.</p>
             <button class="btn-next" onclick="step3Complete()" style="background: #22c55e;">Saya sudah konfirmasi, lanjut</button>
         </div>
 
@@ -321,7 +321,7 @@
         </div>
     </section>
 
-    <!-- Footer (salin dari index) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -370,6 +370,7 @@
         // Data order
         let orderData = {
             fileName: '',
+            fileSize: '',
             jumlahHalaman: 1,
             jumlahCopy: 1,
             tipeCetak: 'bw',
@@ -384,6 +385,9 @@
             warna: { a4: 1000, folio: 1500, a3: 2500 }
         };
 
+        // Variabel file
+        let selectedFile = null;
+
         // Inisialisasi step
         let currentStep = 1;
         const steps = document.querySelectorAll('.step-item');
@@ -397,7 +401,7 @@
             currentStep = step;
         }
 
-        // Step 1: Upload file
+        // Step 1: Pilih file
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
@@ -405,15 +409,32 @@
         document.getElementById('fileInput').addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
                 const file = e.target.files[0];
+                // Validasi ukuran (maks 50MB)
+                if (file.size > 50 * 1024 * 1024) {
+                    alert('Ukuran file maksimal 50MB. Silakan pilih file yang lebih kecil.');
+                    return;
+                }
+                // Validasi tipe
+                if (file.type !== 'application/pdf') {
+                    alert('Hanya file PDF yang diperbolehkan.');
+                    return;
+                }
+
+                selectedFile = file;
                 orderData.fileName = file.name;
+                orderData.fileSize = formatBytes(file.size);
+
                 document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = orderData.fileSize;
                 document.getElementById('fileInfo').style.display = 'flex';
-                // Simulasi upload ke drive (nanti integrasi Google Picker)
+
+                // Aktifkan tombol lanjut
+                document.getElementById('uploadNext').disabled = false;
             }
         });
 
         window.step1Complete = function() {
-            if (!orderData.fileName) {
+            if (!selectedFile) {
                 alert('Silakan pilih file terlebih dahulu.');
                 return;
             }
@@ -457,17 +478,22 @@
 
         // Step 3: Konfirmasi WA
         window.sendWA = function() {
-            // Format pesan
-            const pesan = `Halo MedanPrint.online, saya ingin order cetak:
-- File: ${orderData.fileName}
-- Jumlah halaman: ${orderData.jumlahHalaman}
-- Jumlah copy: ${orderData.jumlahCopy}
-- Tipe cetak: ${orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna'}
-- Sisi cetak: ${orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi'}
-- Ukuran kertas: ${orderData.ukuranKertas.toUpperCase()}
-- Total harga: Rp ${orderData.totalHarga.toLocaleString()}
+            if (!selectedFile) {
+                alert('File belum dipilih. Kembali ke langkah 1.');
+                return;
+            }
 
-Mohon konfirmasi dan instruksi pembayaran. Terima kasih.`;
+            // Format pesan
+            const pesan = `Halo MedanPrint.online, saya ingin order cetak:\n\n` +
+                `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n` +
+                `📄 *Jumlah halaman:* ${orderData.jumlahHalaman}\n` +
+                `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
+                `🖨️ *Tipe cetak:* ${orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna'}\n` +
+                `📄 *Sisi cetak:* ${orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi'}\n` +
+                `📏 *Ukuran kertas:* ${orderData.ukuranKertas.toUpperCase()}\n` +
+                `💰 *Total harga:* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
+                `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
+
             const encoded = encodeURIComponent(pesan);
             window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
         };
@@ -485,7 +511,15 @@ Mohon konfirmasi dan instruksi pembayaran. Terima kasih.`;
             activateStep(5);
         };
 
-        // Step 5: Selesai
+        // Helper format bytes
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
 
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
