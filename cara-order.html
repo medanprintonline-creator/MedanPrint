@@ -109,30 +109,23 @@
             margin-bottom: 10px;
         }
 
-        /* ===== RADIO GROUP ===== */
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 5px;
-        }
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: normal;
-            cursor: pointer;
-        }
-        .inline-inputs {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .inline-inputs input {
-            width: 100px;
-        }
-
+       /* ===== RADIO GROUP ===== */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;      /* pastikan satu baris */
+    overflow-x: auto;       /* scroll jika perlu */
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+    cursor: pointer;
+    white-space: nowrap;    /* teks tidak putus */
+}
         /* ===== SUMMARY ===== */
         .summary-box {
             background: #f8fafc;
