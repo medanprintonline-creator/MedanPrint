@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan Lengkap Print & Jilid Medan | Cetak Dokumen, Pas Foto, Stempel | MedanPrint</title>
-    <!-- Meta description lebih menarik dan mengandung kata kunci -->
     <meta name="description" content="Layanan cetak lengkap di Medan: print hitam putih & warna, skripsi, jilid ring/kawat/lem, pas foto, denah A1, stempel, cutting sticker. Harga murah, cepat, antar Gojek/Grab.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/layanan.html">
@@ -26,18 +25,340 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
 
+    <!-- Schema LocalBusiness (sama seperti index, opsional tapi bagus) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "MedanPrint.online",
+        "image": "https://medanprint.online/images/logo.png",
+        "url": "https://medanprint.online/",
+        "telephone": "+6285277930703",
+        "priceRange": "Rp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Kelambir Lima",
+            "addressLocality": "Medan",
+            "addressRegion": "Sumatera Utara",
+            "postalCode": "20374",
+            "addressCountry": "ID"
+        },
+        "description": "Jasa print online di Medan, melayani cetak dokumen, PDF, skripsi, jilid, pas foto, stempel, cutting sticker.",
+        "areaServed": "Medan",
+        "sameAs": [
+            "https://wa.me/6285277930703"
+        ]
+    }
+    </script>
+
     <style>
-        /* Tambahan CSS untuk halaman layanan */
+        /* ===== RESET & BASE (salinan dari index.html) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        .logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #2563eb;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background: #f1f5f9;
+            padding: 10px 5%;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #475569;
+        }
+        /* ===== HEADER (page-header) ===== */
+        .page-header {
+            background: linear-gradient(135deg, #1e40af, #0e7490);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 28px;
+            background: #22c55e;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        .btn:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .btn2 {
+            background: #0ea5e9;
+        }
+        .btn2:hover {
+            background: #0284c7;
+        }
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+        }
+        .section h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #2563eb;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+        .bg-light {
+            background: #f1f5f9;
+        }
+        /* ===== CARDS (untuk layanan) ===== */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            width: 260px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(37,99,235,0.12);
+        }
+        .card i {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+            background: #e6f0ff;
+            padding: 18px;
+            border-radius: 60% 40% 50% 50%;
+        }
+        .card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+            color: #0f172a;
+        }
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+        .footer-section {
+            flex: 1 1 250px;
+        }
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        .footer-section p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section p a:hover {
+            color: #2563eb;
+        }
+        .footer-section p i {
+            width: 20px;
+            margin-right: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #1e293b;
+        }
+        /* ===== WHATSAPP FIXED ===== */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            z-index: 99;
+        }
+        .whatsapp i {
+            font-size: 1.5rem;
+        }
+        .whatsapp:hover {
+            transform: scale(1.05);
+            background: #20b859;
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li a {
+                margin: 0;
+                padding: 10px 0;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+                max-width: 320px;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== Style khusus halaman layanan ===== */
         .price {
             font-size: 1.1rem;
             font-weight: 700;
@@ -61,32 +382,10 @@
         .layanan-cta .btn {
             margin: 10px;
         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2rem;
-            }
-        }
-        /* Breadcrumb */
-        .breadcrumb {
-            background: #f1f5f9;
-            padding: 10px 5%;
-            font-size: 0.9rem;
-        }
-        .breadcrumb a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        .breadcrumb span {
-            color: #475569;
-        }
     </style>
 </head>
 <body>
-    <!-- Navbar (sama persis dengan index) -->
+    <!-- Navbar (sama dengan index) -->
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
@@ -98,8 +397,9 @@
             <li itemprop="name"><a href="layanan.html" class="active" itemprop="url">Layanan Print</a></li>
             <li itemprop="name"><a href="cara-order.html" itemprop="url">Cara Order</a></li>
             <li itemprop="name"><a href="blog.html" itemprop="url">Blog</a></li>
-            <li itemprop="name"><a href="testimoni.html" itemprop="url">Testimoni</a></li>
-            <li itemprop="name"><a href="faq.html" itemprop="url">FAQ</a></li>
+            <!-- Testimoni dan FAQ diarahkan ke halaman utama (anchor) untuk konsistensi dengan index -->
+            <li itemprop="name"><a href="index.html#testimoni" itemprop="url">Testimoni</a></li>
+            <li itemprop="name"><a href="index.html#faq" itemprop="url">FAQ</a></li>
             <li itemprop="name"><a href="kontak.html" itemprop="url">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -226,12 +526,12 @@
         <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (sama dengan index) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, jilid, pas foto, stempel, cutting sticker, dan lainnya.</p>
+                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen</strong>, <strong>print PDF</strong>, <strong>skripsi</strong>, <strong>jilid</strong>, <strong>pas foto</strong>, <strong>stempel</strong>, <strong>cutting sticker</strong>.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
@@ -240,8 +540,8 @@
                     <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html">Testimoni</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#testimoni">Testimoni</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -265,6 +565,7 @@
     <script>
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -273,7 +574,8 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker (nonaktifkan jika file tidak ada)
+
+        // Service Worker (nonaktifkan jika file tidak ada, sesuai index)
         // if ('serviceWorker' in navigator) {
         //     window.addEventListener('load', () => {
         //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
