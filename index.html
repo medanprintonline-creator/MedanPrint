@@ -3,63 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedanPrint | Print Dokumen Online di Medan</title>
-    <meta name="description" content="MedanPrint – layanan print dokumen online di Medan. Cetak PDF, skripsi, makalah cepat. Harga murah, antar via Gojek/Grab/Maxim. Konsultasi gratis!">
+    <title>Layanan Print Online Medan | Cetak & Jilid Dokumen, Pas Foto, Stempel</title>
+    <meta name="description" content="Layanan lengkap MedanPrint: cetak dokumen, jilid makalah (ring, kawat, glue), edit & cetak pas foto, print denah A1, foto besar, edit skripsi, stempel, cutting sticker. Harga murah, cepat, antar.">
     <meta name="author" content="MedanPrint.online">
-    <link rel="canonical" href="https://medanprint.online/">
+    <link rel="canonical" href="https://medanprint.online/layanan.html">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://medanprint.online/">
-    <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan">
-    <meta property="og:description" content="MedanPrint – layanan print dokumen online di Medan. Cetak PDF, skripsi, makalah cepat. Harga murah, antar via Gojek/Grab/Maxim. Konsultasi gratis!">
+    <meta property="og:url" content="https://medanprint.online/layanan.html">
+    <meta property="og:title" content="Layanan Print Online Medan | Cetak & Jilid Dokumen, Pas Foto, Stempel">
+    <meta property="og:description" content="Layanan lengkap MedanPrint: cetak dokumen, jilid makalah, edit & cetak pas foto, print denah A1, foto besar, edit skripsi, stempel, cutting sticker.">
     <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MedanPrint | Print Dokumen Online di Medan">
-    <meta name="twitter:description" content="MedanPrint – layanan print dokumen online di Medan. Cetak PDF, skripsi, makalah cepat. Harga murah, antar via Gojek/Grab/Maxim. Konsultasi gratis!">
+    <meta name="twitter:title" content="Layanan Print Online Medan | MedanPrint">
+    <meta name="twitter:description" content="Layanan lengkap MedanPrint: cetak dokumen, jilid makalah, pas foto, stempel, cutting sticker.">
     <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
-
-    <!-- Schema LocalBusiness -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "MedanPrint.online",
-        "image": "https://medanprint.online/images/logo.png",
-        "url": "https://medanprint.online/",
-        "telephone": "+6285277930703",
-        "priceRange": "Rp",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Jl. Kelambir Lima",
-            "addressLocality": "Medan",
-            "addressRegion": "Sumatera Utara",
-            "postalCode": "20374",
-            "addressCountry": "ID"
-        },
-        "description": "Jasa print online di Medan, melayani cetak dokumen, PDF, skripsi, dan kebutuhan cetak lainnya.",
-        "areaServed": "Medan",
-        "sameAs": [
-            "https://wa.me/6285277930703"
-        ]
-    }
-    </script>
 
     <style>
         /* ===== RESET & BASE ===== */
@@ -117,67 +85,46 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        /* ===== HEADER ===== */
-        header {
+        /* ===== PAGE HEADER ===== */
+        .page-header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        .page-header {
-            background: linear-gradient(135deg, #1e40af, #0e7490);
             padding: 60px 20px;
+            text-align: center;
         }
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            font-weight: 700;
         }
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 14px 32px;
-            background: #22c55e;
-            color: white;
-            border-radius: 50px;
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            cursor: pointer;
-            border: none;
         }
-        .btn i {
-            margin-right: 8px;
+        .breadcrumb a:hover {
+            text-decoration: underline;
         }
-        .btn:hover {
-            background: #16a34a;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
-        .btn2 {
-            background: #0ea5e9;
-        }
-        .btn2:hover {
-            background: #0284c7;
+        .breadcrumb span {
+            color: #64748b;
         }
         /* ===== SECTIONS ===== */
         .section {
-            padding: 70px 20px;
-            text-align: center;
             max-width: 1200px;
-            margin: auto;
+            margin: 40px auto;
+            padding: 0 20px;
         }
         .section h2 {
             font-size: 2.2rem;
@@ -185,6 +132,8 @@
             color: #0f172a;
             position: relative;
             display: inline-block;
+            text-align: center;
+            width: 100%;
         }
         .section h2:after {
             content: '';
@@ -197,6 +146,8 @@
         }
         .bg-light {
             background: #f1f5f9;
+            padding: 40px 20px;
+            border-radius: 20px;
         }
         /* ===== CARDS ===== */
         .cards {
@@ -207,7 +158,7 @@
         }
         .card {
             background: white;
-            width: 260px;
+            width: 280px;
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
@@ -231,224 +182,24 @@
             font-size: 1.3rem;
             color: #0f172a;
         }
-        .card p {
+        .card .price {
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+        .card .desc {
             color: #475569;
             font-size: 0.95rem;
-        }
-        /* ===== FEATURES ===== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-        }
-        .feature {
-            text-align: center;
-            padding: 20px;
-        }
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #e6f0ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #2563eb;
-            font-size: 2rem;
-            transition: all 0.3s;
-        }
-        .feature:hover .feature-icon {
-            background: #2563eb;
-            color: white;
-        }
-        .feature h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            color: #0f172a;
-        }
-        .feature p {
-            color: #475569;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        /* ===== STEPS ===== */
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .step-item {
-            flex: 1 1 200px;
-            background: white;
-            padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .step-item i {
-            font-size: 2.5rem;
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-        .step-item h3 {
-            margin: 10px 0;
-            color: #0f172a;
-        }
-        .step-item p {
-            color: #475569;
-        }
-        /* ===== PANDUAN POPULER ===== */
-        .guide-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .guide-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-        .guide-card:hover {
-            transform: translateY(-5px);
-            border-color: #2563eb;
-        }
-        .guide-card i {
-            font-size: 2.5rem;
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-        .guide-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .guide-card p {
-            color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        .guide-card a {
-            color: #2563eb;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .guide-card a:hover {
-            text-decoration: underline;
-        }
-        /* ===== TESTIMONI ===== */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            text-align: left;
-            position: relative;
-        }
-        .testimonial-card i.fa-quote-left {
-            font-size: 2rem;
-            color: #2563eb;
-            opacity: 0.2;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-        }
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #334155;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .testimonial-author h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        .testimonial-author span {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        .rating {
-            color: #fbbf24;
-            margin-top: 5px;
-        }
-        /* ===== FAQ ===== */
-        .faq-grid {
-            max-width: 800px;
-            margin: 40px auto 0;
-            text-align: left;
-        }
-        .faq-item {
-            background: white;
-            border-radius: 16px;
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        .faq-question h3 {
-            font-size: 1.2rem;
-            color: #0f172a;
-        }
-        .faq-question i {
-            color: #2563eb;
-            transition: transform 0.3s;
-        }
-        .faq-answer {
-            margin-top: 15px;
-            color: #475569;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 15px;
-        }
-        /* Sembunyikan jawaban awalnya (gunakan JS) */
-        .faq-answer {
-            display: none;
-        }
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
         }
         /* ===== CTA ===== */
         .cta {
             background: linear-gradient(135deg, #1e40af, #0e7490);
             color: white;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
         .cta h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
         }
         .cta p {
@@ -459,9 +210,27 @@
         .cta .btn {
             background: white;
             color: #1e293b;
+            margin: 5px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .cta .btn i {
+            margin-right: 8px;
         }
         .cta .btn:hover {
             background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+        .cta .btn2 {
+            background: #25D366;
+            color: white;
+        }
+        .cta .btn2:hover {
+            background: #20b859;
         }
         /* ===== FOOTER ===== */
         footer {
@@ -542,58 +311,6 @@
             transform: scale(1.05);
             background: #20b859;
         }
-        /* ===== SERVICE HIGHLIGHTS ===== */
-        .service-highlights {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 25px 20px;
-            background: white;
-            border-radius: 60px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            max-width: 700px;
-            margin: -30px auto 30px;
-            position: relative;
-            z-index: 10;
-        }
-        .highlight-item {
-            text-align: center;
-            flex: 0 1 auto;
-        }
-        .highlight-item i {
-            font-size: 2rem;
-            color: #2563eb;
-            margin-bottom: 8px;
-            background: #e6f0ff;
-            padding: 12px;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .highlight-item span {
-            display: block;
-            font-weight: 600;
-            color: #0f172a;
-            font-size: 1rem;
-        }
-        .btn-header {
-            margin: 5px;
-            padding: 12px 28px;
-        }
-        .delivery-info {
-            font-size: 0.9rem;
-            margin-top: 15px;
-            opacity: 0.8;
-            letter-spacing: 0.3px;
-        }
-        .delivery-info i {
-            margin: 0 4px;
-        }
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .navbar {
@@ -620,339 +337,156 @@
                 top: 20px;
                 right: 20px;
             }
-            header h1 {
+            .page-header h1 {
                 font-size: 2rem;
-            }
-            .cards {
-                flex-direction: column;
-                align-items: center;
-            }
-            .card {
-                width: 90%;
-                max-width: 320px;
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .steps {
-                flex-direction: column;
-                align-items: center;
-            }
-            .step-item {
-                width: 90%;
-                max-width: 300px;
-            }
-            .service-highlights {
-                flex-direction: column;
-                gap: 20px;
-                border-radius: 30px;
-                margin: -20px 20px 30px;
-                padding: 20px;
-            }
-            .highlight-item {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                gap: 15px;
-            }
-            .highlight-item i {
-                margin: 0;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            .highlight-item span {
-                font-size: 1.1rem;
             }
         }
         @media (max-width: 480px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
+            .page-header h1 {
                 font-size: 1.8rem;
-            }
-            .btn-header {
-                padding: 10px 20px;
-                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar dengan menu tambahan Testimoni dan FAQ -->
-    <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
                 <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
             </a>
         </div>
         <ul class="nav-links">
-            <li itemprop="name"><a href="index.html" class="active" itemprop="url">Beranda</a></li>
-            <li itemprop="name"><a href="layanan.html" itemprop="url">Layanan Print</a></li>
-            <li itemprop="name"><a href="cara-order.html" itemprop="url">Cara Order</a></li>
-            <li itemprop="name"><a href="blog.html" itemprop="url">Blog</a></li>
-            <li itemprop="name"><a href="#testimoni" itemprop="url">Testimoni</a></li>
-            <li itemprop="name"><a href="#faq" itemprop="url">FAQ</a></li>
-            <li itemprop="name"><a href="kontak.html" itemprop="url">Kontak</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html" class="active">Layanan</a></li>
+            <li><a href="cara-order.html">Cara Order</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
         </ul>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <h1><i class="fas fa-print"></i> Print Dokumen Online di Medan</h1>
-            <p class="tagline">
-                Print dokumen online di <strong>Medan</strong> cepat dan terjangkau. 
-                Layanan <strong>cetak PDF</strong>, <strong>print skripsi</strong>, dan 
-                <strong>dokumen warna</strong> dengan proses mudah dan hasil berkualitas.
-            </p>
-            <div class="cta-buttons">
-                <a class="btn btn-header" href="cara-order.html">
-                    <i class="fas fa-calculator"></i> Hitung Biaya Cetak
-                </a>
-                <a class="btn btn-header btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer">
-                    <i class="fab fa-whatsapp"></i> Order via WA
-                </a>
-            </div>
-            <div class="delivery-info">
-                <i class="fas fa-store"></i>
-                <strong>Ambil di Toko | Gojek • Grab • Maxim</strong>
-            </div>
-        </div>
-    </header>
-
-    <!-- Service Highlights -->
-    <div class="service-highlights">
-        <div class="highlight-item">
-            <i class="fas fa-upload"></i>
-            <span>Upload File (PDF, Word, Excel)</span>
-        </div>
-        <div class="highlight-item">
-            <i class="fas fa-qrcode"></i>
-            <span>Bayar QRIS / Transfer</span>
-        </div>
-        <div class="highlight-item">
-            <i class="fas fa-bolt"></i>
-            <span>Cetak Cepat 1-3 Jam</span>
-        </div>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Layanan Print Online Medan</h1>
+        <p>Solusi cetak & jilid lengkap untuk dokumen, foto, stempel, dan kebutuhan kantor atau pribadi. Cepat, murah, dan berkualitas.</p>
     </div>
 
-    <!-- PROSES MUDAH -->
-    <section class="section">
-        <h2>Cara Mudah Print Dokumen Online di Medan</h2>
-        <div class="steps">
-            <div class="step-item">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h3>1. Upload File</h3>
-                <p>Kirim file PDF, Word, atau Excel melalui WhatsApp atau form upload.</p>
-            </div>
-            <div class="step-item">
-                <i class="fas fa-print"></i>
-                <h3>2. Kami Print</h3>
-                <p>Tim kami mencetak dokumen Anda dengan mesin profesional, cepat dan rapi.</p>
-            </div>
-            <div class="step-item">
-                <i class="fas fa-check-circle"></i>
-                <h3>3. Selesai & Antar</h3>
-                <p>Dokumen siap diambil atau diantar via Gojek/Grab/Maxim ke lokasi Anda.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a> &gt; <span>Layanan</span>
+    </div>
 
-    <!-- Layanan Unggulan -->
-    <section class="section bg-light">
-        <h2>Layanan Print Online Medan Lengkap</h2>
+    <!-- Section 1: Cetak Dokumen -->
+    <section class="section">
+        <h2>Cetak Dokumen</h2>
         <div class="cards">
             <div class="card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>Print PDF Medan</h3>
-                <p>Cetak file PDF cepat dan rapi. Cocok untuk dokumen penting, e-book, dan materi presentasi.</p>
-            </div>
-            <div class="card">
                 <i class="fas fa-file-alt"></i>
-                <h3>Print Dokumen Medan</h3>
-                <p>Layanan print dokumen Word, Excel, PowerPoint. Hasil berkualitas, harga bersahabat.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Print Skripsi Medan</h3>
-                <p>Cetak skripsi, tesis, disertasi. Bisa jilid hardcover/softcover. Proses cepat.</p>
+                <h3>Print Hitam Putih</h3>
+                <p class="price">Mulai Rp300/lembar</p>
+                <p class="desc">Dokumen biasa, arsip, laporan. Menggunakan printer laserjet untuk hasil tajam dan awet.</p>
             </div>
             <div class="card">
                 <i class="fas fa-palette"></i>
-                <h3>Print Warna Medan</h3>
-                <p>Print warna dengan tinta pigment anti air. Hasil tajam untuk brosur, poster, foto.</p>
+                <h3>Print Warna</h3>
+                <p class="price">Mulai Rp1.000/lembar</p>
+                <p class="desc">Cetak warna dengan tinta pigment anti luntur. Warna cerah dan tahan lama.</p>
             </div>
-        </div>
-        <div style="margin-top: 30px;">
-            <a href="layanan.html" class="btn btn2"><i class="fas fa-arrow-right"></i> Lihat Semua Layanan</a>
-        </div>
-    </section>
-
-    <!-- PANDUAN POPULER -->
-    <section class="section">
-        <h2>Panduan & Tips Print Dokumen</h2>
-        <p>Pelajari cara mudah mengurus dokumen Anda sebelum order print online Medan.</p>
-        <div class="guide-links">
-            <div class="guide-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Cara Print PDF dari HP</h3>
-                <p>Ingin mencetak file PDF langsung dari smartphone? Simak langkah-langkah praktisnya.</p>
-                <a href="/cara-print-pdf-dari-hp">Baca Panduan →</a>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Print Skripsi & Makalah</h3>
+                <p class="price">Harga khusus</p>
+                <p class="desc">Cetak skripsi, tesis, makalah. Tersedia jilid ring plastik, kawat, dan lem panas (glue binding).</p>
             </div>
-            <div class="guide-card">
-                <i class="fas fa-compress-alt"></i>
-                <h3>Cara Menggabungkan File PDF</h3>
-                <p>Gabungkan beberapa file PDF jadi satu sebelum dicetak. Ikuti tutorial sederhana ini.</p>
-                <a href="/cara-menggabungkan-file-pdf">Baca Panduan →</a>
-            </div>
-            <div class="guide-card">
-                <i class="fas fa-scroll"></i>
-                <h3>Format Skripsi yang Benar</h3>
-                <p>Pastikan skripsimu sesuai standar sebelum dicetak. Cek panduan format dan margin.</p>
-                <a href="/format-skripsi-yang-benar">Baca Panduan →</a>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Dokumen Kantor</h3>
+                <p class="price">Diskon jumlah besar</p>
+                <p class="desc">Nota, faktur, laporan tahunan. Cepat dan rapi dengan laserjet.</p>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONI -->
-    <section id="testimoni" class="section bg-light">
-        <h2>Apa Kata Pelanggan Kami</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <i class="fas fa-quote-left"></i>
-                <p>"Cetak skripsi cepat banget, cuma 2 jam sudah selesai. Hasil rapi dan jilidnya kuat. Recommended!"</p>
-                <div class="testimonial-author">
-                    <img src="images/avatar1.jpg" alt="Foto Anita" loading="lazy">
-                    <div>
-                        <h4>Anita Sari</h4>
-                        <span>Mahasiswi USU</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <i class="fas fa-quote-left"></i>
-                <p>"Pelayanan ramah, harga bersahabat. File PDF langsung diproses tanpa ribet. Sudah 3 kali order, selalu puas."</p>
-                <div class="testimonial-author">
-                    <img src="images/avatar2.jpg" alt="Foto Budi" loading="lazy">
-                    <div>
-                        <h4>Budi Hartono</h4>
-                        <span>Karyawan Swasta</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <i class="fas fa-quote-left"></i>
-                <p>"Cetak brosur warna hasilnya tajam, tinta anti air. Toko strategis, mudah diakses. Pasti akan order lagi."</p>
-                <div class="testimonial-author">
-                    <img src="images/avatar3.jpg" alt="Foto Maya" loading="lazy">
-                    <div>
-                        <h4>Maya Siregar</h4>
-                        <span>Owner UMKM</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section">
-        <h2>Pertanyaan yang Sering Diajukan</h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Bagaimana cara mengirim file untuk dicetak?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Anda bisa mengirim file melalui WhatsApp ke nomor 0852-7793-0703. Format file yang diterima: PDF, Word, Excel, PowerPoint, JPG, PNG. Kami akan konfirmasi setelah file diterima.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Berapa lama proses cetak selesai?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Untuk dokumen biasa, proses cetak 1-3 jam. Untuk skripsi atau dokumen banyak, maksimal 1 hari. Tergantung antrian dan jumlah halaman.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Apakah bisa antar ke rumah?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Ya, kami melayani pengantaran via Gojek, Grab, atau Maxim. Ongkir ditanggung pelanggan. Anda juga bisa ambil langsung di toko.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Pembayaran melalui apa saja?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Kami menerima QRIS (semua e-wallet), transfer bank (BCA, Mandiri, BRI), dan tunai jika ambil di toko.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kalkulator Biaya -->
+    <!-- Section 2: Jilid Dokumen (Binding) -->
     <section class="section bg-light">
-        <h2>Kalkulator Biaya Cetak Dokumen Medan</h2>
-        <p>Hitung estimasi biaya <strong>print dokumen Medan</strong>, <strong>print PDF Medan</strong>, atau <strong>print skripsi Medan</strong> sebelum order.</p>
-        <div style="margin-top: 20px;">
-            <a href="cara-order.html#kalkulator" class="btn btn-header"><i class="fas fa-calculator"></i> Coba Kalkulator Print</a>
+        <h2>Jilid Dokumen</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-ring"></i>
+                <h3>Ring Plastik</h3>
+                <p class="price">Mulai Rp. 5.000</p>
+                <p class="desc">Jilid dengan ring plastik, mudah dibuka, cocok untuk makalah, laporan, dan presentasi.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-link"></i>
+                <h3>Kawat / Spiral</h3>
+                <p class="price">Mulai Rp. 10.000</p>
+                <p class="desc">Jilid kawat rapat, kokoh, ideal untuk buku catatan, kalender, atau dokumen tebal.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-wine-bottle"></i>
+                <h3>Lem Panas (Glue Binding)</h3>
+                <p class="price">Mulai Rp. 15000</p>
+                <p class="desc">Jilid lem panas untuk dokumen tebal, hasil rapi seperti softcover tanpa laminasi.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Keunggulan Layanan -->
+    <!-- Section 3: Foto & Desain -->
     <section class="section">
-        <h2>Mengapa Memilih MedanPrint.online?</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-microchip"></i></div>
-                <h4>Teknologi Cetak Profesional</h4>
-                <p>Inkjet pigment anti luntur & tahan air. Laserjet untuk hitam putih tajam & awet.</p>
+        <h2>Foto & Desain</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-camera-retro"></i>
+                <h3>Cetak & Edit Pas Foto</h3>
+                <p class="price">2x3, 3x4, 4x6</p>
+                <p class="desc">Ganti background, cetak dengan kertas foto luster berkualitas untuk keperluan lamaran, KTP, dll.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h4>Proses Cepat 1-3 Jam</h4>
-                <p>Cetak dokumen dalam hitungan jam. Siap ambil atau kirim via Gojek/Grab.</p>
+            <div class="card">
+                <i class="fas fa-map"></i>
+                <h3>Print Denah & Foto Besar</h3>
+                <p class="price">Ukuran A1 atau 24 Inch</p>
+                <p class="desc">Cetak denah, foto prewedding, dekorasi dengan kertas luster roll atau canvas. Hasil tajam.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h4>Kerahasiaan Terjamin</h4>
-                <p>File Anda aman, tidak disebarluaskan. Privasi pelanggan prioritas kami.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-store-alt"></i></div>
-                <h4>Fleksibel Pengambilan</h4>
-                <p>Ambil langsung di Jl. Kelambir Lima Medan, atau pesan ojek online.</p>
+            <div class="card">
+                <i class="fas fa-pen-fancy"></i>
+                <h3>Edit & Format Skripsi</h3>
+                <p class="price">Konsultasi gratis</p>
+                <p class="desc">Bantu edit format, daftar isi otomatis, nomor halaman, hingga pembuatan file presentasi.</p>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- Section 4: Stempel & Cutting Sticker -->
+    <section class="section bg-light">
+        <h2>Stempel & Cutting Sticker</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-stamp"></i>
+                <h3>Cetak Stempel Otomatis</h3>
+                <p class="price">Berbagai ukuran</p>
+                <p class="desc">Stempel otomatis untuk kantor, usaha, atau administrasi. Cepat dan rapi.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cut"></i>
+                <h3>Cutting Sticker</h3>
+                <p class="price">Dekorasi & kemasan</p>
+                <p class="desc">Pembuatan sticker sesuai bentuk dan ukuran untuk dekorasi, logo, atau kemasan produk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="cta">
-        <h2>Butuh Print Dokumen Online di Medan? Hubungi Sekarang!</h2>
-        <p>Upload file PDF atau dokumen lainnya. Konsultasi gratis via WhatsApp.</p>
-        <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+        <h2>Butuh layanan lain? Konsultasi gratis!</h2>
+        <p>Tim kami siap membantu Anda memilih layanan yang tepat.</p>
         <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Cara Order</a>
     </section>
 
     <!-- Footer -->
@@ -960,17 +494,17 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen Medan</strong>, <strong>print PDF Medan</strong>, <strong>print skripsi Medan</strong>, dan <strong>print warna Medan</strong>.</p>
+                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, jilid, pas foto, stempel, dan cutting sticker.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="layanan.html">Layanan Print</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="#testimoni">Testimoni</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -995,7 +529,7 @@
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Hamburger menu
+        // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         if (hamburger) {
@@ -1004,19 +538,16 @@
             });
         }
 
-        // FAQ accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
-
-        // Service Worker (opsional)
+        // Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
             });
         }
     </script>
