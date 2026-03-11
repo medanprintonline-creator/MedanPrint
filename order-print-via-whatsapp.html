@@ -89,16 +89,16 @@
         .page-header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px; /* disamakan dengan index (60px) */
             text-align: center;
         }
         .page-header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem; /* disesuaikan */
             margin-bottom: 10px;
             font-weight: 700;
         }
         .page-header p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             opacity: 0.95;
             max-width: 700px;
             margin: 0 auto;
@@ -312,6 +312,9 @@
                 top: 20px;
                 right: 20px;
             }
+            .page-header h1 {
+                font-size: 2rem;
+            }
             .article-content {
                 padding: 20px;
             }
@@ -324,11 +327,11 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar (konsisten dengan index: testimoni & FAQ ke halaman khusus) -->
     <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -336,8 +339,8 @@
             <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html">Cara Order</a></li>
             <li><a href="blog.html" class="active">Blog</a></li>
-            <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-            <li><a href="faq.html#faq">FAQ</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -364,7 +367,7 @@
                 <span><i class="fas fa-user"></i> Admin MedanPrint</span>
                 <span><i class="fas fa-tags"></i> Order, WhatsApp, Tutorial</span>
             </div>
-            <img src="images/blog-order-wa.jpg" alt="Ilustrasi order via WhatsApp" style="width:100%; border-radius:12px; margin-bottom:20px;">
+            <img src="images/blog-order-wa.jpg" alt="Ilustrasi order via WhatsApp" width="800" height="400" style="width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
             
             <p>Ingin mencetak dokumen tapi tidak punya printer? Atau malas keluar rumah? Tenang, MedanPrint menyediakan layanan print online yang bisa dipesan hanya lewat WhatsApp. Berikut panduan lengkapnya.</p>
 
@@ -415,7 +418,7 @@
         </article>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (konsisten dengan navbar) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -429,8 +432,8 @@
                     <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-                    <li><a href="faq.html#faq">FAQ</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -462,12 +465,12 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (dikomentari karena mungkin belum ada file sw.js)
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
