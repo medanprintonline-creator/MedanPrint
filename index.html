@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap</title>
-    <!-- Meta description disesuaikan (154 karakter) -->
+    <!-- Meta description (154 karakter) -->
     <meta name="description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/">
@@ -416,6 +416,21 @@
             color: #fbbf24;
             margin-top: 5px;
         }
+        /* ===== TOMBOL LIHAT SEMUA ===== */
+        .btn-view-all {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .btn-view-all .btn {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            box-shadow: none;
+        }
+        .btn-view-all .btn:hover {
+            background: #2563eb;
+            color: white;
+        }
         /* ===== FAQ ===== */
         .faq-grid {
             max-width: 800px;
@@ -699,7 +714,7 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar (dengan link ke testimoni.html dan faq.html) -->
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
@@ -711,8 +726,8 @@
             <li itemprop="name"><a href="layanan.html" itemprop="url">Layanan Print</a></li>
             <li itemprop="name"><a href="cara-order.html" itemprop="url">Cara Order</a></li>
             <li itemprop="name"><a href="blog.html" itemprop="url">Blog</a></li>
-            <li itemprop="name"><a href="#testimoni" itemprop="url">Testimoni</a></li>
-            <li itemprop="name"><a href="#faq" itemprop="url">FAQ</a></li>
+            <li itemprop="name"><a href="testimoni.html" itemprop="url">Testimoni</a></li>
+            <li itemprop="name"><a href="faq.html" itemprop="url">FAQ</a></li>
             <li itemprop="name"><a href="kontak.html" itemprop="url">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -860,7 +875,7 @@
         </div>
     </section>
 
-    <!-- PANDUAN POPULER (tautan diarahkan ke blog, dengan catatan "Coming Soon") -->
+    <!-- PANDUAN POPULER (tautan diarahkan ke blog) -->
     <section class="section bg-light">
         <h2>Panduan & Tips Print Dokumen</h2>
         <p>Pelajari cara mudah mengurus dokumen Anda sebelum order print online Medan.</p>
@@ -869,25 +884,25 @@
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Cara Print PDF dari HP</h3>
                 <p>Ingin mencetak file PDF langsung dari smartphone? Simak langkah-langkah praktisnya.</p>
-                <a href="blog.html#cara-print-pdf-dari-hp">Baca Panduan (Coming Soon) →</a>
+                <a href="blog.html#cara-print-pdf-dari-hp">Baca Panduan →</a>
             </div>
             <div class="guide-card">
                 <i class="fas fa-compress-alt"></i>
                 <h3>Cara Menggabungkan File PDF</h3>
                 <p>Gabungkan beberapa file PDF jadi satu sebelum dicetak. Ikuti tutorial sederhana ini.</p>
-                <a href="blog.html#gabungkan-pdf">Baca Panduan (Coming Soon) →</a>
+                <a href="blog.html#gabungkan-pdf">Baca Panduan →</a>
             </div>
             <div class="guide-card">
                 <i class="fas fa-scroll"></i>
                 <h3>Format Skripsi yang Benar</h3>
                 <p>Pastikan skripsimu sesuai standar sebelum dicetak. Cek panduan format dan margin.</p>
-                <a href="blog.html#format-skripsi">Baca Panduan (Coming Soon) →</a>
+                <a href="blog.html#format-skripsi">Baca Panduan →</a>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONI -->
-    <section id="testimoni" class="section">
+    <!-- TESTIMONI (cuplikan 3 terbaik) -->
+    <section class="section">
         <h2>Apa Kata Pelanggan Kami</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
@@ -933,10 +948,14 @@
                 </div>
             </div>
         </div>
+        <!-- Tombol Lihat Semua Testimoni -->
+        <div class="btn-view-all">
+            <a href="testimoni.html" class="btn"><i class="fas fa-comments"></i> Lihat Semua Testimoni</a>
+        </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section bg-light">
+    <!-- FAQ (cuplikan 4 pertanyaan) -->
+    <section class="section bg-light">
         <h2>Pertanyaan yang Sering Diajukan</h2>
         <div class="faq-grid">
             <div class="faq-item">
@@ -975,6 +994,10 @@
                     <p>Kami menerima QRIS (semua e-wallet), transfer bank (BRI, Mandiri, BTN), dan tunai jika ambil di toko.</p>
                 </div>
             </div>
+        </div>
+        <!-- Tombol Lihat Semua FAQ -->
+        <div class="btn-view-all">
+            <a href="faq.html" class="btn"><i class="fas fa-question-circle"></i> Lihat Semua FAQ</a>
         </div>
     </section>
 
@@ -1022,7 +1045,7 @@
         <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (dengan link ke testimoni.html dan faq.html) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1036,8 +1059,8 @@
                     <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="#testimoni">Testimoni</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
