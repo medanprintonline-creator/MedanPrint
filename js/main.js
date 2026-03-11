@@ -1,34 +1,43 @@
-// Toggle menu hamburger pada mobile
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
+    // Hamburger toggle
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik (mobile)
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
         });
     }
 
-    // Menutup menu ketika link diklik (untuk mobile)
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
-        });
-    });
+    // Set active menu berdasarkan URL
+    const currentPath = window.location.pathname;
+    let currentPage = currentPath.split('/').pop() || 'index.html';
+    if (currentPage === '' || currentPage.endsWith('/')) {
+        currentPage = 'index.html';
+    }
 
-    // Highlight menu aktif berdasarkan halaman
-    const currentPage = window.location.pathname.split('/').pop();
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
         const href = item.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        if (href === currentPage) {
             item.classList.add('active');
         } else {
             item.classList.remove('active');
         }
     });
 
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    // Set current year di footer (jika elemen ada)
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 });
