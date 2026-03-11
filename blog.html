@@ -25,7 +25,58 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Schema BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beranda",
+                "item": "https://medanprint.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://medanprint.online/blog.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema LocalBusiness (konsisten dengan index) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "MedanPrint.online",
+        "image": "https://medanprint.online/images/logo.png",
+        "url": "https://medanprint.online/",
+        "telephone": "+6285277930703",
+        "priceRange": "Rp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Kelambir Lima",
+            "addressLocality": "Medan",
+            "addressRegion": "Sumatera Utara",
+            "postalCode": "20374",
+            "addressCountry": "ID"
+        },
+        "description": "Jasa print online di Medan, melayani cetak dokumen, PDF, skripsi, jilid, pas foto, stempel, cutting sticker.",
+        "areaServed": "Medan",
+        "sameAs": [
+            "https://wa.me/6285277930703"
+        ]
+    }
+    </script>
+
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -370,21 +421,22 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" aria-label="Navigasi Utama">
+    <!-- Navbar (konsisten dengan index) -->
+    <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
-            <a href="index.html" title="MedanPrint - Print & Jilid Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print & Jilid Online Medan">
+            <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html">Layanan Print</a></li>
-            <li><a href="cara-order.html">Cara Order</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
-            <li><a href="testimoni.html">Testimoni</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li itemprop="name"><a href="index.html" itemprop="url">Beranda</a></li>
+            <li itemprop="name"><a href="layanan.html" itemprop="url">Layanan Print</a></li>
+            <li itemprop="name"><a href="cara-order.html" itemprop="url">Cara Order</a></li>
+            <li itemprop="name"><a href="blog.html" class="active" itemprop="url">Blog</a></li>
+            <!-- Testimoni dan FAQ diarahkan ke anchor di index, konsisten dengan halaman lain -->
+            <li itemprop="name"><a href="index.html#testimoni" itemprop="url">Testimoni</a></li>
+            <li itemprop="name"><a href="index.html#faq" itemprop="url">FAQ</a></li>
+            <li itemprop="name"><a href="kontak.html" itemprop="url">Kontak</a></li>
         </ul>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
@@ -397,7 +449,7 @@
         <p>Informasi seputar print online, jilid (ring/kawat/glue), pas foto, stempel, cutting sticker, cetak denah besar, dan layanan lainnya di Medan.</p>
     </div>
 
-    <!-- Breadcrumb -->
+    <!-- Breadcrumb dengan tautan (schema sudah di JSON-LD) -->
     <div class="breadcrumb">
         <a href="index.html">Beranda</a> &gt; <span>Blog</span>
     </div>
@@ -407,7 +459,7 @@
         <div class="blog-grid">
             <!-- Artikel 1 -->
             <article class="blog-card">
-                <img src="images/blog-print-pdf-hp.jpg" alt="Cara print PDF dari HP" loading="lazy">
+                <img src="images/blog-print-pdf-hp.jpg" alt="Cara print PDF dari HP" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 10 Maret 2025</span>
@@ -421,7 +473,7 @@
 
             <!-- Artikel 2 -->
             <article class="blog-card">
-                <img src="images/blog-gabung-pdf.jpg" alt="Cara menggabungkan file PDF" loading="lazy">
+                <img src="images/blog-gabung-pdf.jpg" alt="Cara menggabungkan file PDF" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 5 Maret 2025</span>
@@ -435,7 +487,7 @@
 
             <!-- Artikel 3 -->
             <article class="blog-card">
-                <img src="images/blog-format-skripsi.jpg" alt="Format skripsi yang benar" loading="lazy">
+                <img src="images/blog-format-skripsi.jpg" alt="Format skripsi yang benar" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 28 Februari 2025</span>
@@ -449,7 +501,7 @@
 
             <!-- Artikel 4 -->
             <article class="blog-card">
-                <img src="images/blog-print-warna.jpg" alt="Keunggulan print warna tahan air" loading="lazy">
+                <img src="images/blog-print-warna.jpg" alt="Keunggulan print warna tahan air" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 20 Februari 2025</span>
@@ -463,7 +515,7 @@
 
             <!-- Artikel 5 -->
             <article class="blog-card">
-                <img src="images/blog-order-wa.jpg" alt="Cara order print via WhatsApp" loading="lazy">
+                <img src="images/blog-order-wa.jpg" alt="Cara order print via WhatsApp" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 15 Februari 2025</span>
@@ -477,7 +529,7 @@
 
             <!-- Artikel 6 -->
             <article class="blog-card">
-                <img src="images/blog-jilid.jpg" alt="Jenis jilid ring, kawat, glue" loading="lazy">
+                <img src="images/blog-jilid.jpg" alt="Jenis jilid ring, kawat, glue" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 10 Februari 2025</span>
@@ -491,7 +543,7 @@
 
             <!-- Artikel 7 -->
             <article class="blog-card">
-                <img src="images/blog-pas-foto.jpg" alt="Cetak pas foto" loading="lazy">
+                <img src="images/blog-pas-foto.jpg" alt="Cetak pas foto" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 5 Februari 2025</span>
@@ -503,9 +555,9 @@
                 </div>
             </article>
 
-            <!-- Artikel 8 - CETAK STEMPEL (BARU) -->
+            <!-- Artikel 8 - CETAK STEMPEL -->
             <article class="blog-card">
-                <img src="images/blog-stempel.jpg" alt="Cetak stempel otomatis" loading="lazy">
+                <img src="images/blog-stempel.jpg" alt="Cetak stempel otomatis" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 1 Maret 2025</span>
@@ -517,9 +569,9 @@
                 </div>
             </article>
 
-            <!-- Artikel 9 - CETAK DENAH / FOTO BESAR (BARU) -->
+            <!-- Artikel 9 - CETAK DENAH / FOTO BESAR -->
             <article class="blog-card">
-                <img src="images/blog-denah.jpg" alt="Cetak denah dan foto besar" loading="lazy">
+                <img src="images/blog-denah.jpg" alt="Cetak denah dan foto besar" loading="lazy" width="320" height="200">
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><i class="fas fa-calendar-alt"></i> 25 Februari 2025</span>
@@ -549,22 +601,22 @@
         <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (konsisten dengan index) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia jasa print & jilid Medan online terpercaya. Layanan cetak dokumen, jilid (ring/kawat/glue), pas foto, stempel, cutting sticker, cetak denah besar, dan lainnya.</p>
+                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen</strong>, <strong>print PDF</strong>, <strong>skripsi</strong>, <strong>jilid</strong>, <strong>pas foto</strong>, <strong>stempel</strong>, <strong>cutting sticker</strong>.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="layanan.html">Layanan Print & Jilid</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html">Testimoni</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#testimoni">Testimoni</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -576,7 +628,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print & Jilid Online Medan. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print Online Medan. All rights reserved.</p>
         </div>
     </footer>
 
@@ -596,12 +648,12 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (nonaktifkan jika file tidak ada, sesuai index)
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
