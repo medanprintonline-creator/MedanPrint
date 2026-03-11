@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Print Online Medan | Tips & Panduan Cetak Dokumen</title>
+    <meta name="description" content="Temukan berbagai tips dan panduan print dokumen online di Medan. Cara print PDF dari HP, menggabungkan file, format skripsi, dan banyak lagi.">
+    <meta name="author" content="MedanPrint.online">
+    <link rel="canonical" href="https://medanprint.online/blog.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://medanprint.online/blog.html">
+    <meta property="og:title" content="Blog Print Online Medan | Tips & Panduan Cetak Dokumen">
+    <meta property="og:description" content="Temukan berbagai tips dan panduan print dokumen online di Medan. Cara print PDF dari HP, menggabungkan file, format skripsi, dan banyak lagi.">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog Print Online Medan | Tips & Panduan Cetak Dokumen">
+    <meta name="twitter:description" content="Temukan berbagai tips dan panduan print dokumen online di Medan. Cara print PDF dari HP, menggabungkan file, format skripsi, dan banyak lagi.">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS (bisa link ke file terpisah, tapi kita pakai internal untuk kemudahan) -->
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        .logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #2563eb;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* ===== BLOG SECTION ===== */
+        .section {
+            padding: 70px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(37,99,235,0.1);
+            border-color: #2563eb;
+        }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 25px;
+        }
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .blog-meta i {
+            color: #2563eb;
+            margin-right: 5px;
+        }
+        .blog-content h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        .blog-content h2 a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+        .blog-content h2 a:hover {
+            color: #2563eb;
+        }
+        .blog-excerpt {
+            color: #475569;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        .pagination a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .pagination a.active,
+        .pagination a:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+        .footer-section {
+            flex: 1 1 250px;
+        }
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        .footer-section p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section p a:hover {
+            color: #2563eb;
+        }
+        .footer-section p i {
+            width: 20px;
+            margin-right: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #1e293b;
+        }
+        /* ===== WHATSAPP FIXED ===== */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            z-index: 99;
+        }
+        .whatsapp i {
+            font-size: 1.5rem;
+        }
+        .whatsapp:hover {
+            transform: scale(1.05);
+            background: #20b859;
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li a {
+                margin: 0;
+                padding: 10px 0;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Navigasi Utama">
+        <div class="logo">
+            <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html">Layanan Print</a></li>
+            <li><a href="cara-order.html">Cara Order</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="testimoni.html#testimoni">Testimoni</a></li>
+            <li><a href="faq.html#faq">FAQ</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Blog MedanPrint – Tips & Panduan Print Dokumen</h1>
+        <p>Temukan berbagai artikel seputar print dokumen online di Medan, cara cetak PDF, print skripsi, dan tips lainnya.</p>
+    </div>
+
+    <!-- Blog Posts Section -->
+    <section class="section">
+        <div class="blog-grid">
+            <!-- Artikel 1 -->
+            <article class="blog-card">
+                <img src="images/blog-print-pdf-hp.jpg" alt="Cara print PDF dari HP" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 10 Maret 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="cara-print-pdf-dari-hp.html">Cara Print PDF dari HP dengan Mudah</a></h2>
+                    <p class="blog-excerpt">Ingin mencetak file PDF langsung dari smartphone? Simak langkah-langkah praktisnya tanpa perlu laptop.</p>
+                    <a href="cara-print-pdf-dari-hp.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artikel 2 -->
+            <article class="blog-card">
+                <img src="images/blog-gabung-pdf.jpg" alt="Cara menggabungkan file PDF" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 5 Maret 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="cara-menggabungkan-file-pdf.html">Cara Menggabungkan File PDF Jadi Satu</a></h2>
+                    <p class="blog-excerpt">Gabungkan beberapa file PDF menjadi satu dokumen sebelum dicetak. Ikuti tutorial sederhana ini.</p>
+                    <a href="cara-menggabungkan-file-pdf.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artikel 3 -->
+            <article class="blog-card">
+                <img src="images/blog-format-skripsi.jpg" alt="Format skripsi yang benar" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 28 Februari 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="format-skripsi-yang-benar.html">Format Skripsi yang Benar untuk Cetak</a></h2>
+                    <p class="blog-excerpt">Pastikan skripsimu sesuai standar sebelum dicetak. Cek panduan format, margin, dan jenis kertas.</p>
+                    <a href="format-skripsi-yang-benar.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artikel 4 -->
+            <article class="blog-card">
+                <img src="images/blog-print-warna.jpg" alt="Keunggulan print warna tahan air" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 20 Februari 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="keunggulan-print-warna-tahan-air.html">Keunggulan Print Warna Tahan Air di Medan</a></h2>
+                    <p class="blog-excerpt">Cetak brosur atau dokumen penting dengan tinta pigment anti air. Hasil lebih awet dan tidak mudah luntur.</p>
+                    <a href="keunggulan-print-warna-tahan-air.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artikel 5 -->
+            <article class="blog-card">
+                <img src="images/blog-order-wa.jpg" alt="Cara order print via WhatsApp" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 15 Februari 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="order-print-via-whatsapp.html">Cara Order Print Online via WhatsApp</a></h2>
+                    <p class="blog-excerpt">Panduan mudah memesan jasa print online Medan cukup dari rumah. Upload file, bayar, dan tunggu antar.</p>
+                    <a href="order-print-via-whatsapp.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Artikel 6 -->
+            <article class="blog-card">
+                <img src="images/blog-jilid-skripsi.jpg" alt="Jenis jilid skripsi" loading="lazy">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar-alt"></i> 10 Februari 2025</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <h2><a href="jenis-jilid-skripsi.html">Macam-Macam Jilid Skripsi: Hardcover vs Softcover</a></h2>
+                    <p class="blog-excerpt">Kenali perbedaan jilid hardcover dan softcover, serta pilih yang paling sesuai untuk tugas akhirmu.</p>
+                    <a href="jenis-jilid-skripsi.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" style="background: linear-gradient(135deg, #1e40af, #0e7490); color: white; padding: 60px 20px; text-align: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Butuh Bantuan Print Dokumen?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Konsultasi gratis via WhatsApp, tim kami siap membantu.</p>
+        <a class="btn" href="cara-order.html" style="background: white; color: #1e293b; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 10px;"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+        <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer" style="background: #25D366; color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 10px;"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MedanPrint.online</h4>
+                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
+                    <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimoni.html#testimoni">Testimoni</a></li>
+                    <li><a href="faq.html#faq">FAQ</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p><a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 0852-7793-0703</a></p>
+                <p><a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> medanprintonline@gmail.com</a></p>
+                <p><a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print Online Medan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Tombol WhatsApp Fixed -->
+    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+
+    <script>
+        // Tahun otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
