@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap</title>
-    <meta name="description" content="MedanPrint – layanan print online Medan. Cetak dokumen, PDF, skripsi, makalah. Plus jilid (ring/kawat/glue), pas foto, denah A1, stempel, cutting sticker. Harga murah, antar via Gojek/Grab.">
+    <!-- Meta description diperpendek (154 karakter) -->
+    <meta name="description" content="MedanPrint: print dokumen online Medan cepat & murah. Cetak PDF, skripsi, makalah, jilid, pas foto, stempel, cutting sticker. Antar Gojek/Grab.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/">
     <meta name="robots" content="index, follow">
@@ -13,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://medanprint.online/">
     <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
-    <meta property="og:description" content="MedanPrint – layanan print online Medan. Cetak dokumen, PDF, skripsi, makalah. Plus jilid (ring/kawat/glue), pas foto, denah A1, stempel, cutting sticker. Harga murah, antar via Gojek/Grab.">
+    <meta property="og:description" content="MedanPrint: print dokumen online Medan cepat & murah. Cetak PDF, skripsi, makalah, jilid, pas foto, stempel, cutting sticker. Antar Gojek/Grab.">
     <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
-    <meta name="twitter:description" content="MedanPrint – layanan print online Medan. Cetak dokumen, PDF, skripsi, makalah. Plus jilid (ring/kawat/glue), pas foto, denah A1, stempel, cutting sticker.">
+    <meta name="twitter:description" content="MedanPrint: print dokumen online Medan cepat & murah. Cetak PDF, skripsi, makalah, jilid, pas foto, stempel, cutting sticker. Antar Gojek/Grab.">
     <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Font Awesome -->
@@ -117,26 +118,45 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background: #f1f5f9;
+            padding: 10px 5%;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #475569;
+        }
         /* ===== HEADER ===== */
         header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 80px 20px;
+            padding: 40px 20px; /* diperpendek dari 80px */
             text-align: center;
         }
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem; /* sedikit lebih kecil */
+            margin-bottom: 10px;
             font-weight: 700;
         }
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        header .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .page-header {
             background: linear-gradient(135deg, #1e40af, #0e7490);
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
         .page-header h1 {
             font-size: 2.5rem;
@@ -146,7 +166,7 @@
         .btn {
             display: inline-block;
             margin: 10px;
-            padding: 14px 32px;
+            padding: 12px 28px; /* sedikit lebih kecil */
             background: #22c55e;
             color: white;
             border-radius: 50px;
@@ -586,7 +606,7 @@
         }
         .delivery-info {
             font-size: 0.9rem;
-            margin-top: 15px;
+            margin-top: 10px;
             opacity: 0.8;
             letter-spacing: 0.3px;
         }
@@ -683,7 +703,7 @@
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -700,15 +720,26 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="index.html" itemprop="item"><span itemprop="name">Beranda</span></a>
+            <meta itemprop="position" content="1" />
+        </span>
+        <span> › </span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Print Dokumen Online Medan</span>
+            <meta itemprop="position" content="2" />
+        </span>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-content">
             <h1><i class="fas fa-print"></i> Print Dokumen Online di Medan</h1>
             <p class="tagline">
-                Print dokumen online di <strong>Medan</strong> cepat dan terjangkau. 
-                Layanan <strong>cetak PDF</strong>, <strong>print skripsi</strong>, 
-                <strong>jilid (ring/kawat/glue)</strong>, <strong>pas foto</strong>, 
-                <strong>denah besar</strong>, <strong>stempel</strong>, dan <strong>cutting sticker</strong>.
+                Cetak PDF, skripsi, makalah, jilid (ring/kawat/lem), pas foto, stempel, cutting sticker. 
+                Harga bersahabat, antar Gojek/Grab.
             </p>
             <div class="cta-buttons">
                 <a class="btn btn-header" href="cara-order.html">
@@ -830,7 +861,7 @@
         </div>
     </section>
 
-    <!-- PANDUAN POPULER -->
+    <!-- PANDUAN POPULER (tautan diarahkan ke blog, dengan catatan "Coming Soon") -->
     <section class="section bg-light">
         <h2>Panduan & Tips Print Dokumen</h2>
         <p>Pelajari cara mudah mengurus dokumen Anda sebelum order print online Medan.</p>
@@ -839,19 +870,19 @@
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Cara Print PDF dari HP</h3>
                 <p>Ingin mencetak file PDF langsung dari smartphone? Simak langkah-langkah praktisnya.</p>
-                <a href="/cara-print-pdf-dari-hp">Baca Panduan →</a>
+                <a href="blog.html#cara-print-pdf-dari-hp">Baca Panduan (Coming Soon) →</a>
             </div>
             <div class="guide-card">
                 <i class="fas fa-compress-alt"></i>
                 <h3>Cara Menggabungkan File PDF</h3>
                 <p>Gabungkan beberapa file PDF jadi satu sebelum dicetak. Ikuti tutorial sederhana ini.</p>
-                <a href="/cara-menggabungkan-file-pdf">Baca Panduan →</a>
+                <a href="blog.html#gabungkan-pdf">Baca Panduan (Coming Soon) →</a>
             </div>
             <div class="guide-card">
                 <i class="fas fa-scroll"></i>
                 <h3>Format Skripsi yang Benar</h3>
                 <p>Pastikan skripsimu sesuai standar sebelum dicetak. Cek panduan format dan margin.</p>
-                <a href="/format-skripsi-yang-benar">Baca Panduan →</a>
+                <a href="blog.html#format-skripsi">Baca Panduan (Coming Soon) →</a>
             </div>
         </div>
     </section>
@@ -864,7 +895,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Cetak skripsi cepat banget, cuma 2 jam sudah selesai. Hasil rapi dan jilidnya kuat. Recommended!"</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar1.jpg" alt="Foto Anita" loading="lazy">
+                    <img src="images/avatar1.jpg" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Anita Sari</h4>
                         <span>Mahasiswi USU</span>
@@ -878,7 +909,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Pelayanan ramah, harga bersahabat. File PDF langsung diproses tanpa ribet. Sudah 3 kali order, selalu puas."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar2.jpg" alt="Foto Budi" loading="lazy">
+                    <img src="images/avatar2.jpg" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Budi Hartono</h4>
                         <span>Karyawan Swasta</span>
@@ -892,7 +923,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Cetak brosur warna hasilnya tajam, tinta anti air. Toko strategis, mudah diakses. Pasti akan order lagi."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar3.jpg" alt="Foto Maya" loading="lazy">
+                    <img src="images/avatar3.jpg" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Maya Siregar</h4>
                         <span>Owner UMKM</span>
@@ -1050,12 +1081,12 @@
             });
         });
 
-        // Service Worker (opsional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (opsional) - dinonaktifkan sementara jika file tidak ada
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
