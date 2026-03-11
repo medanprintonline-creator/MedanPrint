@@ -3,16 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak - MedanPrint.online</title>
+    <title>Kontak MedanPrint | Hubungi Jasa Print Online Medan</title>
+    <meta name="description" content="Hubungi MedanPrint untuk konsultasi, order, atau pertanyaan seputar print online di Medan. Tersedia WhatsApp, email, dan alamat toko.">
+    <meta name="author" content="MedanPrint.online">
+    <link rel="canonical" href="https://medanprint.online/kontak.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://medanprint.online/kontak.html">
+    <meta property="og:title" content="Kontak MedanPrint | Hubungi Jasa Print Online Medan">
+    <meta property="og:description" content="Hubungi MedanPrint untuk konsultasi, order, atau pertanyaan seputar print online di Medan. Tersedia WhatsApp, email, dan alamat toko.">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kontak MedanPrint | Hubungi Jasa Print Online Medan">
+    <meta name="twitter:description" content="Hubungi MedanPrint untuk konsultasi, order, atau pertanyaan seputar print online di Medan.">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- CSS Eksternal -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <!-- Manifest untuk PWA -->
+
+    <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
+
+    <!-- Schema LocalBusiness (sama dengan index) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "MedanPrint.online",
+        "image": "https://medanprint.online/images/logo.png",
+        "url": "https://medanprint.online/",
+        "telephone": "+6285277930703",
+        "priceRange": "Rp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Kelambir Lima",
+            "addressLocality": "Medan",
+            "addressRegion": "Sumatera Utara",
+            "postalCode": "20374",
+            "addressCountry": "ID"
+        },
+        "description": "Jasa print online di Medan, melayani cetak dokumen, PDF, skripsi, dan kebutuhan cetak lainnya.",
+        "areaServed": "Medan",
+        "sameAs": [
+            "https://wa.me/6285277930703"
+        ]
+    }
+    </script>
+
     <style>
         /* Penyesuaian form agar lebih rapi */
         .contact-form form {
@@ -30,20 +78,67 @@
         .btn-wa:hover {
             background: #20b859;
         }
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #64748b;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li a {
+                margin: 0;
+                padding: 10px 0;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="MedanPrint.online">
+            <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
             </a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html">Layanan</a></li>
+            <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html">Cara Order</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="kontak.html" class="active">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -53,9 +148,14 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <h1>Kontak Kami</h1>
-        <p>Hubungi kami untuk informasi lebih lanjut</p>
+        <h1>Kontak MedanPrint</h1>
+        <p>Hubungi kami untuk konsultasi, order, atau pertanyaan seputar print online di Medan</p>
     </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a> &gt; <span>Kontak</span>
+    </div>
 
     <!-- Section Kontak -->
     <section class="section">
@@ -111,49 +211,48 @@
         </div>
     </section>
 
+    <!-- CTA -->
+    <section class="cta" style="background: linear-gradient(135deg, #1e40af, #0e7490); color: white; padding: 60px 20px; text-align: center; margin-top: 40px;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Butuh Bantuan Langsung?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Chat admin sekarang untuk respons cepat.</p>
+        <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer" style="background: #25D366; color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 10px;"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <a class="btn" href="cara-order.html" style="background: white; color: #1e293b; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 10px;"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Solusi cetak online mudah, cepat, dan terpercaya di Medan.</p>
+                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Kontak</h4>
-                <p>
-                    <a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> 0852-7793-0703
-                    </a>
-                </p>
-                <p>
-                    <a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-envelope"></i> medanprintonline@gmail.com
-                    </a>
-                </p>
-                <p>
-                    <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374
-                    </a>
-                </p>
+                <p><a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 0852-7793-0703</a></p>
+                <p><a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> medanprintonline@gmail.com</a></p>
+                <p><a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> MedanPrint.online. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print Online Medan. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Tombol WhatsApp Fixed -->
     <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Chat
+        <i class="fab fa-whatsapp"></i> Chat WA
     </a>
 
     <script>
@@ -164,17 +263,26 @@
             const email = document.getElementById('email').value.trim();
             const pesan = document.getElementById('pesan').value.trim();
 
-            let text = `Halo, saya ${nama}`;
+            let text = `Halo MedanPrint, saya ${nama}`;
             if (email) text += ` (${email})`;
             text += `.%0A%0APesan: ${pesan}`;
 
-            window.open(`https://wa.me/6285277930703?text=${encodeURIComponent(text)}`, '_blank');
+            window.open(`https://wa.me/6285277930703?text=${text}`, '_blank');
         });
 
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Registrasi Service Worker untuk PWA
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Service Worker untuk PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
