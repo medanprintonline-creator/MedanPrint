@@ -89,7 +89,7 @@
         .page-header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px; /* disamakan dengan index (60px) */
             text-align: center;
         }
         .page-header h1 {
@@ -321,14 +321,37 @@
                 font-size: 1.8rem;
             }
         }
+        /* ===== TABLE STYLE ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        th {
+            background: #2563eb;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar (dengan link ke testimoni.html dan faq.html tanpa anchor) -->
     <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -336,8 +359,8 @@
             <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html">Cara Order</a></li>
             <li><a href="blog.html" class="active">Blog</a></li>
-            <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-            <li><a href="faq.html#faq">FAQ</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -364,7 +387,7 @@
                 <span><i class="fas fa-user"></i> Admin MedanPrint</span>
                 <span><i class="fas fa-tags"></i> Print Warna, Tinta Pigment, Brosur</span>
             </div>
-            <img src="images/blog-print-warna.jpg" alt="Contoh hasil print warna tahan air" style="width:100%; border-radius:12px; margin-bottom:20px;">
+            <img src="images/blog-print-warna.jpg" alt="Contoh hasil print warna tahan air" width="800" height="400" style="width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
             
             <p>Pernah mengalami cetak warna luntur terkena air? Atau hasil print memudar setelah beberapa minggu? Itu mungkin karena menggunakan tinta dye biasa. Kini MedanPrint menggunakan teknologi tinta pigment yang menawarkan banyak keunggulan. Simak selengkapnya di artikel ini.</p>
 
@@ -390,31 +413,31 @@
             </ul>
 
             <h2>Perbandingan Tinta Dye vs Pigment</h2>
-            <table style="width:100%; border-collapse:collapse; margin:20px 0;">
-                <tr style="background:#2563eb; color:white;">
-                    <th style="padding:10px; border:1px solid #ddd;">Karakteristik</th>
-                    <th style="padding:10px; border:1px solid #ddd;">Tinta Dye</th>
-                    <th style="padding:10px; border:1px solid #ddd;">Tinta Pigment</th>
+            <table>
+                <tr>
+                    <th>Karakteristik</th>
+                    <th>Tinta Dye</th>
+                    <th>Tinta Pigment</th>
                 </tr>
                 <tr>
-                    <td style="padding:8px; border:1px solid #ddd;">Ketahanan Air</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Rendah</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Tinggi</td>
+                    <td>Ketahanan Air</td>
+                    <td>Rendah</td>
+                    <td>Tinggi</td>
                 </tr>
                 <tr>
-                    <td style="padding:8px; border:1px solid #ddd;">Ketahanan Pudar</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Cepat pudar</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Tahan lama</td>
+                    <td>Ketahanan Pudar</td>
+                    <td>Cepat pudar</td>
+                    <td>Tahan lama</td>
                 </tr>
                 <tr>
-                    <td style="padding:8px; border:1px solid #ddd;">Kecerahan Warna</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Cerah</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Tajam dan solid</td>
+                    <td>Kecerahan Warna</td>
+                    <td>Cerah</td>
+                    <td>Tajam dan solid</td>
                 </tr>
                 <tr>
-                    <td style="padding:8px; border:1px solid #ddd;">Harga</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Lebih murah</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Sedikit lebih mahal</td>
+                    <td>Harga</td>
+                    <td>Lebih murah</td>
+                    <td>Sedikit lebih mahal</td>
                 </tr>
             </table>
 
@@ -432,12 +455,12 @@
         </article>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (dengan link ke testimoni.html dan faq.html tanpa anchor) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
+                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen</strong>, <strong>print PDF</strong>, <strong>skripsi</strong>, <strong>jilid</strong>, <strong>pas foto</strong>, <strong>stempel</strong>, <strong>cutting sticker</strong>.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
@@ -446,8 +469,8 @@
                     <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-                    <li><a href="faq.html#faq">FAQ</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -479,12 +502,12 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (nonaktifkan jika file tidak ada, sesuai index)
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
