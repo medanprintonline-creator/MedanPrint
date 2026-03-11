@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Pertanyaan Seputar Print Online Medan | MedanPrint</title>
+    <meta name="description" content="Temukan jawaban atas pertanyaan umum seputar layanan print online MedanPrint: cara order, harga, pembayaran, pengiriman, dan lainnya.">
+    <meta name="author" content="MedanPrint.online">
+    <link rel="canonical" href="https://medanprint.online/faq.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://medanprint.online/faq.html">
+    <meta property="og:title" content="FAQ - Pertanyaan Seputar Print Online Medan | MedanPrint">
+    <meta property="og:description" content="Temukan jawaban atas pertanyaan umum seputar layanan print online MedanPrint: cara order, harga, pembayaran, pengiriman, dan lainnya.">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FAQ - Pertanyaan Seputar Print Online Medan | MedanPrint">
+    <meta name="twitter:description" content="Temukan jawaban atas pertanyaan umum seputar layanan print online MedanPrint.">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        .logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #2563eb;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #64748b;
+        }
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            max-width: 900px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+        }
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .faq-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 5px 15px rgba(37,99,235,0.1);
+        }
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #0f172a;
+        }
+        .faq-question i {
+            color: #2563eb;
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f8fafc;
+            color: #334155;
+            border-top: 0 solid #e2e8f0;
+        }
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 500px; /* cukup besar untuk menampung jawaban */
+            border-top-width: 1px;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        /* ===== CTA ===== */
+        .cta {
+            background: linear-gradient(135deg, #1e40af, #0e7490);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .cta .btn {
+            background: white;
+            color: #1e293b;
+            margin: 5px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .cta .btn i {
+            margin-right: 8px;
+        }
+        .cta .btn:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+        .cta .btn2 {
+            background: #25D366;
+            color: white;
+        }
+        .cta .btn2:hover {
+            background: #20b859;
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+        .footer-section {
+            flex: 1 1 250px;
+        }
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        .footer-section p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section p a:hover {
+            color: #2563eb;
+        }
+        .footer-section p i {
+            width: 20px;
+            margin-right: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #1e293b;
+        }
+        /* ===== WHATSAPP FIXED ===== */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            z-index: 99;
+        }
+        .whatsapp i {
+            font-size: 1.5rem;
+        }
+        .whatsapp:hover {
+            transform: scale(1.05);
+            background: #20b859;
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li a {
+                margin: 0;
+                padding: 10px 0;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <!-- Schema FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Bagaimana cara order print online di MedanPrint?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Caranya mudah: 1. Upload file PDF di halaman Cara Order. 2. Hitung biaya dengan kalkulator. 3. Konfirmasi via WhatsApp dengan mengirim file. 4. Bayar via QRIS. 5. Dokumen siap diambil atau diantar."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "File apa saja yang bisa dicetak?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kami menerima file PDF, Word (doc/docx), Excel (xls/xlsx), PowerPoint (ppt/pptx), JPG, dan PNG. Untuk hasil terbaik, sarankan dalam format PDF."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Berapa lama proses cetak selesai?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Untuk dokumen biasa, proses cetak 1-3 jam. Untuk skripsi atau dokumen banyak, maksimal 1 hari. Tergantung antrian dan jumlah halaman."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Apakah bisa antar ke rumah?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ya, kami melayani pengantaran via Gojek, Grab, atau Maxim. Ongkir ditanggung pelanggan. Anda juga bisa ambil langsung di toko Jl. Kelambir Lima Medan."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Pembayaran melalui apa saja?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kami menerima QRIS (semua e-wallet seperti OVO, GoPay, Dana, ShopeePay, LinkAja), transfer bank (BCA, Mandiri, BRI), dan tunai jika ambil di toko."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Apakah ada minimal order?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tidak ada minimal order. Anda bisa mencetak 1 lembar pun kami layani."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Bagaimana jika saya salah upload file?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Segera hubungi admin via WhatsApp sebelum proses cetak dimulai. Kami akan batalkan dan Anda bisa upload ulang file yang benar."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Navigasi Utama">
+        <div class="logo">
+            <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html">Layanan Print</a></li>
+            <li><a href="cara-order.html">Cara Order</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Pertanyaan yang Sering Diajukan (FAQ)</h1>
+        <p>Temukan jawaban atas berbagai pertanyaan seputar layanan print online MedanPrint.</p>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a> &gt; <span>FAQ</span>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-grid" id="faqGrid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Bagaimana cara order print online di MedanPrint?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Caranya mudah:</p>
+                    <ol>
+                        <li>Upload file PDF di halaman <a href="cara-order.html">Cara Order</a>.</li>
+                        <li>Hitung biaya dengan kalkulator interaktif.</li>
+                        <li>Konfirmasi via WhatsApp dengan mengirim file.</li>
+                        <li>Bayar via QRIS atau transfer bank.</li>
+                        <li>Dokumen siap diambil atau diantar via Gojek/Grab.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>File apa saja yang bisa dicetak?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Kami menerima file dalam format: <strong>PDF, Word (doc/docx), Excel (xls/xlsx), PowerPoint (ppt/pptx), JPG, dan PNG</strong>. Untuk hasil terbaik, sarankan dalam format PDF karena tata letak akan lebih terjaga.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Berapa lama proses cetak selesai?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Untuk dokumen biasa (hingga 50 halaman), proses cetak biasanya selesai dalam <strong>1-3 jam</strong>. Untuk skripsi atau dokumen dengan jumlah banyak, maksimal <strong>1 hari</strong>. Waktu tergantung antrian dan jumlah halaman.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Apakah bisa antar ke rumah?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ya, kami melayani pengantaran via <strong>Gojek, Grab, atau Maxim</strong>. Ongkos kirim ditanggung pelanggan. Anda juga bisa ambil langsung di toko kami di <strong>Jl. Kelambir Lima Medan</strong>.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Pembayaran melalui apa saja?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Kami menerima pembayaran melalui:</p>
+                    <ul>
+                        <li><strong>QRIS</strong> (semua e-wallet: OVO, GoPay, Dana, ShopeePay, LinkAja, dll.)</li>
+                        <li><strong>Transfer bank</strong> (BCA, Mandiri, BRI)</li>
+                        <li><strong>Tunai</strong> jika mengambil langsung di toko</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Apakah ada minimal order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tidak ada minimal order. Anda bisa mencetak 1 lembar pun kami layani dengan senang hati.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Bagaimana jika saya salah upload file?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Segera hubungi admin via WhatsApp sebelum proses cetak dimulai. Kami akan batalkan pesanan dan Anda bisa upload ulang file yang benar. Jangan khawatir, kami akan bantu.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Apakah ada jasa jilid skripsi?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ya, kami melayani jilid skripsi <strong>softcover (laminasi panas)</strong> dan <strong>hardcover (keras)</strong>. Bisa juga kombinasi cetak hitam putih dan warna dalam satu dokumen.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Bagaimana cara menghitung biaya cetak?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Gunakan kalkulator di halaman <a href="cara-order.html#kalkulator">Cara Order</a>. Cukup masukkan jumlah halaman, pilih jenis cetak, ukuran kertas, dan lainnya. Estimasi biaya akan muncul otomatis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Masih Punya Pertanyaan Lain?</h2>
+        <p>Hubungi admin kami via WhatsApp untuk konsultasi gratis.</p>
+        <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MedanPrint.online</h4>
+                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
+                    <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p><a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 0852-7793-0703</a></p>
+                <p><a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> medanprintonline@gmail.com</a></p>
+                <p><a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print Online Medan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Tombol WhatsApp Fixed -->
+    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+
+    <script>
+        // Tahun otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Accordion FAQ
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Tutup yang lain jika ingin (opsional, bisa dibiarkan multiple open)
+                // Untuk pengalaman lebih baik, kita izinkan multiple open
+                item.classList.toggle('active');
+            });
+        });
+
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
