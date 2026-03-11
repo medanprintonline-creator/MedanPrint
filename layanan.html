@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan Lengkap Print & Jilid Medan | Cetak Dokumen, Pas Foto, Stempel | MedanPrint</title>
-    <meta name="description" content="Layanan lengkap MedanPrint: cetak hitam putih/warna, skripsi, jilid (ring/kawat/glue), pas foto, denah A1, edit skripsi, stempel, cutting sticker. Harga murah, cepat, antar Gojek/Grab.">
+    <!-- Meta description lebih menarik dan mengandung kata kunci -->
+    <meta name="description" content="Layanan cetak lengkap di Medan: print hitam putih & warna, skripsi, jilid ring/kawat/lem, pas foto, denah A1, stempel, cutting sticker. Harga murah, cepat, antar Gojek/Grab.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/layanan.html">
     <meta name="robots" content="index, follow">
@@ -13,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://medanprint.online/layanan.html">
     <meta property="og:title" content="Layanan Lengkap Print & Jilid Medan | MedanPrint">
-    <meta property="og:description" content="Layanan lengkap MedanPrint: cetak hitam putih/warna, skripsi, jilid (ring/kawat/glue), pas foto, denah A1, edit skripsi, stempel, cutting sticker.">
+    <meta property="og:description" content="Layanan cetak lengkap di Medan: print hitam putih & warna, skripsi, jilid ring/kawat/lem, pas foto, denah A1, stempel, cutting sticker.">
     <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Layanan Lengkap Print & Jilid Medan | MedanPrint">
-    <meta name="twitter:description" content="Layanan lengkap MedanPrint: cetak hitam putih/warna, skripsi, jilid, pas foto, denah, stempel, cutting sticker.">
+    <meta name="twitter:description" content="Layanan cetak lengkap di Medan: print hitam putih & warna, skripsi, jilid ring/kawat/lem, pas foto, denah A1, stempel, cutting sticker.">
     <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Font Awesome -->
@@ -66,6 +67,22 @@
                 font-size: 2rem;
             }
         }
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f1f5f9;
+            padding: 10px 5%;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #475569;
+        }
     </style>
 </head>
 <body>
@@ -73,7 +90,7 @@
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -90,84 +107,113 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb dengan schema -->
+    <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="index.html" itemprop="item"><span itemprop="name">Beranda</span></a>
+            <meta itemprop="position" content="1">
+        </span>
+        <span> › </span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Layanan Print</span>
+            <meta itemprop="position" content="2">
+        </span>
+    </div>
+
     <!-- Page Header -->
     <header class="page-header">
         <h1>Layanan Print & Jilid Medan</h1>
         <p>Cetak dokumen, foto, stempel, jilid, dan berbagai kebutuhan lainnya. Cepat, murah, berkualitas.</p>
     </header>
 
-    <!-- Daftar Layanan -->
-    <section class="section">
+    <!-- Daftar Layanan dengan schema ItemList -->
+    <section class="section" itemscope itemtype="https://schema.org/ItemList">
+        <h2 itemprop="name">Layanan Unggulan MedanPrint</h2>
+        <meta itemprop="numberOfItems" content="10">
         <div class="cards">
             <!-- Print Hitam Putih -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="1">
                 <i class="fas fa-file-alt"></i>
-                <h3>Print Hitam Putih</h3>
-                <p class="price">Mulai Rp300/lembar</p>
-                <p class="desc">Dokumen biasa, arsip, laporan. Printer laserjet untuk hasil tajam dan awet.</p>
+                <h3 itemprop="name">Print Hitam Putih</h3>
+                <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="300">Mulai Rp300/lembar</span>
+                </p>
+                <p class="desc" itemprop="description">Dokumen biasa, arsip, laporan. Printer laserjet untuk hasil tajam dan awet.</p>
             </div>
             <!-- Print Warna -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="2">
                 <i class="fas fa-palette"></i>
-                <h3>Print Warna</h3>
-                <p class="price">Mulai Rp1.000/lembar</p>
-                <p class="desc">Tinta pigment anti luntur, warna cerah. Cocok untuk brosur, poster, foto.</p>
+                <h3 itemprop="name">Print Warna</h3>
+                <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="1000">Mulai Rp1.000/lembar</span>
+                </p>
+                <p class="desc" itemprop="description">Tinta pigment anti luntur, warna cerah. Cocok untuk brosur, poster, foto.</p>
             </div>
             <!-- Print Skripsi & Makalah -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="3">
                 <i class="fas fa-graduation-cap"></i>
-                <h3>Print Skripsi & Makalah</h3>
+                <h3 itemprop="name">Print Skripsi & Makalah</h3>
                 <p class="price">Harga khusus</p>
-                <p class="desc">Cetak + jilid (ring/kawat/glue). Konsultasi format dan gratis bantu edit.</p>
+                <p class="desc" itemprop="description">Cetak + jilid (ring/kawat/glue). Konsultasi format dan gratis bantu edit.</p>
             </div>
             <!-- Jilid Dokumen -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="4">
                 <i class="fas fa-book"></i>
-                <h3>Jilid Dokumen</h3>
+                <h3 itemprop="name">Jilid Dokumen</h3>
                 <p class="price">Ring, Kawat, Glue</p>
-                <p class="desc">Melayani jilid makalah, ring plastik, kawat, dan glue binding untuk berbagai kebutuhan.</p>
+                <p class="desc" itemprop="description">Melayani jilid makalah, ring plastik, kawat, dan glue binding untuk berbagai kebutuhan.</p>
             </div>
             <!-- Cetak & Edit Pas Foto -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="5">
                 <i class="fas fa-camera-retro"></i>
-                <h3>Cetak & Edit Pas Foto</h3>
+                <h3 itemprop="name">Cetak & Edit Pas Foto</h3>
                 <p class="price">2x3, 3x4, 4x6</p>
-                <p class="desc">Ganti background, cetak dengan kertas foto luster berkualitas. Siap untuk lamaran, KTP, dll.</p>
+                <p class="desc" itemprop="description">Ganti background, cetak dengan kertas foto luster berkualitas. Siap untuk lamaran, KTP, dll.</p>
             </div>
             <!-- Print Denah & Foto Besar -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="6">
                 <i class="fas fa-map"></i>
-                <h3>Print Denah & Foto Besar</h3>
+                <h3 itemprop="name">Print Denah & Foto Besar</h3>
                 <p class="price">Ukuran A1, 24 inch</p>
-                <p class="desc">Cetak denah, foto prewedding, dekorasi dengan kertas luster roll atau canvas. Hasil tajam.</p>
+                <p class="desc" itemprop="description">Cetak denah, foto prewedding, dekorasi dengan kertas luster roll atau canvas. Hasil tajam.</p>
             </div>
             <!-- Edit & Format Skripsi -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="7">
                 <i class="fas fa-pen-fancy"></i>
-                <h3>Edit & Format Skripsi</h3>
+                <h3 itemprop="name">Edit & Format Skripsi</h3>
                 <p class="price">Konsultasi gratis</p>
-                <p class="desc">Bantu edit format, daftar isi otomatis, nomor halaman, hingga pembuatan file presentasi.</p>
+                <p class="desc" itemprop="description">Bantu edit format, daftar isi otomatis, nomor halaman, hingga pembuatan file presentasi.</p>
             </div>
             <!-- Cetak Stempel Otomatis -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="8">
                 <i class="fas fa-stamp"></i>
-                <h3>Cetak Stempel Otomatis</h3>
+                <h3 itemprop="name">Cetak Stempel Otomatis</h3>
                 <p class="price">Berbagai ukuran</p>
-                <p class="desc">Stempel otomatis untuk kantor, usaha, administrasi. Cepat dan rapi.</p>
+                <p class="desc" itemprop="description">Stempel otomatis untuk kantor, usaha, administrasi. Cepat dan rapi.</p>
             </div>
             <!-- Cutting Sticker -->
-            <div class="card">
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="9">
                 <i class="fas fa-cut"></i>
-                <h3>Cutting Sticker</h3>
+                <h3 itemprop="name">Cutting Sticker</h3>
                 <p class="price">Dekorasi & kemasan</p>
-                <p class="desc">Pembuatan sticker sesuai bentuk dan ukuran untuk dekorasi, logo, atau kemasan produk.</p>
+                <p class="desc" itemprop="description">Pembuatan sticker sesuai bentuk dan ukuran untuk dekorasi, logo, atau kemasan produk.</p>
             </div>
-            <!-- ID Card & Kartu Nama (opsional, bisa dipertahankan) -->
-            <div class="card">
+            <!-- ID Card & Kartu Nama -->
+            <div class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="position" content="10">
                 <i class="fas fa-id-card"></i>
-                <h3>ID Card & Kartu Nama</h3>
+                <h3 itemprop="name">ID Card & Kartu Nama</h3>
                 <p class="price">Cetak tajam & awet</p>
-                <p class="desc">Kartu nama, ID card, gantungan kunci. Bahan berkualitas, desain bisa dibantu.</p>
+                <p class="desc" itemprop="description">Kartu nama, ID card, gantungan kunci. Bahan berkualitas, desain bisa dibantu.</p>
             </div>
         </div>
     </section>
@@ -227,12 +273,12 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (nonaktifkan jika file tidak ada)
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
