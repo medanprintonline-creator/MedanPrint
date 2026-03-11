@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Menggabungkan File PDF Jadi Satu | MedanPrint</title>
+    <meta name="description" content="Panduan mudah menggabungkan beberapa file PDF menjadi satu dokumen sebelum dicetak. Bisa online gratis atau offline, cocok untuk skripsi dan dokumen kantor.">
+    <meta name="author" content="MedanPrint.online">
+    <link rel="canonical" href="https://medanprint.online/cara-menggabungkan-file-pdf.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://medanprint.online/cara-menggabungkan-file-pdf.html">
+    <meta property="og:title" content="Cara Menggabungkan File PDF Jadi Satu | MedanPrint">
+    <meta property="og:description" content="Panduan mudah menggabungkan beberapa file PDF menjadi satu dokumen sebelum dicetak.">
+    <meta property="og:image" content="https://medanprint.online/images/blog-gabung-pdf.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cara Menggabungkan File PDF Jadi Satu | MedanPrint">
+    <meta name="twitter:description" content="Panduan mudah menggabungkan beberapa file PDF menjadi satu dokumen sebelum dicetak.">
+    <meta name="twitter:image" content="https://medanprint.online/images/blog-gabung-pdf.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <style>
+        /* Gunakan CSS yang sama dengan artikel pertama (salin dari artikel 1) */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#f8fafc; color:#1e293b; line-height:1.6; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 5%; background:white; box-shadow:0 4px 12px rgba(0,0,0,0.05); position:sticky; top:0; z-index:100; }
+        .logo a { display:flex; align-items:center; text-decoration:none; color:inherit; }
+        .logo img { height:70px; width:auto; display:block; }
+        .nav-links { display:flex; list-style:none; }
+        .nav-links li a { margin-left:2rem; text-decoration:none; color:#1e293b; font-weight:500; transition:color 0.3s; }
+        .nav-links li a:hover, .nav-links li a.active { color:#2563eb; }
+        .hamburger { display:none; font-size:1.5rem; cursor:pointer; }
+        .page-header { background:linear-gradient(135deg,#2563eb,#06b6d4); color:white; padding:50px 20px; text-align:center; }
+        .page-header h1 { font-size:2.2rem; margin-bottom:10px; font-weight:700; }
+        .page-header p { font-size:1rem; opacity:0.95; max-width:700px; margin:0 auto; }
+        .breadcrumb { max-width:900px; margin:20px auto 0; padding:0 20px; font-size:0.9rem; }
+        .breadcrumb a { color:#2563eb; text-decoration:none; }
+        .breadcrumb a:hover { text-decoration:underline; }
+        .breadcrumb span { color:#64748b; }
+        .article-container { max-width:900px; margin:40px auto; padding:0 20px; }
+        .article-content { background:white; padding:40px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
+        .article-content h2 { font-size:1.8rem; margin:30px 0 15px; color:#0f172a; }
+        .article-content h3 { font-size:1.4rem; margin:25px 0 10px; color:#1e293b; }
+        .article-content p { margin-bottom:15px; color:#334155; }
+        .article-content ul, .article-content ol { margin:15px 0 15px 25px; color:#334155; }
+        .article-content li { margin-bottom:8px; }
+        .article-content img { max-width:100%; height:auto; border-radius:12px; margin:20px 0; }
+        .article-meta { display:flex; gap:20px; color:#64748b; font-size:0.9rem; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #e2e8f0; }
+        .article-meta i { color:#2563eb; margin-right:5px; }
+        .cta-article { background:#f1f5f9; padding:30px; border-radius:16px; text-align:center; margin-top:40px; }
+        .cta-article p { font-size:1.2rem; margin-bottom:20px; }
+        .btn { display:inline-block; margin:5px; padding:12px 28px; background:#22c55e; color:white; border-radius:50px; text-decoration:none; font-weight:600; transition:all 0.3s; }
+        .btn i { margin-right:8px; }
+        .btn:hover { background:#16a34a; transform:translateY(-2px); }
+        .btn2 { background:#0ea5e9; }
+        .btn2:hover { background:#0284c7; }
+        footer { background:#0f172a; color:#94a3b8; padding:40px 20px 20px; }
+        .footer-content { display:flex; flex-wrap:wrap; justify-content:space-around; max-width:1200px; margin:auto; gap:30px; }
+        .footer-section { flex:1 1 250px; }
+        .footer-section h4 { color:white; margin-bottom:15px; font-size:1.1rem; }
+        .footer-section ul { list-style:none; }
+        .footer-section ul li { margin-bottom:8px; }
+        .footer-section ul li a { color:#94a3b8; text-decoration:none; transition:color 0.3s; }
+        .footer-section ul li a:hover { color:white; }
+        .footer-section p a { color:#ffffff; text-decoration:none; transition:color 0.3s; }
+        .footer-section p a:hover { color:#2563eb; }
+        .footer-section p i { width:20px; margin-right:5px; }
+        .footer-bottom { text-align:center; padding-top:30px; margin-top:30px; border-top:1px solid #1e293b; }
+        .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:16px 24px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 8px 18px rgba(37,211,102,0.3); display:flex; align-items:center; gap:10px; transition:transform 0.2s; z-index:99; }
+        .whatsapp i { font-size:1.5rem; }
+        .whatsapp:hover { transform:scale(1.05); background:#20b859; }
+        @media (max-width:768px) {
+            .navbar { flex-direction:column; align-items:flex-start; }
+            .nav-links { display:none; flex-direction:column; width:100%; margin-top:10px; }
+            .nav-links.active { display:flex; }
+            .nav-links li a { margin:0; padding:10px 0; display:block; }
+            .hamburger { display:block; position:absolute; top:20px; right:20px; }
+            .article-content { padding:20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="index.html" title="MedanPrint"><img src="images/logo.png" alt="MedanPrint Logo"></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html">Layanan Print</a></li>
+            <li><a href="cara-order.html">Cara Order</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Cara Menggabungkan File PDF Jadi Satu</h1>
+        <p>Gabungkan beberapa file PDF menjadi satu dokumen sebelum dicetak, mudah dan cepat.</p>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a> &gt; <a href="blog.html">Blog</a> &gt; <span>Cara Menggabungkan File PDF</span>
+    </div>
+
+    <div class="article-container">
+        <article class="article-content">
+            <div class="article-meta">
+                <span><i class="fas fa-calendar-alt"></i> 5 Maret 2025</span>
+                <span><i class="fas fa-user"></i> Admin MedanPrint</span>
+                <span><i class="fas fa-tags"></i> PDF, Tutorial, Skripsi</span>
+            </div>
+            <img src="images/blog-gabung-pdf.jpg" alt="Menggabungkan file PDF" style="width:100%; border-radius:12px; margin-bottom:20px;">
+            
+            <p>Saat mengurus dokumen seperti skripsi, laporan, atau kumpulan file, seringkali kita memiliki beberapa file PDF terpisah yang perlu digabung menjadi satu sebelum dicetak. Artikel ini akan membahas berbagai cara menggabungkan PDF dengan mudah, baik online maupun offline.</p>
+
+            <h2>Mengapa Perlu Menggabungkan PDF?</h2>
+            <p>Menggabungkan PDF memudahkan proses cetak, menghindari file tercecer, dan memastikan urutan halaman benar. Terutama untuk skripsi atau laporan yang terdiri dari bab terpisah.</p>
+
+            <h2>Cara 1: Menggunakan Situs Online Gratis</h2>
+            <ol>
+                <li>Kunjungi situs seperti <strong>ilovepdf.com</strong> atau <strong>smallpdf.com</strong>.</li>
+                <li>Pilih fitur "Merge PDF" atau "Gabungkan PDF".</li>
+                <li>Upload file-file PDF yang ingin digabung (urutkan sesuai kebutuhan).</li>
+                <li>Klik "Gabungkan" dan tunggu proses selesai.</li>
+                <li>Download file hasil gabungan, lalu kirim ke MedanPrint.</li>
+            </ol>
+            <p><strong>Catatan:</strong> Pastikan file tidak mengandung informasi sensitif jika menggunakan situs online. Untuk keamanan, gunakan koneksi pribadi.</p>
+
+            <h2>Cara 2: Menggunakan Aplikasi Desktop (Offline)</h2>
+            <h3>Adobe Acrobat Pro</h3>
+            <ol>
+                <li>Buka Adobe Acrobat Pro, pilih "Tools" &gt; "Combine Files".</li>
+                <li>Klik "Add Files" dan pilih file PDF yang diinginkan.</li>
+                <li>Urutkan file dengan drag & drop.</li>
+                <li>Klik "Combine" untuk menggabungkan.</li>
+            </ol>
+            <h3>PDFsam (Free)</h3>
+            <ol>
+                <li>Download dan instal PDFsam (PDF Split and Merge).</li>
+                <li>Pilih "Merge" dan tambahkan file.</li>
+                <li>Atur urutan, lalu klik "Run".</li>
+            </ol>
+
+            <h2>Cara 3: Menggunakan HP Android/iPhone</h2>
+            <p>Aplikasi seperti <strong>Xodo PDF Reader & Editor</strong> atau <strong>Adobe Acrobat Reader</strong> di HP juga bisa menggabungkan PDF:</p>
+            <ul>
+                <li>Buka aplikasi, cari opsi "Merge" atau "Combine".</li>
+                <li>Pilih file-file PDF dari penyimpanan.</li>
+                <li>Simpan hasil gabungan.</li>
+            </ul>
+
+            <div class="cta-article">
+                <p><i class="fas fa-file-pdf" style="font-size:2rem; color:#2563eb;"></i></p>
+                <p>Sudah siap cetak? Chat admin untuk order print PDF.</p>
+                <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a>
+                <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+            </div>
+
+            <p>Dengan panduan di atas, Anda dapat menggabungkan file PDF dengan mudah. Jika kesulitan, tim MedanPrint siap membantu.</p>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>MedanPrint.online</h4><p>Penyedia jasa print Medan online terpercaya.</p></div>
+            <div class="footer-section"><h4>Link Cepat</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="layanan.html">Layanan Print</a></li><li><a href="cara-order.html">Cara Order</a></li><li><a href="blog.html">Blog</a></li><li><a href="testimoni.html">Testimoni</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontak.html">Kontak</a></li></ul></div>
+            <div class="footer-section"><h4>Kontak</h4><p><a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 0852-7793-0703</a></p><p><a href="mailto:medanprintonline@gmail.com"><i class="fas fa-envelope"></i> medanprintonline@gmail.com</a></p><p><a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank"><i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374</a></p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> MedanPrint.online</p></div>
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WA</a>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+        if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(err => console.log(err)));
+    </script>
+</body>
+</html>
