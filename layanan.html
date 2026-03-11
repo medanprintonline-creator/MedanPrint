@@ -3,40 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan - MedanPrint.online</title>
+    <title>Layanan Print Online Medan | Cetak Dokumen, PDF, Skripsi, Warna | MedanPrint</title>
+    <meta name="description" content="Layanan lengkap print online Medan: cetak hitam putih, warna, skripsi, dokumen kantor, foto, ID card. Harga murah, cepat, antar via Gojek/Grab.">
+    <meta name="author" content="MedanPrint.online">
+    <link rel="canonical" href="https://medanprint.online/layanan.html">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://medanprint.online/layanan.html">
+    <meta property="og:title" content="Layanan Print Online Medan | Cetak Dokumen, PDF, Skripsi, Warna">
+    <meta property="og:description" content="Layanan lengkap print online Medan: cetak hitam putih, warna, skripsi, dokumen kantor, foto, ID card. Harga murah, cepat, antar via Gojek/Grab.">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Layanan Print Online Medan | MedanPrint">
+    <meta name="twitter:description" content="Layanan lengkap print online Medan: cetak hitam putih, warna, skripsi, dokumen kantor, foto, ID card.">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <!-- Manifest untuk PWA -->
+
+    <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
+
+    <style>
+        /* Tambahan CSS untuk halaman layanan jika diperlukan */
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 5px 0;
+        }
+        .desc {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .layanan-cta {
+            background: #f1f5f9;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .layanan-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .layanan-cta .btn {
+            margin: 10px;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
+    <!-- Navbar (sama persis dengan index.html) -->
+    <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="MedanPrint.online">
+            <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html" class="active">Layanan</a></li>
-            <li><a href="cara-order.html">Cara Order</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li itemprop="name"><a href="index.html" itemprop="url">Beranda</a></li>
+            <li itemprop="name"><a href="layanan.html" class="active" itemprop="url">Layanan Print</a></li>
+            <li itemprop="name"><a href="cara-order.html" itemprop="url">Cara Order</a></li>
+            <li itemprop="name"><a href="blog.html" itemprop="url">Blog</a></li>
+            <li itemprop="name"><a href="testimoni.html" itemprop="url">Testimoni</a></li>
+            <li itemprop="name"><a href="faq.html" itemprop="url">FAQ</a></li>
+            <li itemprop="name"><a href="kontak.html" itemprop="url">Kontak</a></li>
         </ul>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- Page Header -->
+    <!-- Page Header dengan H1 menarik -->
     <header class="page-header">
-        <h1>Layanan Kami</h1>
-        <p>Solusi cetak berkualitas dengan teknologi profesional</p>
+        <h1>Layanan Print Online Medan</h1>
+        <p>Solusi cetak berkualitas dengan teknologi profesional untuk berbagai kebutuhan Anda</p>
     </header>
 
-    <!-- Daftar Layanan -->
+    <!-- Daftar Layanan (menggunakan class cards yang sudah ada) -->
     <section class="section">
         <div class="cards">
             <div class="card">
@@ -49,96 +109,94 @@
                 <i class="fas fa-palette"></i>
                 <h3>Print Warna</h3>
                 <p class="price">Mulai Rp1.000/lembar</p>
-                <p class="desc">Cetak warna dengan tinta pigment anti luntur. Warna cerah dan tahan lama.</p>
+                <p class="desc">Cetak warna dengan tinta pigment anti luntur. Warna cerah dan tahan lama, cocok untuk brosur, poster, foto.</p>
             </div>
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>Print Skripsi</h3>
                 <p class="price">Harga khusus</p>
-                <p class="desc">Cetak + jilid softcover/hardcover. Kombinasi laser & inkjet untuk hasil maksimal.</p>
+                <p class="desc">Cetak + jilid softcover/hardcover. Kombinasi laser & inkjet untuk hasil maksimal. Konsultasi gratis.</p>
             </div>
             <div class="card">
                 <i class="fas fa-briefcase"></i>
                 <h3>Dokumen Kantor</h3>
                 <p class="price">Diskon jumlah besar</p>
-                <p class="desc">Nota, faktur, laporan tahunan. Cepat dan rapi dengan laserjet.</p>
+                <p class="desc">Nota, faktur, laporan tahunan, proposal. Cepat dan rapi dengan mesin profesional.</p>
             </div>
             <div class="card">
                 <i class="fas fa-image"></i>
                 <h3>Print Foto</h3>
                 <p class="price">Ukuran 2x3 – Polaroid</p>
-                <p class="desc">Cetak foto dengan kualitas inkjet pigment, warna hidup dan detail.</p>
+                <p class="desc">Cetak foto dengan kualitas inkjet pigment, warna hidup dan detail. Cocok untuk kenang-kenangan.</p>
             </div>
             <div class="card">
                 <i class="fas fa-id-card"></i>
                 <h3>ID Card & Kartu Nama</h3>
                 <p class="price">Cetak tajam & awet</p>
-                <p class="desc">Kartu nama, ID card, dan aksesoris kantor. Bahan berkualitas.</p>
+                <p class="desc">Kartu nama, ID card, gantungan kunci, dan aksesoris kantor. Bahan berkualitas, desain bisa dibantu.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- CTA Hubungi -->
+    <section class="layanan-cta">
+        <h2>Butuh layanan cetak lainnya?</h2>
+        <p>Kami siap melayani kebutuhan cetak Anda, dari skripsi hingga merchandise. Konsultasi gratis via WhatsApp.</p>
+        <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+    </section>
+
+    <!-- Footer (sama persis dengan index) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Solusi cetak online mudah, cepat, dan terpercaya di Medan.</p>
+                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Kontak</h4>
-                <p>
-                    <a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> 0852-7793-0703
-                    </a>
-                </p>
-                <p>
-                    <a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-envelope"></i> medanprintonline@gmail.com
-                    </a>
-                </p>
-                <p>
-                   <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-map-marker-alt"></i>Jl. Kelambir Lima Medan - 20374
-                    </a>
-                </p>
+                <p><a href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 0852-7793-0703</a></p>
+                <p><a href="mailto:medanprintonline@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> medanprintonline@gmail.com</a></p>
+                <p><a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Jl. Kelambir Lima Medan - 20374</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> MedanPrint.online. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> MedanPrint.online - Jasa Print Online Medan. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Tombol WhatsApp Fixed -->
     <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Chat
+        <i class="fab fa-whatsapp"></i> Chat WA
     </a>
 
-    <script src="js/main.js"></script>
-    <!-- Script untuk tahun otomatis dan registrasi service worker -->
     <script>
         // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Registrasi Service Worker untuk PWA
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        // Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registered: ', registration);
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
             });
         }
     </script>
