@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
 
-    <!-- Schema LocalBusiness (sama seperti index, opsional tapi bagus) -->
+    <!-- Schema LocalBusiness (konsisten dengan index) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -51,6 +51,28 @@
         "areaServed": "Medan",
         "sameAs": [
             "https://wa.me/6285277930703"
+        ]
+    }
+    </script>
+
+    <!-- Schema BreadcrumbList (tambahan agar konsisten dengan index) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beranda",
+                "item": "https://medanprint.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Layanan Print",
+                "item": "https://medanprint.online/layanan.html"
+            }
         ]
     }
     </script>
@@ -407,7 +429,7 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb dengan schema -->
+    <!-- Breadcrumb dengan schema (visual) -->
     <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a href="index.html" itemprop="item"><span itemprop="name">Beranda</span></a>
