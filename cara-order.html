@@ -32,6 +32,70 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
 
+    <!-- Schema HowTo & Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Cara Order Print & Jilid Online di Medan",
+        "description": "Panduan langkah demi langkah untuk memesan layanan print online di MedanPrint.",
+        "totalTime": "PT1H",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Upload & Preview File PDF",
+                "text": "Pilih file PDF dari komputer Anda, lalu preview untuk memastikan halaman yang benar.",
+                "url": "https://medanprint.online/cara-order.html#step1"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Hitung Biaya Cetak",
+                "text": "Gunakan kalkulator untuk menghitung estimasi biaya berdasarkan printer, tipe cetak, ukuran kertas, jumlah halaman, dan copy.",
+                "url": "https://medanprint.online/cara-order.html#step2"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Konfirmasi via WhatsApp",
+                "text": "Kirim detail order dan file PDF melalui WhatsApp ke admin untuk diproses.",
+                "url": "https://medanprint.online/cara-order.html#step3"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Pembayaran QRIS",
+                "text": "Lakukan pembayaran dengan memindai kode QRIS sesuai total biaya.",
+                "url": "https://medanprint.online/cara-order.html#step4"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Cetak & Ambil",
+                "text": "Pesanan akan dicetak dan siap diambil di toko atau diantar via ojek online.",
+                "url": "https://medanprint.online/cara-order.html#step5"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beranda",
+                "item": "https://medanprint.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Cara Order",
+                "item": "https://medanprint.online/cara-order.html"
+            }
+        ]
+    }
+    </script>
+
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -478,11 +542,11 @@
     </style>
 </head>
 <body>
-    <!-- Navbar (updated) -->
+    <!-- Navbar (konsisten dengan index) -->
     <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print & Jilid Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print & Jilid Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print & Jilid Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -490,8 +554,9 @@
             <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html" class="active">Cara Order</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="testimoni.html">Testimoni</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <!-- Testimoni dan FAQ mengarah ke index dengan anchor, konsisten dengan index -->
+            <li><a href="index.html#testimoni">Testimoni</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -499,18 +564,18 @@
         </div>
     </nav>
 
-    <!-- Page Header (updated description) -->
+    <!-- Page Header -->
     <div class="page-header">
         <h1><i class="fas fa-shopping-cart"></i> Cara Order Print & Jilid Online di Medan</h1>
         <p>Upload file, hitung biaya, konfirmasi via WhatsApp, bayar QRIS. Kami juga melayani jilid (ring/kawat/glue), pas foto, stempel, cutting sticker.</p>
     </div>
 
-    <!-- Breadcrumb -->
+    <!-- Breadcrumb dengan tautan (schema sudah di JSON-LD) -->
     <div class="breadcrumb">
         <a href="index.html">Beranda</a> &gt; <span>Cara Order</span>
     </div>
 
-    <!-- Main Content (steps unchanged) -->
+    <!-- Main Content -->
     <section class="section">
         <!-- Steps Navigation -->
         <div class="steps-nav" id="stepsNav">
@@ -680,7 +745,7 @@
         <div class="step-content" id="content4">
             <h2 style="margin-bottom: 20px;">Langkah 4 : Pembayaran QRIS</h2>
             <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
-            <img src="images/qris.png" alt="QRIS" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
+            <img src="images/qris.png" alt="QRIS Pembayaran MedanPrint" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">SATU QRIS UNTUK SEMUA <strong>MedanPrint.Online</strong></p>
             <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
         </div>
@@ -694,26 +759,28 @@
                 <h3>Pesanan Selesai!</h3>
                 <p>Silakan ambil di toko kami atau pesan ojek online.</p>
                 <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" class="btn" style="margin-top: 10px;">Lihat Peta</a>
+                <!-- Tambahan link ke layanan lain -->
+                <a href="layanan.html" class="btn btn2" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer (updated) -->
+    <!-- Footer (konsisten dengan index) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia jasa print & jilid Medan online terpercaya. Layanan cetak dokumen, jilid (ring/kawat/glue), pas foto, stempel, cutting sticker, dan lainnya.</p>
+                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen</strong>, <strong>print PDF</strong>, <strong>skripsi</strong>, <strong>jilid</strong>, <strong>pas foto</strong>, <strong>stempel</strong>, <strong>cutting sticker</strong>.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
-                    <li><a href="layanan.html">Layanan Print & Jilid</a></li>
+                    <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html">Testimoni</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#testimoni">Testimoni</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
