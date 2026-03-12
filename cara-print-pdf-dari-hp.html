@@ -89,11 +89,11 @@
         .page-header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px; /* disamakan dengan index */
             text-align: center;
         }
         .page-header h1 {
-            font-size: 2.2rem;
+            font-size: 2.2rem; /* konsisten dengan artikel lain */
             margin-bottom: 10px;
             font-weight: 700;
         }
@@ -312,27 +312,35 @@
                 top: 20px;
                 right: 20px;
             }
+            .page-header h1 {
+                font-size: 2rem;
+            }
             .article-content {
                 padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar (konsisten dengan index) -->
     <nav class="navbar" aria-label="Navigasi Utama">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html">Cara Order</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-            <li><a href="faq.html#faq">FAQ</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="testimoni.html">Testimoni</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
         <div class="hamburger">
@@ -359,7 +367,7 @@
                 <span><i class="fas fa-user"></i> Admin MedanPrint</span>
                 <span><i class="fas fa-tags"></i> PDF, HP, Tutorial</span>
             </div>
-            <img src="images/blog-print-pdf-hp.jpg" alt="Ilustrasi print PDF dari HP" style="width:100%; border-radius:12px; margin-bottom:20px;">
+            <img src="images/blog-print-pdf-hp.jpg" alt="Ilustrasi print PDF dari HP" width="800" height="400" style="width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
             
             <p>Saat ini, hampir semua orang memiliki smartphone dan sering menyimpan dokumen penting dalam format PDF. Namun, bagaimana cara mencetaknya langsung dari HP tanpa perlu memindahkan ke laptop? Artikel ini akan memandu Anda langkah demi langkah.</p>
 
@@ -401,12 +409,12 @@
         </article>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (konsisten dengan index) -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>MedanPrint.online</h4>
-                <p>Penyedia jasa print Medan online terpercaya. Layanan cetak dokumen, print PDF, print skripsi, dan print warna.</p>
+                <p>Penyedia <strong>jasa print Medan</strong> online terpercaya. Layanan <strong>cetak dokumen</strong>, <strong>print PDF</strong>, <strong>skripsi</strong>, <strong>jilid</strong>, <strong>pas foto</strong>, <strong>stempel</strong>, <strong>cutting sticker</strong>.</p>
             </div>
             <div class="footer-section">
                 <h4>Link Cepat</h4>
@@ -415,8 +423,8 @@
                     <li><a href="layanan.html">Layanan Print</a></li>
                     <li><a href="cara-order.html">Cara Order</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="testimoni.html#testimoni">Testimoni</a></li>
-                    <li><a href="faq.html#faq">FAQ</a></li>
+                    <li><a href="testimoni.html">Testimoni</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 </ul>
             </div>
@@ -448,12 +456,12 @@
                 navLinks.classList.toggle('active');
             });
         }
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        // Service Worker (nonaktifkan jika file tidak ada, sesuai index)
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
 </body>
 </html>
