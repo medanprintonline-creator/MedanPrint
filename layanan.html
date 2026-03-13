@@ -22,8 +22,12 @@
     <meta name="twitter:description" content="Layanan cetak lengkap di Medan: print hitam putih & warna, skripsi, jilid ring/kawat/lem, pas foto, denah A1, stempel, cutting sticker.">
     <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Preconnect ke CDN Font Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Font Awesome dimuat asinkron -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
@@ -55,7 +59,7 @@
     }
     </script>
 
-    <!-- Schema BreadcrumbList (tambahan agar konsisten dengan index) -->
+    <!-- Schema BreadcrumbList -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -411,7 +415,10 @@
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
+                </picture>
             </a>
         </div>
         <ul class="nav-links">
@@ -604,5 +611,12 @@
         //     });
         // }
     </script>
+
+    <!-- Catatan: Untuk menyelesaikan semua rekomendasi audit, lakukan juga langkah berikut di luar HTML:
+         1. Buat file robots.txt di root domain.
+         2. Konfigurasi server untuk mengirim header HSTS.
+         3. Tambahkan record SPF di DNS.
+         4. Optimasi dan resize semua file gambar agar sesuai dengan dimensi tampilan, serta strip metadata.
+    -->
 </body>
 </html>
