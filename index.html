@@ -26,13 +26,13 @@
     <meta property="og:url" content="https://medanprint.online/">
     <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta property="og:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta property="og:image" content="https://medanprint.online/images/og-image.webp">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta name="twitter:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta name="twitter:image" content="https://medanprint.online/images/og-image.webp">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -53,7 +53,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "MedanPrint.online",
-        "image": "https://medanprint.online/images/logo.webp",
+        "image": "https://medanprint.online/images/logo.png",
         "url": "https://medanprint.online/",
         "telephone": "+6285277930703",
         "priceRange": "Rp",
@@ -149,11 +149,11 @@
         header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 40px 20px; /* diperpendek dari 80px */
+            padding: 40px 20px;
             text-align: center;
         }
         header h1 {
-            font-size: 2.5rem; /* sedikit lebih kecil */
+            font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: 700;
         }
@@ -177,7 +177,7 @@
         .btn {
             display: inline-block;
             margin: 10px;
-            padding: 12px 28px; /* sedikit lebih kecil */
+            padding: 12px 28px;
             background: #22c55e;
             color: white;
             border-radius: 50px;
@@ -202,6 +202,23 @@
         }
         .btn2:hover {
             background: #0284c7;
+        }
+        /* ===== HEADER BUTTONS (disamakan dengan CTA) ===== */
+        header .btn-header {
+            background: white;
+            color: #1e293b;
+        }
+        header .btn-header:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        header .btn-header.btn2 {
+            background: #25D366; /* hijau WhatsApp */
+            color: white;
+        }
+        header .btn-header.btn2:hover {
+            background: #20b859;
         }
         /* ===== SECTIONS ===== */
         .section {
@@ -511,11 +528,9 @@
         .cta .btn2 {
             background: #25D366; /* warna hijau WhatsApp */
             color: white;
-            border: 1px solid #25D366;
         }
         .cta .btn2:hover {
             background: #20b859;
-            border-color: #20b859;
         }
         /* ===== FOOTER ===== */
         footer {
@@ -734,11 +749,11 @@
     </style>
 </head>
 <body>
-    <!-- Navbar (dengan link ke testimoni.html dan faq.html) -->
+    <!-- Navbar -->
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.webp" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
+                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -768,7 +783,7 @@
         </span>
     </div>
 
-    <!-- Header -->
+    <!-- Header dengan tombol warna baru -->
     <header>
         <div class="header-content">
             <h1><i class="fas fa-print"></i> Print Dokumen Online di Medan</h1>
@@ -895,7 +910,7 @@
         </div>
     </section>
 
-    <!-- PANDUAN POPULER (tautan diarahkan ke blog) -->
+    <!-- PANDUAN POPULER -->
     <section class="section bg-light">
         <h2>Panduan & Tips Print Dokumen</h2>
         <p>Pelajari cara mudah mengurus dokumen Anda sebelum order print online Medan.</p>
@@ -921,7 +936,7 @@
         </div>
     </section>
 
-    <!-- TESTIMONI (cuplikan 3 terbaik) -->
+    <!-- TESTIMONI -->
     <section class="section">
         <h2>Apa Kata Pelanggan Kami</h2>
         <div class="testimonials-grid">
@@ -929,7 +944,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Edit dan print isi skripsi saya cuma 2 jam selesai! Hasil cetaknya rapi dan jelas, siap langsung digunakan untuk revisi atau presentasi. Harganya juga ramah di kantong mahasiswa. Recommended banget!"</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar1.webp" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <img src="images/avatar1.jpg" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Anita Sari</h4>
                         <span>Mahasiswi USU</span>
@@ -943,7 +958,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Pelayanan ramah, harga bersahabat. File PDF langsung diproses tanpa ribet. Sudah 3 kali order, selalu puas."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar2.webp" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <img src="images/avatar2.jpg" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Budi Hartono</h4>
                         <span>Karyawan Swasta</span>
@@ -957,7 +972,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Cetak brosur warna hasilnya tajam, tinta anti air. Toko strategis, mudah diakses. Pasti akan order lagi."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar3.webp" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <img src="images/avatar3.jpg" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Maya Siregar</h4>
                         <span>Owner UMKM</span>
@@ -968,13 +983,12 @@
                 </div>
             </div>
         </div>
-        <!-- Tombol Lihat Semua Testimoni -->
         <div class="btn-view-all">
             <a href="testimoni.html" class="btn"><i class="fas fa-comments"></i> Lihat Semua Testimoni</a>
         </div>
     </section>
 
-    <!-- FAQ (cuplikan 4 pertanyaan) -->
+    <!-- FAQ -->
     <section class="section bg-light">
         <h2>Pertanyaan yang Sering Diajukan</h2>
         <div class="faq-grid">
@@ -1015,7 +1029,6 @@
                 </div>
             </div>
         </div>
-        <!-- Tombol Lihat Semua FAQ -->
         <div class="btn-view-all">
             <a href="faq.html" class="btn"><i class="fas fa-question-circle"></i> Lihat Semua FAQ</a>
         </div>
@@ -1065,7 +1078,7 @@
         <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
     </section>
 
-    <!-- Footer (dengan link ke testimoni.html dan faq.html) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1122,13 +1135,6 @@
                 item.classList.toggle('active');
             });
         });
-
-        // Service Worker (opsional) - dinonaktifkan sementara jika file tidak ada
-        // if ('serviceWorker' in navigator) {
-        //     window.addEventListener('load', () => {
-        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-        //     });
-        // }
     </script>
 </body>
 </html>
