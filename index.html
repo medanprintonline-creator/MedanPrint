@@ -2,14 +2,15 @@
 <html lang="id">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J09XKWKLVJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J09XKWKLVJ');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J09XKWKLVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-J09XKWKLVJ');
+</script>
+    
     <meta name="google-site-verification" content="F_dC0voL2Jh6cgDVDY4qrxSyoKz1gESE99_sRvgh_70" /> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,21 +26,19 @@
     <meta property="og:url" content="https://medanprint.online/">
     <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta property="og:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.webp">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta name="twitter:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.webp">
 
-    <!-- Font Awesome (dimuat secara asinkron) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS Eksternal (dimuat secara asinkron) -->
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -54,7 +53,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "MedanPrint.online",
-        "image": "https://medanprint.online/images/logo.png",
+        "image": "https://medanprint.online/images/logo.webp",
         "url": "https://medanprint.online/",
         "telephone": "+6285277930703",
         "priceRange": "Rp",
@@ -178,7 +177,8 @@
         .btn {
             display: inline-block;
             margin: 10px;
-            padding: 12px 28px;
+            padding: 12px 28px; /* sedikit lebih kecil */
+            background: #22c55e;
             color: white;
             border-radius: 50px;
             text-decoration: none;
@@ -193,26 +193,10 @@
             margin-right: 8px;
         }
         .btn:hover {
+            background: #16a34a;
             transform: translateY(-2px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.15);
         }
-        /* Tombol Hitung (abu-abu) */
-        .btn-light {
-            background: #f1f5f9;
-            color: #1e293b;
-            border: 1px solid #cbd5e1;
-        }
-        .btn-light:hover {
-            background: #e2e8f0;
-        }
-        /* Tombol WhatsApp (hijau) */
-        .btn-wa {
-            background: #22c55e;
-        }
-        .btn-wa:hover {
-            background: #16a34a;
-        }
-        /* Tombol default untuk keperluan lain (jika ada) */
         .btn2 {
             background: #0ea5e9;
         }
@@ -583,7 +567,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #22c55e;
+            background: #25D366;
             color: white;
             padding: 16px 24px;
             border-radius: 50px;
@@ -601,7 +585,7 @@
         }
         .whatsapp:hover {
             transform: scale(1.05);
-            background: #16a34a;
+            background: #20b859;
         }
         /* ===== SERVICE HIGHLIGHTS ===== */
         .service-highlights {
@@ -745,11 +729,7 @@
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <!-- Gambar logo dengan format WebP dan fallback PNG -->
-                <picture>
-                    <source srcset="images/logo.webp" type="image/webp">
-                    <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70" loading="eager">
-                </picture>
+                <img src="images/logo.webp" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
             </a>
         </div>
         <ul class="nav-links">
@@ -787,12 +767,10 @@
                 Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.
             </p>
             <div class="cta-buttons">
-                <!-- Tombol Hitung Biaya (abu-abu) -->
-                <a class="btn btn-light btn-header" href="cara-order.html">
+                <a class="btn btn-header" href="cara-order.html">
                     <i class="fas fa-calculator"></i> Hitung Biaya Cetak
                 </a>
-                <!-- Tombol Order via WA (hijau) -->
-                <a class="btn btn-wa btn-header" href="https://wa.me/6285277930703" rel="noopener noreferrer">
+                <a class="btn btn-header btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> Order via WA
                 </a>
             </div>
@@ -942,11 +920,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Edit dan print isi skripsi saya cuma 2 jam selesai! Hasil cetaknya rapi dan jelas, siap langsung digunakan untuk revisi atau presentasi. Harganya juga ramah di kantong mahasiswa. Recommended banget!"</p>
                 <div class="testimonial-author">
-                    <!-- Gambar avatar dengan format WebP dan fallback JPEG, serta lazy loading -->
-                    <picture>
-                        <source srcset="images/avatar1.webp" type="image/webp">
-                        <img src="images/avatar1.jpg" alt="Anita Sari - pelanggan MedanPrint" width="50" height="50" loading="lazy">
-                    </picture>
+                    <img src="images/avatar1.webp" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Anita Sari</h4>
                         <span>Mahasiswi USU</span>
@@ -960,10 +934,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Pelayanan ramah, harga bersahabat. File PDF langsung diproses tanpa ribet. Sudah 3 kali order, selalu puas."</p>
                 <div class="testimonial-author">
-                    <picture>
-                        <source srcset="images/avatar2.webp" type="image/webp">
-                        <img src="images/avatar2.jpg" alt="Budi Hartono - pelanggan MedanPrint" width="50" height="50" loading="lazy">
-                    </picture>
+                    <img src="images/avatar2.webp" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Budi Hartono</h4>
                         <span>Karyawan Swasta</span>
@@ -977,10 +948,7 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Cetak brosur warna hasilnya tajam, tinta anti air. Toko strategis, mudah diakses. Pasti akan order lagi."</p>
                 <div class="testimonial-author">
-                    <picture>
-                        <source srcset="images/avatar3.webp" type="image/webp">
-                        <img src="images/avatar3.jpg" alt="Maya Siregar - pelanggan MedanPrint" width="50" height="50" loading="lazy">
-                    </picture>
+                    <img src="images/avatar3.webp" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
                     <div>
                         <h4>Maya Siregar</h4>
                         <span>Owner UMKM</span>
@@ -1049,7 +1017,7 @@
         <h2>Kalkulator Biaya Cetak Dokumen Medan</h2>
         <p>Hitung estimasi biaya <strong>print dokumen Medan</strong>, <strong>print PDF Medan</strong>, atau <strong>print skripsi Medan</strong> sebelum order.</p>
         <div style="margin-top: 20px;">
-            <a href="cara-order.html#kalkulator" class="btn btn-light btn-header"><i class="fas fa-calculator"></i> Coba Kalkulator Print</a>
+            <a href="cara-order.html#kalkulator" class="btn btn-header"><i class="fas fa-calculator"></i> Coba Kalkulator Print</a>
         </div>
     </section>
 
@@ -1084,8 +1052,8 @@
     <section class="cta">
         <h2>Butuh Print Dokumen Online di Medan ? Hubungi Sekarang !</h2>
         <p>Upload file PDF atau dokumen lainnya. Konsultasi gratis via WhatsApp.</p>
-        <a class="btn btn-light" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
-        <a class="btn btn-wa" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <a class="btn" href="cara-order.html"><i class="fas fa-calculator"></i> Hitung Biaya</a>
+        <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
     </section>
 
     <!-- Footer (dengan link ke testimoni.html dan faq.html) -->
@@ -1119,7 +1087,7 @@
         </div>
     </footer>
 
-    <!-- Tombol WhatsApp Fixed (sudah hijau) -->
+    <!-- Tombol WhatsApp Fixed -->
     <a class="whatsapp" href="https://wa.me/6285277930703" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Chat WA
     </a>
@@ -1146,19 +1114,12 @@
             });
         });
 
-        // Service Worker (aktifkan jika file sw.js tersedia)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log('Service worker registration failed:', err));
-            });
-        }
+        // Service Worker (opsional) - dinonaktifkan sementara jika file tidak ada
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        //     });
+        // }
     </script>
-
-    <!-- Catatan untuk pengembang: 
-         - Pastikan file robots.txt tersedia di root domain.
-         - Tambahkan SPF record di DNS untuk keamanan email.
-         - Set header HSTS di server untuk memaksa HTTPS.
-         - Optimasi gambar (metadata) menggunakan tools seperti ImageOptim atau TinyPNG.
-    -->
 </body>
 </html>
