@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cara Order Print & Jilid Online di Medan | MedanPrint</title>
-    <meta name="description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, Word, Excel, PPT, atau gambar, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
+    <meta name="description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/cara-order.html">
     <meta name="robots" content="index, follow">
@@ -13,24 +13,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://medanprint.online/cara-order.html">
     <meta property="og:title" content="Cara Order Print & Jilid Online di Medan | MedanPrint">
-    <meta property="og:description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, Word, Excel, PPT, atau gambar, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
+    <meta property="og:description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
     <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cara Order Print & Jilid Online di Medan | MedanPrint">
-    <meta name="twitter:description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, Word, Excel, PPT, atau gambar, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
+    <meta name="twitter:description" content="Panduan mudah cara order print online dan jilid (ring/kawat/glue) di Medan. Upload file PDF, hitung biaya, konfirmasi via WhatsApp, bayar QRIS, siap antar.">
     <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
 
-    <!-- Preconnect ke CDN -->
+    <!-- Preconnect ke CDN Font Awesome -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Font Awesome dimuat asinkron -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-
-    <!-- PDF.js dari CDN (defer agar tidak memblokir) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
@@ -47,8 +44,8 @@
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "Upload & Preview File",
-                "text": "Pilih file PDF, gambar, atau dokumen Office (Word, Excel, PPT) dari komputer Anda.",
+                "name": "Upload & Preview File PDF",
+                "text": "Pilih file PDF dari komputer Anda, lalu preview untuk memastikan halaman yang benar.",
                 "url": "https://medanprint.online/cara-order.html#step1"
             },
             {
@@ -60,7 +57,7 @@
             {
                 "@type": "HowToStep",
                 "name": "Konfirmasi via WhatsApp",
-                "text": "Kirim detail order dan file melalui WhatsApp ke admin untuk diproses.",
+                "text": "Kirim detail order dan file PDF melalui WhatsApp ke admin untuk diproses.",
                 "url": "https://medanprint.online/cara-order.html#step3"
             },
             {
@@ -372,6 +369,24 @@
             background: #16a34a;
             transform: translateY(-2px);
         }
+        /* ===== TOMBOL KEMBALI ===== */
+        .btn-prev {
+            background: #94a3b8;
+        }
+        .btn-prev:hover {
+            background: #64748b;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button-group .btn-next {
+            flex: 1;
+            margin-top: 0;
+        }
         /* ===== FILE PREVIEW ===== */
         .file-preview {
             background: #e6f0ff;
@@ -386,43 +401,29 @@
             font-size: 2rem;
             color: #2563eb;
         }
-        .preview-container {
+        .pdf-preview {
             margin-top: 20px;
             width: 100%;
-            min-height: 300px;
+            height: 500px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fafafa;
+            display: none;
         }
-        .preview-container img {
-            max-width: 100%;
-            max-height: 500px;
-            border-radius: 8px;
-        }
-        .preview-container iframe {
+        .pdf-preview iframe {
             width: 100%;
-            height: 500px;
+            height: 100%;
             border: none;
             border-radius: 8px;
-        }
-        .preview-placeholder {
-            text-align: center;
-            color: #64748b;
-        }
-        .preview-placeholder i {
-            font-size: 3rem;
-            color: #2563eb;
-            margin-bottom: 10px;
         }
         /* ===== QRIS ===== */
         .qris-image {
             max-width: 300px;
             margin: 20px auto;
             display: block;
+        }
+        /* Konten langkah 4 rata tengah */
+        #content4 {
+            text-align: center;
         }
         /* ===== WARNING ===== */
         .warning {
@@ -555,6 +556,9 @@
             .step-item {
                 min-width: 100px;
             }
+            .button-group {
+                flex-direction: column;
+            }
         }
         @media (max-width: 480px) {
             .page-header h1 {
@@ -592,7 +596,7 @@
     <!-- Page Header -->
     <div class="page-header">
         <h1><i class="fas fa-shopping-cart"></i> Cara Order Print & Jilid Online di Medan</h1>
-        <p>Upload file PDF, Word, Excel, PPT, atau gambar, hitung biaya, konfirmasi via WhatsApp, bayar QRIS. Kami juga melayani jilid (ring/kawat/glue), pas foto, stempel, cutting sticker.</p>
+        <p>Upload file, hitung biaya, konfirmasi via WhatsApp, bayar QRIS. Kami juga melayani jilid (ring/kawat/glue), pas foto, stempel, cutting sticker.</p>
     </div>
 
     <!-- Breadcrumb dengan tautan (schema sudah di JSON-LD) -->
@@ -602,7 +606,7 @@
 
     <!-- Main Content -->
     <section class="section">
-        <!-- Steps Navigation -->
+        <!-- Steps Navigation (dapat diklik) -->
         <div class="steps-nav" id="stepsNav">
             <div class="step-item active" data-step="1" id="step1">
                 <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -626,24 +630,26 @@
             </div>
         </div>
 
-        <!-- Langkah 1 : Upload & Preview File -->
+        <!-- Langkah 1 : Upload & Preview PDF -->
         <div class="step-content active" id="content1">
-            <h2 style="margin-bottom: 20px;">Langkah 1: Upload & Preview File</h2>
+            <h2 style="margin-bottom: 20px;">Langkah 1: Upload & Preview File PDF</h2>
             <div class="upload-area" id="uploadArea">
-                <i class="fas fa-file-upload"></i>
-                <p>Klik untuk memilih file dari komputer Anda</p>
-                <p style="font-size: 0.9rem; color: #64748b;">Format: PDF, JPG, PNG, GIF, Word (docx), Excel (xlsx), PowerPoint (pptx) - Maksimal 50MB</p>
-                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.jpg,.jpeg,.png,.gif,.docx,.xlsx,.pptx">
+                <i class="fas fa-file-pdf"></i>
+                <p>Klik untuk memilih file PDF dari komputer Anda</p>
+                <p style="font-size: 0.9rem; color: #64748b;">Maksimal 50MB</p>
+                <input type="file" id="fileInput" style="display: none;" accept=".pdf">
             </div>
             <div id="fileInfo" style="display: none;" class="file-preview">
-                <i class="fas fa-file"></i>
+                <i class="fas fa-file-pdf"></i>
                 <div>
                     <p><strong id="fileName"></strong></p>
                     <p style="font-size: 0.9rem;" id="fileSize"></p>
                 </div>
             </div>
-            <!-- Preview Container -->
-            <div id="previewContainer" class="preview-container" style="display: none;"></div>
+            <!-- Preview PDF -->
+            <div id="pdfPreviewContainer" class="pdf-preview">
+                <iframe id="pdfPreview"></iframe>
+            </div>
             <button class="btn-next" id="uploadNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
         </div>
 
@@ -688,9 +694,9 @@
                     </select>
                 </div>
 
-                <!-- Jumlah Halaman (untuk PDF/Office) -->
+                <!-- Jumlah Halaman Total (akan diisi otomatis dari PDF) -->
                 <div class="form-group">
-                    <label>Jumlah Halaman (jika dokumen):</label>
+                    <label>Jumlah Halaman Total (dari file):</label>
                     <input type="number" id="totalPages" min="1" value="1" onchange="hitungHarga()">
                 </div>
 
@@ -749,19 +755,29 @@
                     <p class="note">Jenis kertas: HVS 75 GSM</p>
                 </div>
 
-                <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
+                <!-- Tombol Kembali dan Lanjut -->
+                <div class="button-group">
+                    <button class="btn-next btn-prev" onclick="goToStep(1)">Kembali</button>
+                    <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
+                </div>
             </div>
         </div>
 
         <!-- Langkah 3: Konfirmasi WhatsApp -->
         <div class="step-content" id="content3">
             <h2 style="margin-bottom: 20px;">Langkah 3 : Konfirmasi via WhatsApp</h2>
-            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file Anda melalui ikon attachment WhatsApp.</p>
+            <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah Anda preview melalui ikon attachment WhatsApp.</p>
+            
             <button class="btn-next" id="waButton" onclick="sendWA()">
                 <i class="fab fa-whatsapp"></i> Kirim Pesan ke WhatsApp
             </button>
+            
             <p style="margin-top: 15px; font-size: 0.9rem;">Setelah mengirim file, admin akan memproses order Anda.</p>
-            <button class="btn-next" onclick="step3Complete()" style="background: #22c55e;">Saya sudah kirim, lanjut</button>
+
+            <div class="button-group">
+                <button class="btn-next btn-prev" onclick="goToStep(2)">Kembali</button>
+                <button class="btn-next" onclick="step3Complete()" style="background: #22c55e;">Saya sudah kirim, lanjut</button>
+            </div>
         </div>
 
         <!-- Langkah 4: QRIS -->
@@ -770,7 +786,11 @@
             <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
             <img src="images/qris.png" alt="QRIS Pembayaran MedanPrint" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">SATU QRIS UNTUK SEMUA <strong>MedanPrint.Online</strong></p>
-            <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
+
+            <div class="button-group">
+                <button class="btn-next btn-prev" onclick="goToStep(3)">Kembali</button>
+                <button class="btn-next" onclick="step4Complete()">Konfirmasi Pembayaran</button>
+            </div>
         </div>
 
         <!-- Langkah 5: Cetak & Ambil -->
@@ -784,6 +804,12 @@
                 <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" class="btn" style="margin-top: 10px;">Lihat Peta</a>
                 <!-- Tambahan link ke layanan lain -->
                 <a href="layanan.html" class="btn btn2" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
+            </div>
+
+            <!-- Tombol Kembali (opsional, bisa kembali ke langkah 4) -->
+            <div class="button-group" style="margin-top: 30px;">
+                <button class="btn-next btn-prev" onclick="goToStep(4)">Kembali ke Pembayaran</button>
+                <!-- Tidak ada tombol lanjut karena ini langkah terakhir -->
             </div>
         </div>
     </section>
@@ -824,12 +850,14 @@
         <i class="fab fa-whatsapp"></i> Chat WA
     </a>
 
+    <!-- PDF.js dimuat dengan defer agar tidak memblokir -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
+
     <script>
         // ==================== DATA ORDER ====================
         let orderData = {
             fileName: '',
             fileSize: '',
-            fileType: '',
             printer: 'inkjet',
             tipeCetak: 'bw',
             colorType: 'standard',
@@ -858,7 +886,24 @@
             currentStep = step;
         }
 
-        // ==================== STEP 1: UPLOAD & PREVIEW ====================
+        // Fungsi untuk pindah step (digunakan oleh tombol kembali)
+        window.goToStep = function(step) {
+            // Validasi sederhana: tidak bisa kembali ke step 1 jika belum upload file? 
+            // Biarkan user kembali kapan saja, namun jika step 1 dan file belum diupload, tombol lanjut di step 1 akan disabled.
+            activateStep(step);
+        };
+
+        // Event listener untuk klik pada step navigation
+        steps.forEach(step => {
+            step.addEventListener('click', function() {
+                const stepNumber = parseInt(this.getAttribute('data-step'));
+                // Izinkan pindah ke step mana pun, namun jika step 1 dan file belum dipilih, 
+                // tombol lanjut akan tetap disabled. Tidak ada larangan.
+                activateStep(stepNumber);
+            });
+        });
+
+        // ==================== STEP 1: UPLOAD & PREVIEW + BACA JUMLAH HALAMAN ====================
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
@@ -870,55 +915,6 @@
             return pdf.numPages;
         }
 
-        // Fungsi untuk menampilkan preview
-        function displayPreview(file) {
-            const previewContainer = document.getElementById('previewContainer');
-            previewContainer.style.display = 'flex';
-            previewContainer.innerHTML = ''; // Bersihkan konten sebelumnya
-
-            const fileType = file.type;
-            const fileName = file.name.toLowerCase();
-
-            if (fileType.startsWith('image/')) {
-                // Preview gambar
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = 'Preview';
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            }
-            else if (fileType === 'application/pdf') {
-                // Preview PDF dengan iframe
-                const fileURL = URL.createObjectURL(file);
-                const iframe = document.createElement('iframe');
-                iframe.src = fileURL;
-                previewContainer.appendChild(iframe);
-            }
-            else if (fileName.endsWith('.docx') || fileName.endsWith('.xlsx') || fileName.endsWith('.pptx')) {
-                // Placeholder untuk file Office
-                previewContainer.innerHTML = `
-                    <div class="preview-placeholder">
-                        <i class="fas fa-file-alt"></i>
-                        <p>Pratinjau untuk file Office tidak tersedia di browser.</p>
-                        <p>Silakan lanjutkan ke langkah berikutnya untuk mengirim file.</p>
-                    </div>
-                `;
-            }
-            else {
-                // Format tidak didukung preview
-                previewContainer.innerHTML = `
-                    <div class="preview-placeholder">
-                        <i class="fas fa-file"></i>
-                        <p>Pratinjau tidak tersedia untuk format file ini.</p>
-                        <p>Silakan lanjutkan ke langkah berikutnya.</p>
-                    </div>
-                `;
-            }
-        }
-
         document.getElementById('fileInput').addEventListener('change', async function(e) {
             const file = e.target.files[0];
             if (!file) return;
@@ -928,14 +924,8 @@
                 alert('Ukuran file maksimal 50MB.');
                 return;
             }
-
-            // Validasi tipe (opsional, bisa diperluas)
-            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/gif', 
-                                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                                 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                                 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
-            if (!allowedTypes.includes(file.type) && !file.name.match(/\.(docx|xlsx|pptx)$/i)) {
-                alert('Tipe file tidak didukung. Silakan pilih PDF, gambar, atau file Office (docx, xlsx, pptx).');
+            if (file.type !== 'application/pdf') {
+                alert('Hanya file PDF yang diperbolehkan.');
                 return;
             }
 
@@ -944,29 +934,25 @@
             document.getElementById('fileName').textContent = file.name;
             document.getElementById('fileSize').textContent = formatBytes(file.size);
 
-            // Tampilkan preview
-            displayPreview(file);
+            // Preview PDF
+            const fileURL = URL.createObjectURL(file);
+            document.getElementById('pdfPreview').src = fileURL;
+            document.getElementById('pdfPreviewContainer').style.display = 'block';
 
-            // Untuk PDF, baca jumlah halaman
-            if (file.type === 'application/pdf') {
-                try {
-                    const numPages = await getPDFPageCount(file);
-                    document.getElementById('totalPages').value = numPages;
-                    orderData.totalPages = numPages;
-                } catch (error) {
-                    console.error('Gagal membaca jumlah halaman PDF:', error);
-                    document.getElementById('totalPages').value = 1;
-                }
-            } else {
-                // Reset jumlah halaman ke 1 untuk non-PDF (user bisa ubah manual)
+            // Baca jumlah halaman
+            try {
+                const numPages = await getPDFPageCount(file);
+                document.getElementById('totalPages').value = numPages;
+                orderData.totalPages = numPages;
+            } catch (error) {
+                console.error('Gagal membaca jumlah halaman:', error);
+                alert('Gagal membaca jumlah halaman PDF. Silakan isi manual.');
                 document.getElementById('totalPages').value = 1;
-                orderData.totalPages = 1;
             }
 
             selectedFile = file;
             orderData.fileName = file.name;
             orderData.fileSize = formatBytes(file.size);
-            orderData.fileType = file.type || file.name.split('.').pop();
 
             // Aktifkan tombol lanjut
             document.getElementById('uploadNext').disabled = false;
@@ -978,8 +964,7 @@
                 return;
             }
             document.getElementById('step1').classList.add('completed');
-            // Panggil hitungHarga agar nilai totalPages terbaca
-            hitungHarga();
+            hitungHarga(); // update harga
             activateStep(2);
         };
 
@@ -1049,7 +1034,6 @@
                 document.getElementById('endPage').value = end;
                 efektifHalaman = end - start + 1;
             } else {
-                // Semua halaman: gunakan totalPages
                 efektifHalaman = totalPages;
             }
 
@@ -1155,7 +1139,7 @@
                 `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
                 `📄 *Sisi cetak:* ${sisiName}\n` +
                 `💰 *Total harga (estimasi):* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
-                `Saya akan kirim file melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
+                `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
 
             const encoded = encodeURIComponent(pesan);
             window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
