@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://medanprint.online/">
     <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta property="og:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta property="og:image" content="https://medanprint.online/images/og-image.webp"> <!-- Gunakan WebP jika tersedia, fallback di server -->
+    <meta property="og:image" content="https://medanprint.online/images/og-image.webp">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -43,7 +43,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </noscript>
 
-    <!-- CSS eksternal (style.css) dimuat asinkron, asumsikan tidak kritis karena sudah ada inline CSS -->
+    <!-- CSS eksternal (style.css) dimuat asinkron -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="css/style.css">
@@ -51,7 +51,6 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <!-- Untuk dukungan WebP favicon tidak diperlukan, tetap gunakan .ico -->
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
@@ -83,7 +82,6 @@
     }
     </script>
 
-    <!-- Inline CSS (critical) -->
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -208,11 +206,20 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.15);
         }
+        .btn:active {
+            background: #15803d; /* lebih gelap saat diklik */
+            transform: scale(0.98);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
         .btn2 {
             background: #0ea5e9;
         }
         .btn2:hover {
             background: #0284c7;
+        }
+        .btn2:active {
+            background: #0369a1; /* lebih gelap saat diklik */
+            transform: scale(0.98);
         }
         /* ===== SECTIONS ===== */
         .section {
@@ -453,6 +460,11 @@
             background: #2563eb;
             color: white;
         }
+        .btn-view-all .btn:active {
+            background: #1e40af;
+            border-color: #1e40af;
+            transform: scale(0.98);
+        }
         /* ===== FAQ ===== */
         .faq-grid {
             max-width: 800px;
@@ -518,6 +530,10 @@
         }
         .cta .btn:hover {
             background: #f1f5f9;
+        }
+        .cta .btn:active {
+            background: #e2e8f0;
+            transform: scale(0.98);
         }
         /* ===== FOOTER ===== */
         footer {
@@ -588,7 +604,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.2s;
             z-index: 99;
         }
         .whatsapp i {
@@ -597,6 +613,11 @@
         .whatsapp:hover {
             transform: scale(1.05);
             background: #20b859;
+        }
+        .whatsapp:active {
+            background: #128C7E; /* warna lebih gelap saat diklik */
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         /* ===== SERVICE HIGHLIGHTS ===== */
         .service-highlights {
@@ -740,7 +761,6 @@
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <!-- Gunakan picture untuk WebP dengan fallback PNG -->
                 <picture>
                     <source srcset="images/logo.webp" type="image/webp">
                     <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70" loading="eager">
@@ -1137,7 +1157,7 @@
         });
     </script>
 
-    <!-- Catatan untuk konfigurasi server (tidak tampil di halaman) -->
+    <!-- Catatan untuk konfigurasi server -->
     <!--
         Rekomendasi tambahan yang perlu dilakukan di server:
         1. Buat file /robots.txt di root dengan isi:
