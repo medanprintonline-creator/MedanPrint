@@ -2,20 +2,19 @@
 <html lang="id">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J09XKWKLVJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J09XKWKLVJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J09XKWKLVJ');
+    </script>
 
-  gtag('config', 'G-J09XKWKLVJ');
-</script>
-    
-    <meta name="google-site-verification" content="F_dC0voL2Jh6cgDVDY4qrxSyoKz1gESE99_sRvgh_70" /> 
+    <meta name="google-site-verification" content="F_dC0voL2Jh6cgDVDY4qrxSyoKz1gESE99_sRvgh_70" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap</title>
-    <!-- Meta description (154 karakter) -->
+    <!-- Meta description -->
     <meta name="description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
     <meta name="author" content="MedanPrint.online">
     <link rel="canonical" href="https://medanprint.online/">
@@ -26,22 +25,33 @@
     <meta property="og:url" content="https://medanprint.online/">
     <meta property="og:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta property="og:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta property="og:image" content="https://medanprint.online/images/og-image.jpg">
+    <meta property="og:image" content="https://medanprint.online/images/og-image.webp"> <!-- Gunakan WebP jika tersedia, fallback di server -->
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MedanPrint | Print Dokumen Online di Medan & Layanan Lengkap">
     <meta name="twitter:description" content="Print dokumen online di Medan cepat dan rapi. Cetak skripsi, makalah, dokumen warna, jilid, pas foto, stempel, dan cutting sticker. Order mudah via WhatsApp.">
-    <meta name="twitter:image" content="https://medanprint.online/images/og-image.jpg">
+    <meta name="twitter:image" content="https://medanprint.online/images/og-image.webp">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Preconnect untuk domain eksternal -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome dimuat secara asinkron -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </noscript>
+
+    <!-- CSS eksternal (style.css) dimuat asinkron, asumsikan tidak kritis karena sudah ada inline CSS -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+    </noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Untuk dukungan WebP favicon tidak diperlukan, tetap gunakan .ico -->
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
@@ -53,7 +63,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "MedanPrint.online",
-        "image": "https://medanprint.online/images/logo.png",
+        "image": "https://medanprint.online/images/logo.webp",
         "url": "https://medanprint.online/",
         "telephone": "+6285277930703",
         "priceRange": "Rp",
@@ -73,6 +83,7 @@
     }
     </script>
 
+    <!-- Inline CSS (critical) -->
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -149,11 +160,11 @@
         header {
             background: linear-gradient(135deg, #2563eb, #06b6d4);
             color: white;
-            padding: 40px 20px; /* diperpendek dari 80px */
+            padding: 40px 20px;
             text-align: center;
         }
         header h1 {
-            font-size: 2.5rem; /* sedikit lebih kecil */
+            font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: 700;
         }
@@ -177,7 +188,7 @@
         .btn {
             display: inline-block;
             margin: 10px;
-            padding: 12px 28px; /* sedikit lebih kecil */
+            padding: 12px 28px;
             background: #22c55e;
             color: white;
             border-radius: 50px;
@@ -725,11 +736,15 @@
     </style>
 </head>
 <body>
-    <!-- Navbar (dengan link ke testimoni.html dan faq.html) -->
+    <!-- Navbar -->
     <nav class="navbar" aria-label="Navigasi Utama" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="logo">
             <a href="index.html" title="MedanPrint - Print Dokumen Online di Medan">
-                <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70">
+                <!-- Gunakan picture untuk WebP dengan fallback PNG -->
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <img src="images/logo.png" alt="MedanPrint Logo Jasa Print Online Medan" width="70" height="70" loading="eager">
+                </picture>
             </a>
         </div>
         <ul class="nav-links">
@@ -886,7 +901,7 @@
         </div>
     </section>
 
-    <!-- PANDUAN POPULER (tautan diarahkan ke blog) -->
+    <!-- PANDUAN POPULER -->
     <section class="section bg-light">
         <h2>Panduan & Tips Print Dokumen</h2>
         <p>Pelajari cara mudah mengurus dokumen Anda sebelum order print online Medan.</p>
@@ -920,7 +935,10 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Edit dan print isi skripsi saya cuma 2 jam selesai! Hasil cetaknya rapi dan jelas, siap langsung digunakan untuk revisi atau presentasi. Harganya juga ramah di kantong mahasiswa. Recommended banget!"</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar1.jpg" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <picture>
+                        <source srcset="images/avatar1.webp" type="image/webp">
+                        <img src="images/avatar1.jpg" alt="Anita Sari - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    </picture>
                     <div>
                         <h4>Anita Sari</h4>
                         <span>Mahasiswi USU</span>
@@ -934,7 +952,10 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Pelayanan ramah, harga bersahabat. File PDF langsung diproses tanpa ribet. Sudah 3 kali order, selalu puas."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar2.jpg" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <picture>
+                        <source srcset="images/avatar2.webp" type="image/webp">
+                        <img src="images/avatar2.jpg" alt="Budi Hartono - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    </picture>
                     <div>
                         <h4>Budi Hartono</h4>
                         <span>Karyawan Swasta</span>
@@ -948,7 +969,10 @@
                 <i class="fas fa-quote-left"></i>
                 <p>"Cetak brosur warna hasilnya tajam, tinta anti air. Toko strategis, mudah diakses. Pasti akan order lagi."</p>
                 <div class="testimonial-author">
-                    <img src="images/avatar3.jpg" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    <picture>
+                        <source srcset="images/avatar3.webp" type="image/webp">
+                        <img src="images/avatar3.jpg" alt="Maya Siregar - pelanggan MedanPrint" loading="lazy" width="50" height="50">
+                    </picture>
                     <div>
                         <h4>Maya Siregar</h4>
                         <span>Owner UMKM</span>
@@ -959,7 +983,6 @@
                 </div>
             </div>
         </div>
-        <!-- Tombol Lihat Semua Testimoni -->
         <div class="btn-view-all">
             <a href="testimoni.html" class="btn"><i class="fas fa-comments"></i> Lihat Semua Testimoni</a>
         </div>
@@ -1006,7 +1029,6 @@
                 </div>
             </div>
         </div>
-        <!-- Tombol Lihat Semua FAQ -->
         <div class="btn-view-all">
             <a href="faq.html" class="btn"><i class="fas fa-question-circle"></i> Lihat Semua FAQ</a>
         </div>
@@ -1056,7 +1078,7 @@
         <a class="btn btn2" href="https://wa.me/6285277930703" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
     </section>
 
-    <!-- Footer (dengan link ke testimoni.html dan faq.html) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1113,13 +1135,20 @@
                 item.classList.toggle('active');
             });
         });
-
-        // Service Worker (opsional) - dinonaktifkan sementara jika file tidak ada
-        // if ('serviceWorker' in navigator) {
-        //     window.addEventListener('load', () => {
-        //         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-        //     });
-        // }
     </script>
+
+    <!-- Catatan untuk konfigurasi server (tidak tampil di halaman) -->
+    <!--
+        Rekomendasi tambahan yang perlu dilakukan di server:
+        1. Buat file /robots.txt di root dengan isi:
+           User-agent: *
+           Allow: /
+           Disallow: /admin/
+           Sitemap: https://medanprint.online/sitemap.xml
+        2. Tambahkan Strict-Transport-Security header (HSTS) di konfigurasi server.
+        3. Tambahkan SPF record di DNS untuk keamanan email.
+        4. Konversi semua gambar ke format WebP dan optimasi ukuran (logo, avatar, og-image).
+        5. Pastikan gambar disajikan dalam ukuran yang tepat (sesuai atribut width/height).
+    -->
 </body>
 </html>
