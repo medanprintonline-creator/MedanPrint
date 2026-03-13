@@ -276,9 +276,19 @@
         #content4 {
             text-align: center;
         }
-        /* Tombol dalam button-group tetap full width, tapi teks di tengah */
+        /* Tombol dalam button-group - versi desktop lebih kecil */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
         .button-group .btn-next {
-            text-align: center;
+            flex: 0 1 auto;  /* Tidak full width */
+            width: auto;
+            padding: 12px 28px;  /* Lebih kecil dari sebelumnya */
+            font-size: 1.1rem;
+            margin-top: 0;
         }
         /* ===== FORM ELEMENTS ===== */
         .calculator-container {
@@ -369,14 +379,11 @@
         .btn-next {
             background: #2563eb;
             color: white;
-            width: 100%;
-            padding: 16px;
-            font-size: 1.2rem;
-            margin-top: 20px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: background 0.3s;
+            text-align: center;
         }
         .btn-next:hover {
             background: #1e40af;
@@ -403,15 +410,6 @@
             background: #64748b;
             transform: translateY(-2px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .button-group .btn-next {
-            flex: 1;
-            margin-top: 0;
         }
         /* ===== FILE PREVIEW ===== */
         .file-preview {
@@ -581,8 +579,14 @@
             .step-item {
                 min-width: 100px;
             }
+            /* Mobile: tombol full width agar mudah di-tap */
             .button-group {
                 flex-direction: column;
+                gap: 10px;
+            }
+            .button-group .btn-next {
+                width: 100%;
+                padding: 14px;  /* Sedikit lebih besar untuk kenyamanan */
             }
         }
         @media (max-width: 480px) {
