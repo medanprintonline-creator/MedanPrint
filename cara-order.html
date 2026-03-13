@@ -252,9 +252,33 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-top: 30px;
             display: none;
+            text-align: center; /* Semua teks di tengah secara default */
         }
         .step-content.active {
             display: block;
+        }
+        /* Judul dalam step-content tetap di tengah */
+        .step-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* Elemen formulir dan konten teknis tetap rata kiri agar rapi */
+        .calculator-container,
+        .form-group,
+        .upload-area,
+        .file-preview,
+        .pdf-preview,
+        .button-group,
+        .summary-box {
+            text-align: left;
+        }
+        /* Untuk konten langkah 4 (QRIS) kita biarkan rata tengah */
+        #content4 {
+            text-align: center;
+        }
+        /* Tombol dalam button-group tetap full width, tapi teks di tengah */
+        .button-group .btn-next {
+            text-align: center;
         }
         /* ===== FORM ELEMENTS ===== */
         .calculator-container {
@@ -284,6 +308,8 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .upload-area:hover {
             background: #e6f0ff;
@@ -396,6 +422,9 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .file-preview i {
             font-size: 2rem;
@@ -420,10 +449,6 @@
             max-width: 300px;
             margin: 20px auto;
             display: block;
-        }
-        /* Konten langkah 4 rata tengah */
-        #content4 {
-            text-align: center;
         }
         /* ===== WARNING ===== */
         .warning {
@@ -632,7 +657,7 @@
 
         <!-- Langkah 1 : Upload & Preview PDF -->
         <div class="step-content active" id="content1">
-            <h2 style="margin-bottom: 20px;">Langkah 1: Upload & Preview File PDF</h2>
+            <h2>Langkah 1: Upload & Preview File PDF</h2>
             <div class="upload-area" id="uploadArea">
                 <i class="fas fa-file-pdf"></i>
                 <p>Klik untuk memilih file PDF dari komputer Anda</p>
@@ -655,7 +680,7 @@
 
         <!-- Langkah 2 : Kalkulator -->
         <div class="step-content" id="content2">
-            <h2 style="margin-bottom: 20px;">Langkah 2: Hitung Biaya Cetak</h2>
+            <h2>Langkah 2: Hitung Biaya Cetak</h2>
             <div class="calculator-container">
                 <!-- Printer -->
                 <div class="form-group">
@@ -765,7 +790,7 @@
 
         <!-- Langkah 3: Konfirmasi WhatsApp -->
         <div class="step-content" id="content3">
-            <h2 style="margin-bottom: 20px;">Langkah 3 : Konfirmasi via WhatsApp</h2>
+            <h2>Langkah 3 : Konfirmasi via WhatsApp</h2>
             <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah Anda preview melalui ikon attachment WhatsApp.</p>
             
             <button class="btn-next" id="waButton" onclick="sendWA()">
@@ -782,7 +807,7 @@
 
         <!-- Langkah 4: QRIS -->
         <div class="step-content" id="content4">
-            <h2 style="margin-bottom: 20px;">Langkah 4 : Pembayaran QRIS</h2>
+            <h2>Langkah 4 : Pembayaran QRIS</h2>
             <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
             <img src="images/qris.png" alt="QRIS Pembayaran MedanPrint" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">SATU QRIS UNTUK SEMUA <strong>MedanPrint.Online</strong></p>
@@ -795,7 +820,7 @@
 
         <!-- Langkah 5: Cetak & Ambil -->
         <div class="step-content" id="content5">
-            <h2 style="margin-bottom: 20px;">Langkah 5 : Cetak dan Ambil</h2>
+            <h2>Langkah 5 : Cetak dan Ambil</h2>
             <p>Pesanan Anda sedang diproses. Status akan diinformasikan via WhatsApp.</p>
             <div style="background: #e6f0ff; padding: 20px; border-radius: 12px;">
                 <i class="fas fa-check-circle" style="color: #22c55e; font-size: 3rem;"></i>
@@ -888,8 +913,6 @@
 
         // Fungsi untuk pindah step (digunakan oleh tombol kembali)
         window.goToStep = function(step) {
-            // Validasi sederhana: tidak bisa kembali ke step 1 jika belum upload file? 
-            // Biarkan user kembali kapan saja, namun jika step 1 dan file belum diupload, tombol lanjut di step 1 akan disabled.
             activateStep(step);
         };
 
@@ -897,8 +920,6 @@
         steps.forEach(step => {
             step.addEventListener('click', function() {
                 const stepNumber = parseInt(this.getAttribute('data-step'));
-                // Izinkan pindah ke step mana pun, namun jika step 1 dan file belum dipilih, 
-                // tombol lanjut akan tetap disabled. Tidak ada larangan.
                 activateStep(stepNumber);
             });
         });
@@ -908,7 +929,6 @@
             document.getElementById('fileInput').click();
         });
 
-        // Fungsi untuk membaca jumlah halaman PDF menggunakan PDF.js
         async function getPDFPageCount(file) {
             const arrayBuffer = await file.arrayBuffer();
             const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -919,7 +939,6 @@
             const file = e.target.files[0];
             if (!file) return;
 
-            // Validasi ukuran
             if (file.size > 50 * 1024 * 1024) {
                 alert('Ukuran file maksimal 50MB.');
                 return;
@@ -929,17 +948,14 @@
                 return;
             }
 
-            // Tampilkan info file
             document.getElementById('fileInfo').style.display = 'flex';
             document.getElementById('fileName').textContent = file.name;
             document.getElementById('fileSize').textContent = formatBytes(file.size);
 
-            // Preview PDF
             const fileURL = URL.createObjectURL(file);
             document.getElementById('pdfPreview').src = fileURL;
             document.getElementById('pdfPreviewContainer').style.display = 'block';
 
-            // Baca jumlah halaman
             try {
                 const numPages = await getPDFPageCount(file);
                 document.getElementById('totalPages').value = numPages;
@@ -954,7 +970,6 @@
             orderData.fileName = file.name;
             orderData.fileSize = formatBytes(file.size);
 
-            // Aktifkan tombol lanjut
             document.getElementById('uploadNext').disabled = false;
         });
 
@@ -964,7 +979,7 @@
                 return;
             }
             document.getElementById('step1').classList.add('completed');
-            hitungHarga(); // update harga
+            hitungHarga();
             activateStep(2);
         };
 
@@ -1011,7 +1026,6 @@
         }
 
         function hitungHarga() {
-            // Ambil semua nilai
             const printer = document.querySelector('input[name="printer"]:checked').value;
             const tipe = document.getElementById('tipeCetak').value;
             const colorType = document.getElementById('colorType') ? document.getElementById('colorType').value : 'standard';
@@ -1023,10 +1037,8 @@
             const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
             const sisi = document.getElementById('sisiCetak').value;
 
-            // Hitung jumlah halaman efektif
             let efektifHalaman;
             if (pageRange === 'custom') {
-                // Validasi rentang
                 if (start < 1) start = 1;
                 if (end > totalPages) end = totalPages;
                 if (start > end) start = end;
@@ -1039,18 +1051,16 @@
 
             orderData.efektifHalaman = efektifHalaman;
 
-            // Hitung lembar
             const lembar = sisi === '2' ? Math.ceil(efektifHalaman / 2) : efektifHalaman;
             const totalLembar = lembar * jumlahCopy;
 
-            // Hitung harga per lembar
             let hargaPerLembar = 0;
 
             function getHargaBW(printer, ukuran) {
                 if (printer === 'inkjet') {
                     if (ukuran === 'a4' || ukuran === 'folio') return 500;
                     else if (ukuran === 'a3') return 3000;
-                } else { // laser
+                } else {
                     if (ukuran === 'a4' || ukuran === 'folio') return 300;
                     else if (ukuran === 'a3') return 2000;
                 }
@@ -1058,7 +1068,6 @@
             }
 
             if (sisi === '2') {
-                // 2 sisi hanya untuk BW laser
                 if (tipe === 'bw' && printer === 'laser') {
                     if (ukuran === 'a4' || ukuran === 'folio') hargaPerLembar = 500;
                     else if (ukuran === 'a3') hargaPerLembar = 3000;
@@ -1066,10 +1075,9 @@
                     hargaPerLembar = 0;
                 }
             } else {
-                // 1 sisi
                 if (tipe === 'bw') {
                     hargaPerLembar = getHargaBW(printer, ukuran);
-                } else { // warna
+                } else {
                     if (printer !== 'inkjet') {
                         hargaPerLembar = 0;
                     } else {
@@ -1086,7 +1094,6 @@
 
             const total = totalLembar * hargaPerLembar;
 
-            // Simpan ke orderData
             orderData.printer = printer;
             orderData.tipeCetak = tipe;
             orderData.colorType = colorType;
@@ -1099,7 +1106,6 @@
             orderData.sisiCetak = sisi;
             orderData.totalHarga = total;
 
-            // Update UI
             document.getElementById('efektifHalaman').textContent = efektifHalaman;
             document.getElementById('totalLembar').textContent = totalLembar;
             document.getElementById('hargaLembar').textContent = hargaPerLembar ? `Rp ${hargaPerLembar.toLocaleString()}` : 'Rp 0';
@@ -1166,10 +1172,8 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
 
-        // Tahun otomatis
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         if (hamburger) {
@@ -1178,10 +1182,8 @@
             });
         }
 
-        // Panggil hitungHarga pertama kali
         hitungHarga();
 
-        // ==================== REGISTRASI SERVICE WORKER UNTUK PWA ====================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
