@@ -252,17 +252,15 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-top: 30px;
             display: none;
-            text-align: center; /* Semua teks di tengah secara default */
+            text-align: center;
         }
         .step-content.active {
             display: block;
         }
-        /* Judul dalam step-content tetap di tengah */
         .step-content h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-        /* Elemen formulir dan konten teknis tetap rata kiri agar rapi */
         .calculator-container,
         .form-group,
         .upload-area,
@@ -272,23 +270,11 @@
         .summary-box {
             text-align: left;
         }
-        /* Untuk konten langkah 4 (QRIS) kita biarkan rata tengah */
         #content4 {
             text-align: center;
         }
-        /* Tombol dalam button-group - versi desktop lebih kecil */
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
         .button-group .btn-next {
-            flex: 0 1 auto;  /* Tidak full width */
-            width: auto;
-            padding: 12px 28px;  /* Lebih kecil dari sebelumnya */
-            font-size: 1.1rem;
-            margin-top: 0;
+            text-align: center;
         }
         /* ===== FORM ELEMENTS ===== */
         .calculator-container {
@@ -329,7 +315,6 @@
             color: #2563eb;
             margin-bottom: 10px;
         }
-        /* ===== RADIO GROUP ===== */
         .radio-group {
             display: flex;
             gap: 20px;
@@ -355,7 +340,6 @@
         .inline-inputs input {
             width: 100px;
         }
-        /* ===== SUMMARY ===== */
         .summary-box {
             background: #f8fafc;
             border-radius: 12px;
@@ -375,15 +359,17 @@
             text-align: right;
             margin-top: 15px;
         }
-        /* ===== BUTTONS ===== */
         .btn-next {
             background: #2563eb;
             color: white;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.2rem;
+            margin-top: 20px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: background 0.3s;
-            text-align: center;
         }
         .btn-next:hover {
             background: #1e40af;
@@ -402,7 +388,6 @@
             background: #16a34a;
             transform: translateY(-2px);
         }
-        /* ===== TOMBOL KEMBALI ===== */
         .btn-prev {
             background: #94a3b8;
         }
@@ -411,7 +396,15 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.15);
         }
-        /* ===== FILE PREVIEW ===== */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button-group .btn-next {
+            flex: 1;
+            margin-top: 0;
+        }
         .file-preview {
             background: #e6f0ff;
             padding: 15px;
@@ -442,13 +435,11 @@
             border: none;
             border-radius: 8px;
         }
-        /* ===== QRIS ===== */
         .qris-image {
             max-width: 300px;
             margin: 20px auto;
             display: block;
         }
-        /* ===== WARNING ===== */
         .warning {
             color: #dc2626;
             font-size: 0.9rem;
@@ -464,6 +455,27 @@
             color: #2563eb;
             font-size: 0.9rem;
             margin-top: 5px;
+        }
+        /* ===== NOTIFIKASI INFO ===== */
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #856404;
+        }
+        .info-box i {
+            margin-right: 5px;
+        }
+        .info-box ul {
+            margin-left: 20px;
+        }
+        .info-blue {
+            background: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
         }
         /* ===== FOOTER ===== */
         footer {
@@ -519,7 +531,6 @@
             margin-top: 30px;
             border-top: 1px solid #1e293b;
         }
-        /* ===== WHATSAPP FIXED ===== */
         .whatsapp {
             position: fixed;
             bottom: 20px;
@@ -544,7 +555,6 @@
             transform: scale(1.05);
             background: #20b859;
         }
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -579,14 +589,8 @@
             .step-item {
                 min-width: 100px;
             }
-            /* Mobile: tombol full width agar mudah di-tap */
             .button-group {
                 flex-direction: column;
-                gap: 10px;
-            }
-            .button-group .btn-next {
-                width: 100%;
-                padding: 14px;  /* Sedikit lebih besar untuk kenyamanan */
             }
         }
         @media (max-width: 480px) {
@@ -612,7 +616,6 @@
             <li><a href="layanan.html">Layanan Print</a></li>
             <li><a href="cara-order.html" class="active">Cara Order</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <!-- Testimoni dan FAQ mengarah ke index dengan anchor, konsisten dengan index -->
             <li><a href="index.html#testimoni">Testimoni</a></li>
             <li><a href="index.html#faq">FAQ</a></li>
             <li><a href="kontak.html">Kontak</a></li>
@@ -628,14 +631,14 @@
         <p>Upload file, hitung biaya, konfirmasi via WhatsApp, bayar QRIS. Kami juga melayani jilid (ring/kawat/glue), pas foto, stempel, cutting sticker.</p>
     </div>
 
-    <!-- Breadcrumb dengan tautan (schema sudah di JSON-LD) -->
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <a href="index.html">Beranda</a> &gt; <span>Cara Order</span>
     </div>
 
     <!-- Main Content -->
     <section class="section">
-        <!-- Steps Navigation (dapat diklik) -->
+        <!-- Steps Navigation -->
         <div class="steps-nav" id="stepsNav">
             <div class="step-item active" data-step="1" id="step1">
                 <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -675,7 +678,6 @@
                     <p style="font-size: 0.9rem;" id="fileSize"></p>
                 </div>
             </div>
-            <!-- Preview PDF -->
             <div id="pdfPreviewContainer" class="pdf-preview">
                 <iframe id="pdfPreview"></iframe>
             </div>
@@ -795,6 +797,17 @@
         <!-- Langkah 3: Konfirmasi WhatsApp -->
         <div class="step-content" id="content3">
             <h2>Langkah 3 : Konfirmasi via WhatsApp</h2>
+            
+            <!-- Info Penting -->
+            <div class="info-box">
+                <p><i class="fas fa-info-circle"></i> <strong>Penting:</strong></p>
+                <ul>
+                    <li>File akan kami cek manual oleh admin untuk memastikan jumlah halaman dan warna.</li>
+                    <li><strong>JANGAN BAYAR dulu</strong> sebelum mendapat konfirmasi harga final dari admin.</li>
+                    <li>Admin akan membalas dalam 1-2 jam (jam kerja).</li>
+                </ul>
+            </div>
+
             <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah Anda preview melalui ikon attachment WhatsApp.</p>
             
             <button class="btn-next" id="waButton" onclick="sendWA()">
@@ -812,9 +825,17 @@
         <!-- Langkah 4: QRIS -->
         <div class="step-content" id="content4">
             <h2>Langkah 4 : Pembayaran QRIS</h2>
-            <p>Scan kode QR di bawah untuk melakukan pembayaran sebesar <strong id="totalBayar">Rp 0</strong></p>
+            
+            <!-- Info Tunggu Konfirmasi -->
+            <div class="info-box info-blue">
+                <p><i class="fas fa-clock"></i> <strong>Tunggu Konfirmasi Admin!</strong></p>
+                <p>Admin akan mengirimkan nominal harga final setelah cek file. <strong>Jangan transfer sebelum mendapat nominal dari admin.</strong></p>
+            </div>
+
+            <p>Scan kode QR di bawah untuk melakukan pembayaran</p>
             <img src="images/qris.png" alt="QRIS Pembayaran MedanPrint" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">SATU QRIS UNTUK SEMUA <strong>MedanPrint.Online</strong></p>
+            <p><small>* Isi nominal sesuai instruksi admin saat transfer.</small></p>
 
             <div class="button-group">
                 <button class="btn-next btn-prev" onclick="goToStep(3)">Kembali</button>
@@ -831,19 +852,17 @@
                 <h3>Pesanan Selesai!</h3>
                 <p>Silakan ambil di toko kami atau pesan ojek online.</p>
                 <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" class="btn" style="margin-top: 10px;">Lihat Peta</a>
-                <!-- Tambahan link ke layanan lain -->
                 <a href="layanan.html" class="btn btn2" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
             </div>
 
-            <!-- Tombol Kembali (opsional, bisa kembali ke langkah 4) -->
+            <!-- Tombol Kembali (opsional) -->
             <div class="button-group" style="margin-top: 30px;">
                 <button class="btn-next btn-prev" onclick="goToStep(4)">Kembali ke Pembayaran</button>
-                <!-- Tidak ada tombol lanjut karena ini langkah terakhir -->
             </div>
         </div>
     </section>
 
-    <!-- Footer (konsisten dengan index) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -915,12 +934,10 @@
             currentStep = step;
         }
 
-        // Fungsi untuk pindah step (digunakan oleh tombol kembali)
         window.goToStep = function(step) {
             activateStep(step);
         };
 
-        // Event listener untuk klik pada step navigation
         steps.forEach(step => {
             step.addEventListener('click', function() {
                 const stepNumber = parseInt(this.getAttribute('data-step'));
@@ -928,7 +945,7 @@
             });
         });
 
-        // ==================== STEP 1: UPLOAD & PREVIEW + BACA JUMLAH HALAMAN ====================
+        // ==================== STEP 1: UPLOAD & PREVIEW ====================
         document.getElementById('uploadArea').addEventListener('click', function() {
             document.getElementById('fileInput').click();
         });
