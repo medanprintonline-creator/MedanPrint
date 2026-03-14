@@ -795,12 +795,12 @@
                 <!-- Tombol Kembali dan Lanjut -->
                 <div class="button-group">
                     <button class="btn-next btn-prev" onclick="goToStep(1)">Kembali</button>
-                    <button class="btn-next" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
+                    <button class="btn-next" id="btnLanjutStep2">Lanjut ke Konfirmasi</button>
                 </div>
             </div>
         </div>
 
-        <!-- Langkah 3: Konfirmasi WhatsApp (dengan info manual) -->
+        <!-- Langkah 3: Konfirmasi WhatsApp -->
         <div class="step-content" id="content3">
             <h2>Langkah 3 : Konfirmasi via WhatsApp</h2>
             <div class="info-box">
@@ -825,7 +825,7 @@
             </div>
         </div>
 
-        <!-- Langkah 4: QRIS (dengan info tunggu konfirmasi) -->
+        <!-- Langkah 4: QRIS -->
         <div class="step-content" id="content4">
             <h2>Langkah 4 : Pembayaran QRIS</h2>
             <div class="info-box" style="background: #d1ecf1; border-color: #bee5eb; color: #0c5460;">
@@ -852,7 +852,7 @@
                 <h3>Pesanan Selesai!</h3>
                 <p>Silakan ambil di toko kami atau pesan ojek online.</p>
                 <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" class="btn" style="margin-top: 10px;">Lihat Peta</a>
-                <a href="layanan.html" class="btn btn2" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
+                <a href="layanan.html" class="btn" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
             </div>
             <div class="button-group" style="margin-top: 30px;">
                 <button class="btn-next btn-prev" onclick="goToStep(4)">Kembali ke Pembayaran</button>
@@ -1096,6 +1096,17 @@
             document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
             activateStep(3);
         };
+
+        // Tambahkan event listener untuk tombol "Lanjut ke Konfirmasi" di langkah 2
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnLanjutStep2 = document.getElementById('btnLanjutStep2');
+            if (btnLanjutStep2) {
+                btnLanjutStep2.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    step2Complete();
+                });
+            }
+        });
 
         // ==================== STEP 3: KONFIRMASI WA ====================
         window.sendWA = function() {
