@@ -899,270 +899,275 @@
     <!-- PDF.js dimuat dengan defer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
 
-    <script>
-        // ==================== DATA ORDER ====================
-        let orderData = {
-            fileName: '',
-            fileSize: '',
-            printer: 'inkjet',
-            tipeCetak: 'bw',
-            colorType: 'standard',
-            ukuranKertas: 'a4',
-            totalPages: 1,
-            pageRange: 'all',
-            startPage: 1,
-            endPage: 1,
-            jumlahCopy: 1,
-            sisiCetak: '1',
-            efektifHalaman: 1,
-            totalHarga: 500
-        };
+   <script>
+    // ==================== DATA ORDER ====================
+    let orderData = {
+        fileName: '',
+        fileSize: '',
+        printer: 'inkjet',
+        tipeCetak: 'bw',
+        colorType: 'standard',
+        ukuranKertas: 'a4',
+        totalPages: 1,
+        pageRange: 'all',
+        startPage: 1,
+        endPage: 1,
+        jumlahCopy: 1,
+        sisiCetak: '1',
+        efektifHalaman: 1,
+        totalHarga: 500
+    };
 
-        let selectedFile = null;
-        let currentStep = 1;
-        const steps = document.querySelectorAll('.step-item');
-        const contents = document.querySelectorAll('.step-content');
+    let selectedFile = null;
+    let currentStep = 1;
+    const steps = document.querySelectorAll('.step-item');
+    const contents = document.querySelectorAll('.step-content');
 
-        // ==================== STEP NAVIGATION ====================
-        function activateStep(step) {
-            steps.forEach(s => s.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
-            document.querySelector(`.step-item[data-step="${step}"]`).classList.add('active');
-            document.getElementById(`content${step}`).classList.add('active');
-            currentStep = step;
-        }
+    // ==================== STEP NAVIGATION ====================
+    function activateStep(step) {
+        steps.forEach(s => s.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        document.querySelector(`.step-item[data-step="${step}"]`).classList.add('active');
+        document.getElementById(`content${step}`).classList.add('active');
+        currentStep = step;
+    }
 
-        window.goToStep = function(step) {
-            activateStep(step);
-        };
+    window.goToStep = function(step) {
+        activateStep(step);
+    };
 
-        steps.forEach(step => {
-            step.addEventListener('click', function() {
-                const stepNumber = parseInt(this.getAttribute('data-step'));
-                activateStep(stepNumber);
-            });
+    steps.forEach(step => {
+        step.addEventListener('click', function() {
+            const stepNumber = parseInt(this.getAttribute('data-step'));
+            activateStep(stepNumber);
         });
+    });
 
-        // ==================== STEP 1: UPLOAD & PREVIEW ====================
-        document.getElementById('uploadArea').addEventListener('click', function() {
-            document.getElementById('fileInput').click();
-        });
+    // ==================== STEP 1: UPLOAD & PREVIEW ====================
+    document.getElementById('uploadArea').addEventListener('click', function() {
+        document.getElementById('fileInput').click();
+    });
 
-        async function getPDFPageCount(file) {
-            const arrayBuffer = await file.arrayBuffer();
-            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-            return pdf.numPages;
+    async function getPDFPageCount(file) {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        return pdf.numPages;
+    }
+
+    document.getElementById('fileInput').addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        if (file.size > 50 * 1024 * 1024) {
+            alert('Ukuran file maksimal 50MB.');
+            return;
+        }
+        if (file.type !== 'application/pdf') {
+            alert('Hanya file PDF yang diperbolehkan.');
+            return;
         }
 
-        document.getElementById('fileInput').addEventListener('change', async function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
+        document.getElementById('fileInfo').style.display = 'flex';
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('fileSize').textContent = formatBytes(file.size);
 
-            if (file.size > 50 * 1024 * 1024) {
-                alert('Ukuran file maksimal 50MB.');
-                return;
+        const fileURL = URL.createObjectURL(file);
+        document.getElementById('pdfPreview').src = fileURL;
+        document.getElementById('pdfPreviewContainer').style.display = 'block';
+
+        const uploadBtn = document.getElementById('uploadNext');
+        uploadBtn.textContent = 'Memproses...';
+        uploadBtn.disabled = true;
+        document.getElementById('uploadLoading').style.display = 'block';
+
+        try {
+            if (typeof pdfjsLib === 'undefined') {
+                throw new Error('PDF.js tidak tersedia.');
             }
-            if (file.type !== 'application/pdf') {
-                alert('Hanya file PDF yang diperbolehkan.');
-                return;
-            }
-
-            document.getElementById('fileInfo').style.display = 'flex';
-            document.getElementById('fileName').textContent = file.name;
-            document.getElementById('fileSize').textContent = formatBytes(file.size);
-
-            const fileURL = URL.createObjectURL(file);
-            document.getElementById('pdfPreview').src = fileURL;
-            document.getElementById('pdfPreviewContainer').style.display = 'block';
-
-            const uploadBtn = document.getElementById('uploadNext');
-            uploadBtn.textContent = 'Memproses...';
-            uploadBtn.disabled = true;
-            document.getElementById('uploadLoading').style.display = 'block';
-
-            try {
-                if (typeof pdfjsLib === 'undefined') {
-                    throw new Error('PDF.js tidak tersedia.');
-                }
-                const numPages = await getPDFPageCount(file);
-                document.getElementById('totalPages').value = numPages;
-                orderData.totalPages = numPages;
-                
-                uploadBtn.disabled = false;
-                uploadBtn.textContent = 'Lanjut ke Kalkulator';
-            } catch (error) {
-                console.error('Gagal membaca jumlah halaman:', error);
-                alert('Gagal membaca jumlah halaman PDF. Silakan isi manual.');
-                document.getElementById('totalPages').value = 1;
-                uploadBtn.disabled = false;
-                uploadBtn.textContent = 'Lanjut ke Kalkulator';
-            } finally {
-                document.getElementById('uploadLoading').style.display = 'none';
-            }
-
-            selectedFile = file;
-            orderData.fileName = file.name;
-            orderData.fileSize = formatBytes(file.size);
-        });
-
-        window.step1Complete = function() {
-            if (!selectedFile) {
-                alert('Silakan pilih file terlebih dahulu.');
-                return;
-            }
-            document.getElementById('step1').classList.add('completed');
-            hitungHarga();
-            activateStep(2);
-        };
-
-        // ==================== STEP 2: KALKULATOR ====================
-        function toggleColorType() {
-            const tipe = document.getElementById('tipeCetak').value;
-            document.getElementById('colorTypeGroup').style.display = tipe === 'warna' ? 'block' : 'none';
-            validateSisi();
-            hitungHarga();
+            const numPages = await getPDFPageCount(file);
+            document.getElementById('totalPages').value = numPages;
+            orderData.totalPages = numPages;
+            
+            uploadBtn.disabled = false;
+            uploadBtn.textContent = 'Lanjut ke Kalkulator';
+        } catch (error) {
+            console.error('Gagal membaca jumlah halaman:', error);
+            alert('Gagal membaca jumlah halaman PDF. Silakan isi manual.');
+            document.getElementById('totalPages').value = 1;
+            uploadBtn.disabled = false;
+            uploadBtn.textContent = 'Lanjut ke Kalkulator';
+        } finally {
+            document.getElementById('uploadLoading').style.display = 'none';
         }
 
-        function togglePageRange() {
-            const range = document.querySelector('input[name="pageRange"]:checked').value;
-            document.getElementById('customRange').style.display = range === 'custom' ? 'block' : 'none';
-            hitungHarga();
+        selectedFile = file;
+        orderData.fileName = file.name;
+        orderData.fileSize = formatBytes(file.size);
+    });
+
+    window.step1Complete = function() {
+        if (!selectedFile) {
+            alert('Silakan pilih file terlebih dahulu.');
+            return;
         }
-
-        function validateSisi() {
-            const sisi = document.getElementById('sisiCetak').value;
-            const tipe = document.getElementById('tipeCetak').value;
-            const printer = document.querySelector('input[name="printer"]:checked').value;
-            const warning = document.getElementById('sisiWarning');
-            warning.style.display = (sisi === '2' && (tipe !== 'bw' || printer !== 'laser')) ? 'block' : 'none';
-            hitungHarga();
-        }
-
-        function hitungHarga() {
-            const printer = document.querySelector('input[name="printer"]:checked').value;
-            const tipe = document.getElementById('tipeCetak').value;
-            const colorType = document.getElementById('colorType') ? document.getElementById('colorType').value : 'standard';
-            const ukuran = document.getElementById('ukuranKertas').value;
-            const totalPages = parseInt(document.getElementById('totalPages').value) || 1;
-            const pageRange = document.querySelector('input[name="pageRange"]:checked').value;
-            let start = parseInt(document.getElementById('startPage').value) || 1;
-            let end = parseInt(document.getElementById('endPage').value) || 1;
-            const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
-            const sisi = document.getElementById('sisiCetak').value;
-
-            let efektifHalaman;
-            if (pageRange === 'custom') {
-                if (start < 1) start = 1;
-                if (end > totalPages) end = totalPages;
-                if (start > end) start = end;
-                document.getElementById('startPage').value = start;
-                document.getElementById('endPage').value = end;
-                efektifHalaman = end - start + 1;
-            } else {
-                efektifHalaman = totalPages;
-            }
-
-            const lembar = sisi === '2' ? Math.ceil(efektifHalaman / 2) : efektifHalaman;
-            const totalLembar = lembar * jumlahCopy;
-
-            let hargaPerLembar = 0;
-            if (sisi === '2' && tipe === 'bw' && printer === 'laser') {
-                hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
-            } else if (sisi !== '2') {
-                if (tipe === 'bw') {
-                    if (printer === 'inkjet') hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
-                    else hargaPerLembar = ukuran === 'a3' ? 2000 : 300;
-                } else if (printer === 'inkjet') {
-                    if (ukuran === 'a3') hargaPerLembar = colorType === 'full' ? 8000 : 0;
-                    else hargaPerLembar = colorType === 'full' ? 2000 : 1000;
-                }
-            }
-
-            const total = totalLembar * hargaPerLembar;
-            Object.assign(orderData, { printer, tipe, colorType, ukuran, totalPages, pageRange, startPage: start, endPage: end, jumlahCopy, sisi, efektifHalaman, totalHarga: total });
-
-            document.getElementById('efektifHalaman').textContent = efektifHalaman;
-            document.getElementById('totalLembar').textContent = totalLembar;
-            document.getElementById('hargaLembar').textContent = hargaPerLembar ? `Rp ${hargaPerLembar.toLocaleString()}` : 'Rp 0';
-            document.getElementById('totalHarga').textContent = `Rp ${total.toLocaleString()}`;
-        }
-
-        window.step2Complete = function() {
-            console.log('step2Complete dipanggil');
-            if (orderData.totalHarga === 0) {
-                alert('Harap pilih kombinasi yang valid (total harga tidak boleh 0).');
-                return;
-            }
-            document.getElementById('step2').classList.add('completed');
-            document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
-            activateStep(3);
-        };
-
-        // ==================== STEP 3: KONFIRMASI WA ====================
-        window.sendWA = function() {
-            if (!selectedFile) {
-                alert('File belum dipilih. Kembali ke langkah 1.');
-                return;
-            }
-            const printerName = orderData.printer === 'inkjet' ? 'Inkjet Pigment' : 'Laser Jet';
-            const tipeName = orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna';
-            const warnaJenis = orderData.tipeCetak === 'warna' ? (orderData.colorType === 'standard' ? 'Standard' : 'Full Color') : '-';
-            const ukuranName = orderData.ukuranKertas === 'a4' ? 'A4' : (orderData.ukuranKertas === 'folio' ? 'F4' : 'A3');
-            const rentang = orderData.pageRange === 'all' ? 'Semua halaman' : `Halaman ${orderData.startPage} - ${orderData.endPage}`;
-            const sisiName = orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi';
-
-            const pesan = `Halo MedanPrint.online, saya ingin order cetak:\n\n` +
-                `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n` +
-                `🖨️ *Printer:* ${printerName}\n` +
-                `🎨 *Tipe cetak:* ${tipeName} ${orderData.tipeCetak === 'warna' ? `(${warnaJenis})` : ''}\n` +
-                `📏 *Ukuran kertas:* ${ukuranName}\n` +
-                `📄 *Jumlah halaman total:* ${orderData.totalPages}\n` +
-                `📄 *Rentang cetak:* ${rentang}\n` +
-                `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
-                `📄 *Sisi cetak:* ${sisiName}\n` +
-                `💰 *Total harga (estimasi):* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
-                `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
-
-            window.open(`https://wa.me/6285277930703?text=${encodeURIComponent(pesan)}`, '_blank');
-        };
-
-        window.step3Complete = function() {
-            document.getElementById('step3').classList.add('completed');
-            activateStep(4);
-        };
-
-        // ==================== STEP 4 ====================
-        window.step4Complete = function() {
-            document.getElementById('step4').classList.add('completed');
-            activateStep(5);
-        };
-
-        // ==================== HELPER ====================
-        function formatBytes(bytes, decimals = 2) {
-            if (bytes === 0) return '0 Bytes';
-            const k = 1024;
-            const dm = decimals < 0 ? 0 : decimals;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-        }
-
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        const hamburger = document.querySelector('.hamburger');
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.toggle('active');
-            });
-        }
-
+        document.getElementById('step1').classList.add('completed');
         hitungHarga();
+        activateStep(2);
+    };
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
+    // ==================== STEP 2: KALKULATOR ====================
+    function toggleColorType() {
+        const tipe = document.getElementById('tipeCetak').value;
+        document.getElementById('colorTypeGroup').style.display = tipe === 'warna' ? 'block' : 'none';
+        validateSisi();
+        hitungHarga();
+    }
+
+    function togglePageRange() {
+        const range = document.querySelector('input[name="pageRange"]:checked').value;
+        document.getElementById('customRange').style.display = range === 'custom' ? 'block' : 'none';
+        hitungHarga();
+    }
+
+    function validateSisi() {
+        const sisi = document.getElementById('sisiCetak').value;
+        const tipe = document.getElementById('tipeCetak').value;
+        const printer = document.querySelector('input[name="printer"]:checked').value;
+        const warning = document.getElementById('sisiWarning');
+        warning.style.display = (sisi === '2' && (tipe !== 'bw' || printer !== 'laser')) ? 'block' : 'none';
+        hitungHarga();
+    }
+
+    function hitungHarga() {
+        const printer = document.querySelector('input[name="printer"]:checked').value;
+        const tipe = document.getElementById('tipeCetak').value;
+        const colorType = document.getElementById('colorType') ? document.getElementById('colorType').value : 'standard';
+        const ukuran = document.getElementById('ukuranKertas').value;
+        const totalPages = parseInt(document.getElementById('totalPages').value) || 1;
+        const pageRange = document.querySelector('input[name="pageRange"]:checked').value;
+        let start = parseInt(document.getElementById('startPage').value) || 1;
+        let end = parseInt(document.getElementById('endPage').value) || 1;
+        const jumlahCopy = parseInt(document.getElementById('jumlahCopy').value) || 1;
+        const sisi = document.getElementById('sisiCetak').value;
+
+        let efektifHalaman;
+        if (pageRange === 'custom') {
+            if (start < 1) start = 1;
+            if (end > totalPages) end = totalPages;
+            if (start > end) start = end;
+            document.getElementById('startPage').value = start;
+            document.getElementById('endPage').value = end;
+            efektifHalaman = end - start + 1;
+        } else {
+            efektifHalaman = totalPages;
         }
-    </script>
-</body>
-</html>
+
+        const lembar = sisi === '2' ? Math.ceil(efektifHalaman / 2) : efektifHalaman;
+        const totalLembar = lembar * jumlahCopy;
+
+        let hargaPerLembar = 0;
+        if (sisi === '2' && tipe === 'bw' && printer === 'laser') {
+            hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
+        } else if (sisi !== '2') {
+            if (tipe === 'bw') {
+                if (printer === 'inkjet') hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
+                else hargaPerLembar = ukuran === 'a3' ? 2000 : 300;
+            } else if (printer === 'inkjet') {
+                if (ukuran === 'a3') hargaPerLembar = colorType === 'full' ? 8000 : 0;
+                else hargaPerLembar = colorType === 'full' ? 2000 : 1000;
+            }
+        }
+
+        const total = totalLembar * hargaPerLembar;
+        Object.assign(orderData, { printer, tipe, colorType, ukuran, totalPages, pageRange, startPage: start, endPage: end, jumlahCopy, sisi, efektifHalaman, totalHarga: total });
+
+        document.getElementById('efektifHalaman').textContent = efektifHalaman;
+        document.getElementById('totalLembar').textContent = totalLembar;
+        document.getElementById('hargaLembar').textContent = hargaPerLembar ? `Rp ${hargaPerLembar.toLocaleString()}` : 'Rp 0';
+        document.getElementById('totalHarga').textContent = `Rp ${total.toLocaleString()}`;
+    }
+
+    // Fungsi step2Complete dipanggil oleh tombol
+    window.step2Complete = function() {
+        console.log('step2Complete dipanggil');
+        if (orderData.totalHarga === 0) {
+            alert('Harap pilih kombinasi yang valid (total harga tidak boleh 0).');
+            return;
+        }
+        // Pastikan elemen totalBayar ada sebelum mengubahnya
+        const totalBayarEl = document.getElementById('totalBayar');
+        if (totalBayarEl) {
+            totalBayarEl.textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
+        } else {
+            console.error('Elemen dengan id "totalBayar" tidak ditemukan');
+        }
+        document.getElementById('step2').classList.add('completed');
+        activateStep(3);
+    };
+
+    // ==================== STEP 3: KONFIRMASI WA ====================
+    window.sendWA = function() {
+        if (!selectedFile) {
+            alert('File belum dipilih. Kembali ke langkah 1.');
+            return;
+        }
+        const printerName = orderData.printer === 'inkjet' ? 'Inkjet Pigment' : 'Laser Jet';
+        const tipeName = orderData.tipeCetak === 'bw' ? 'Hitam Putih' : 'Warna';
+        const warnaJenis = orderData.tipeCetak === 'warna' ? (orderData.colorType === 'standard' ? 'Standard' : 'Full Color') : '-';
+        const ukuranName = orderData.ukuranKertas === 'a4' ? 'A4' : (orderData.ukuranKertas === 'folio' ? 'F4' : 'A3');
+        const rentang = orderData.pageRange === 'all' ? 'Semua halaman' : `Halaman ${orderData.startPage} - ${orderData.endPage}`;
+        const sisiName = orderData.sisiCetak === '1' ? '1 sisi' : '2 sisi';
+
+        const pesan = `Halo MedanPrint.online, saya ingin order cetak:\n\n` +
+            `📄 *File:* ${orderData.fileName} (${orderData.fileSize})\n` +
+            `🖨️ *Printer:* ${printerName}\n` +
+            `🎨 *Tipe cetak:* ${tipeName} ${orderData.tipeCetak === 'warna' ? `(${warnaJenis})` : ''}\n` +
+            `📏 *Ukuran kertas:* ${ukuranName}\n` +
+            `📄 *Jumlah halaman total:* ${orderData.totalPages}\n` +
+            `📄 *Rentang cetak:* ${rentang}\n` +
+            `📄 *Jumlah copy:* ${orderData.jumlahCopy}\n` +
+            `📄 *Sisi cetak:* ${sisiName}\n` +
+            `💰 *Total harga (estimasi):* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
+            `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
+
+        window.open(`https://wa.me/6285277930703?text=${encodeURIComponent(pesan)}`, '_blank');
+    };
+
+    window.step3Complete = function() {
+        document.getElementById('step3').classList.add('completed');
+        activateStep(4);
+    };
+
+    // ==================== STEP 4 ====================
+    window.step4Complete = function() {
+        document.getElementById('step4').classList.add('completed');
+        activateStep(5);
+    };
+
+    // ==================== HELPER ====================
+    function formatBytes(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    }
+
+    hitungHarga();
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+        });
+    }
+</script>
