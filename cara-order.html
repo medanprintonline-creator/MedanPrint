@@ -261,20 +261,62 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        /* Konten teknis tetap rata kiri */
         .calculator-container,
         .form-group,
         .upload-area,
         .file-preview,
         .pdf-preview,
-        .button-group,
         .summary-box {
             text-align: left;
         }
-        #content4 {
+        /* Area upload di tengah */
+        .upload-area {
+            border: 2px dashed #2563eb;
+            border-radius: 12px;
+            padding: 40px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .button-group .btn-next {
-            text-align: center;
+        .upload-area:hover {
+            background: #e6f0ff;
+        }
+        .upload-area i {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .file-preview {
+            background: #e6f0ff;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 600px;
+        }
+        .file-preview i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+        .pdf-preview {
+            margin: 20px auto 0;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: none;
+        }
+        .pdf-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
         }
         /* ===== FORM ELEMENTS ===== */
         .calculator-container {
@@ -296,24 +338,6 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1rem;
-        }
-        .upload-area {
-            border: 2px dashed #2563eb;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .upload-area:hover {
-            background: #e6f0ff;
-        }
-        .upload-area i {
-            font-size: 3rem;
-            color: #2563eb;
-            margin-bottom: 10px;
         }
         .radio-group {
             display: flex;
@@ -340,6 +364,7 @@
         .inline-inputs input {
             width: 100px;
         }
+        /* ===== SUMMARY ===== */
         .summary-box {
             background: #f8fafc;
             border-radius: 12px;
@@ -359,20 +384,31 @@
             text-align: right;
             margin-top: 15px;
         }
+        /* ===== BUTTONS ===== */
         .btn-next {
             background: #2563eb;
             color: white;
-            width: 100%;
-            padding: 16px;
-            font-size: 1.2rem;
-            margin-top: 20px;
             border: none;
             border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            display: inline-block;
+            margin: 5px;
+            min-width: 120px;
         }
         .btn-next:hover {
             background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .btn-prev {
+            background: #94a3b8;
+        }
+        .btn-prev:hover {
+            background: #64748b;
         }
         .btn {
             display: inline-block;
@@ -383,63 +419,47 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            margin: 5px;
         }
         .btn:hover {
             background: #16a34a;
             transform: translateY(-2px);
-        }
-        .btn-prev {
-            background: #94a3b8;
-        }
-        .btn-prev:hover {
-            background: #64748b;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         .button-group {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .button-group .btn-next {
-            flex: 1;
-            margin-top: 0;
-        }
-        .file-preview {
-            background: #e6f0ff;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 15px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 30px;
         }
-        .file-preview i {
-            font-size: 2rem;
-            color: #2563eb;
-        }
-        .pdf-preview {
-            margin-top: 20px;
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            display: none;
-        }
-        .pdf-preview iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 8px;
-        }
+        /* ===== QRIS ===== */
         .qris-image {
             max-width: 300px;
             margin: 20px auto;
             display: block;
         }
+        #content4 {
+            text-align: center;
+        }
+        /* ===== INFO BOX ===== */
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #856404;
+        }
+        .info-box i {
+            margin-right: 8px;
+        }
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        /* ===== WARNING ===== */
         .warning {
             color: #dc2626;
             font-size: 0.9rem;
@@ -450,32 +470,6 @@
             color: #64748b;
             margin-top: 5px;
             font-style: italic;
-        }
-        .loading {
-            color: #2563eb;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        /* ===== NOTIFIKASI INFO ===== */
-        .info-box {
-            background: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: left;
-            color: #856404;
-        }
-        .info-box i {
-            margin-right: 5px;
-        }
-        .info-box ul {
-            margin-left: 20px;
-        }
-        .info-blue {
-            background: #d1ecf1;
-            border-color: #bee5eb;
-            color: #0c5460;
         }
         /* ===== FOOTER ===== */
         footer {
@@ -531,6 +525,7 @@
             margin-top: 30px;
             border-top: 1px solid #1e293b;
         }
+        /* ===== WHATSAPP FIXED ===== */
         .whatsapp {
             position: fixed;
             bottom: 20px;
@@ -555,6 +550,7 @@
             transform: scale(1.05);
             background: #20b859;
         }
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -591,6 +587,11 @@
             }
             .button-group {
                 flex-direction: column;
+                align-items: center;
+            }
+            .btn-next, .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
         @media (max-width: 480px) {
@@ -670,6 +671,9 @@
                 <p>Klik untuk memilih file PDF dari komputer Anda</p>
                 <p style="font-size: 0.9rem; color: #64748b;">Maksimal 50MB</p>
                 <input type="file" id="fileInput" style="display: none;" accept=".pdf">
+                <div id="uploadLoading" style="display: none; margin-top: 10px;">
+                    <i class="fas fa-spinner fa-spin"></i> Memproses file...
+                </div>
             </div>
             <div id="fileInfo" style="display: none;" class="file-preview">
                 <i class="fas fa-file-pdf"></i>
@@ -681,7 +685,9 @@
             <div id="pdfPreviewContainer" class="pdf-preview">
                 <iframe id="pdfPreview"></iframe>
             </div>
-            <button class="btn-next" id="uploadNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
+            <div class="button-group">
+                <button class="btn-next" id="uploadNext" onclick="step1Complete()" disabled>Lanjut ke Kalkulator</button>
+            </div>
         </div>
 
         <!-- Langkah 2 : Kalkulator -->
@@ -706,7 +712,7 @@
                     </select>
                 </div>
 
-                <!-- Jenis Warna (hanya muncul jika Warna dipilih) -->
+                <!-- Jenis Warna -->
                 <div class="form-group" id="colorTypeGroup" style="display: none;">
                     <label>Jenis Warna:</label>
                     <select id="colorType" onchange="hitungHarga()">
@@ -725,7 +731,7 @@
                     </select>
                 </div>
 
-                <!-- Jumlah Halaman Total (akan diisi otomatis dari PDF) -->
+                <!-- Jumlah Halaman Total -->
                 <div class="form-group">
                     <label>Jumlah Halaman Total (dari file):</label>
                     <input type="number" id="totalPages" min="1" value="1" onchange="hitungHarga()">
@@ -794,20 +800,17 @@
             </div>
         </div>
 
-        <!-- Langkah 3: Konfirmasi WhatsApp -->
+        <!-- Langkah 3: Konfirmasi WhatsApp (dengan info manual) -->
         <div class="step-content" id="content3">
             <h2>Langkah 3 : Konfirmasi via WhatsApp</h2>
-            
-            <!-- Info Penting -->
             <div class="info-box">
-                <p><i class="fas fa-info-circle"></i> <strong>Penting:</strong></p>
+                <i class="fas fa-info-circle"></i> <strong>Penting:</strong>
                 <ul>
                     <li>File akan kami cek manual oleh admin untuk memastikan jumlah halaman dan warna.</li>
                     <li><strong>JANGAN BAYAR dulu</strong> sebelum mendapat konfirmasi harga final dari admin.</li>
                     <li>Admin akan membalas dalam 1-2 jam (jam kerja).</li>
                 </ul>
             </div>
-
             <p style="margin-bottom: 20px;">Klik tombol di bawah untuk mengirim detail order ke admin. Setelah chat terbuka, kirim file PDF yang sudah Anda preview melalui ikon attachment WhatsApp.</p>
             
             <button class="btn-next" id="waButton" onclick="sendWA()">
@@ -822,16 +825,13 @@
             </div>
         </div>
 
-        <!-- Langkah 4: QRIS -->
+        <!-- Langkah 4: QRIS (dengan info tunggu konfirmasi) -->
         <div class="step-content" id="content4">
             <h2>Langkah 4 : Pembayaran QRIS</h2>
-            
-            <!-- Info Tunggu Konfirmasi -->
-            <div class="info-box info-blue">
-                <p><i class="fas fa-clock"></i> <strong>Tunggu Konfirmasi Admin!</strong></p>
+            <div class="info-box" style="background: #d1ecf1; border-color: #bee5eb; color: #0c5460;">
+                <i class="fas fa-clock"></i> <strong>Tunggu Konfirmasi Admin!</strong>
                 <p>Admin akan mengirimkan nominal harga final setelah cek file. <strong>Jangan transfer sebelum mendapat nominal dari admin.</strong></p>
             </div>
-
             <p>Scan kode QR di bawah untuk melakukan pembayaran</p>
             <img src="images/qris.png" alt="QRIS Pembayaran MedanPrint" class="qris-image" onerror="this.src='https://via.placeholder.com/300x300?text=QRIS+Static'">
             <p style="margin-top: 10px;">SATU QRIS UNTUK SEMUA <strong>MedanPrint.Online</strong></p>
@@ -854,8 +854,6 @@
                 <a href="https://maps.app.goo.gl/w7XExtM4a7peN74P7" class="btn" style="margin-top: 10px;">Lihat Peta</a>
                 <a href="layanan.html" class="btn btn2" style="margin-top: 10px; background: #2563eb;">Lihat Layanan Lain</a>
             </div>
-
-            <!-- Tombol Kembali (opsional) -->
             <div class="button-group" style="margin-top: 30px;">
                 <button class="btn-next btn-prev" onclick="goToStep(4)">Kembali ke Pembayaran</button>
             </div>
@@ -898,7 +896,7 @@
         <i class="fab fa-whatsapp"></i> Chat WA
     </a>
 
-    <!-- PDF.js dimuat dengan defer agar tidak memblokir -->
+    <!-- PDF.js dimuat dengan defer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" defer></script>
 
     <script>
@@ -977,21 +975,34 @@
             document.getElementById('pdfPreview').src = fileURL;
             document.getElementById('pdfPreviewContainer').style.display = 'block';
 
+            const uploadBtn = document.getElementById('uploadNext');
+            uploadBtn.textContent = 'Memproses...';
+            uploadBtn.disabled = true;
+            document.getElementById('uploadLoading').style.display = 'block';
+
             try {
+                if (typeof pdfjsLib === 'undefined') {
+                    throw new Error('PDF.js tidak tersedia.');
+                }
                 const numPages = await getPDFPageCount(file);
                 document.getElementById('totalPages').value = numPages;
                 orderData.totalPages = numPages;
+                
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = 'Lanjut ke Kalkulator';
             } catch (error) {
                 console.error('Gagal membaca jumlah halaman:', error);
                 alert('Gagal membaca jumlah halaman PDF. Silakan isi manual.');
                 document.getElementById('totalPages').value = 1;
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = 'Lanjut ke Kalkulator';
+            } finally {
+                document.getElementById('uploadLoading').style.display = 'none';
             }
 
             selectedFile = file;
             orderData.fileName = file.name;
             orderData.fileSize = formatBytes(file.size);
-
-            document.getElementById('uploadNext').disabled = false;
         });
 
         window.step1Complete = function() {
@@ -1007,24 +1018,14 @@
         // ==================== STEP 2: KALKULATOR ====================
         function toggleColorType() {
             const tipe = document.getElementById('tipeCetak').value;
-            const colorGroup = document.getElementById('colorTypeGroup');
-            if (tipe === 'warna') {
-                colorGroup.style.display = 'block';
-            } else {
-                colorGroup.style.display = 'none';
-            }
+            document.getElementById('colorTypeGroup').style.display = tipe === 'warna' ? 'block' : 'none';
             validateSisi();
             hitungHarga();
         }
 
         function togglePageRange() {
             const range = document.querySelector('input[name="pageRange"]:checked').value;
-            const customDiv = document.getElementById('customRange');
-            if (range === 'custom') {
-                customDiv.style.display = 'block';
-            } else {
-                customDiv.style.display = 'none';
-            }
+            document.getElementById('customRange').style.display = range === 'custom' ? 'block' : 'none';
             hitungHarga();
         }
 
@@ -1033,16 +1034,7 @@
             const tipe = document.getElementById('tipeCetak').value;
             const printer = document.querySelector('input[name="printer"]:checked').value;
             const warning = document.getElementById('sisiWarning');
-
-            if (sisi === '2') {
-                if (tipe !== 'bw' || printer !== 'laser') {
-                    warning.style.display = 'block';
-                } else {
-                    warning.style.display = 'none';
-                }
-            } else {
-                warning.style.display = 'none';
-            }
+            warning.style.display = (sisi === '2' && (tipe !== 'bw' || printer !== 'laser')) ? 'block' : 'none';
             hitungHarga();
         }
 
@@ -1070,62 +1062,24 @@
                 efektifHalaman = totalPages;
             }
 
-            orderData.efektifHalaman = efektifHalaman;
-
             const lembar = sisi === '2' ? Math.ceil(efektifHalaman / 2) : efektifHalaman;
             const totalLembar = lembar * jumlahCopy;
 
             let hargaPerLembar = 0;
-
-            function getHargaBW(printer, ukuran) {
-                if (printer === 'inkjet') {
-                    if (ukuran === 'a4' || ukuran === 'folio') return 500;
-                    else if (ukuran === 'a3') return 3000;
-                } else {
-                    if (ukuran === 'a4' || ukuran === 'folio') return 300;
-                    else if (ukuran === 'a3') return 2000;
-                }
-                return 0;
-            }
-
-            if (sisi === '2') {
-                if (tipe === 'bw' && printer === 'laser') {
-                    if (ukuran === 'a4' || ukuran === 'folio') hargaPerLembar = 500;
-                    else if (ukuran === 'a3') hargaPerLembar = 3000;
-                } else {
-                    hargaPerLembar = 0;
-                }
-            } else {
+            if (sisi === '2' && tipe === 'bw' && printer === 'laser') {
+                hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
+            } else if (sisi !== '2') {
                 if (tipe === 'bw') {
-                    hargaPerLembar = getHargaBW(printer, ukuran);
-                } else {
-                    if (printer !== 'inkjet') {
-                        hargaPerLembar = 0;
-                    } else {
-                        if (ukuran === 'a4' || ukuran === 'folio') {
-                            if (colorType === 'standard') hargaPerLembar = 1000;
-                            else if (colorType === 'full') hargaPerLembar = 2000;
-                        } else if (ukuran === 'a3') {
-                            if (colorType === 'full') hargaPerLembar = 8000;
-                            else hargaPerLembar = 0;
-                        }
-                    }
+                    if (printer === 'inkjet') hargaPerLembar = ukuran === 'a3' ? 3000 : 500;
+                    else hargaPerLembar = ukuran === 'a3' ? 2000 : 300;
+                } else if (printer === 'inkjet') {
+                    if (ukuran === 'a3') hargaPerLembar = colorType === 'full' ? 8000 : 0;
+                    else hargaPerLembar = colorType === 'full' ? 2000 : 1000;
                 }
             }
 
             const total = totalLembar * hargaPerLembar;
-
-            orderData.printer = printer;
-            orderData.tipeCetak = tipe;
-            orderData.colorType = colorType;
-            orderData.ukuranKertas = ukuran;
-            orderData.totalPages = totalPages;
-            orderData.pageRange = pageRange;
-            orderData.startPage = start;
-            orderData.endPage = end;
-            orderData.jumlahCopy = jumlahCopy;
-            orderData.sisiCetak = sisi;
-            orderData.totalHarga = total;
+            Object.assign(orderData, { printer, tipe, colorType, ukuran, totalPages, pageRange, startPage: start, endPage: end, jumlahCopy, sisi, efektifHalaman, totalHarga: total });
 
             document.getElementById('efektifHalaman').textContent = efektifHalaman;
             document.getElementById('totalLembar').textContent = totalLembar;
@@ -1168,8 +1122,7 @@
                 `💰 *Total harga (estimasi):* Rp ${orderData.totalHarga.toLocaleString()}\n\n` +
                 `Saya akan kirim file PDF melalui attachment chat ini. Mohon konfirmasi setelah file diterima. Terima kasih.`;
 
-            const encoded = encodeURIComponent(pesan);
-            window.open(`https://wa.me/6285277930703?text=${encoded}`, '_blank');
+            window.open(`https://wa.me/6285277930703?text=${encodeURIComponent(pesan)}`, '_blank');
         };
 
         window.step3Complete = function() {
@@ -1196,10 +1149,9 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
         if (hamburger) {
             hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
+                document.querySelector('.nav-links').classList.toggle('active');
             });
         }
 
@@ -1207,22 +1159,9 @@
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registered: ', registration);
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
             });
         }
     </script>
-
-    <!-- Catatan: Untuk menyelesaikan semua rekomendasi audit, lakukan juga langkah berikut di luar HTML:
-         1. Buat file robots.txt di root domain.
-         2. Konfigurasi server untuk mengirim header HSTS.
-         3. Tambahkan record SPF di DNS.
-         4. Optimasi dan resize semua file gambar agar sesuai dengan dimensi tampilan, serta strip metadata.
-    -->
 </body>
 </html>
