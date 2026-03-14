@@ -795,7 +795,7 @@
                 <!-- Tombol Kembali dan Lanjut -->
                 <div class="button-group">
                     <button class="btn-next btn-prev" onclick="goToStep(1)">Kembali</button>
-                    <button class="btn-next" id="btnLanjutStep2">Lanjut ke Konfirmasi</button>
+                    <button class="btn-next" id="btnLanjutStep2" onclick="step2Complete()">Lanjut ke Konfirmasi</button>
                 </div>
             </div>
         </div>
@@ -1088,6 +1088,7 @@
         }
 
         window.step2Complete = function() {
+            console.log('step2Complete dipanggil');
             if (orderData.totalHarga === 0) {
                 alert('Harap pilih kombinasi yang valid (total harga tidak boleh 0).');
                 return;
@@ -1096,17 +1097,6 @@
             document.getElementById('totalBayar').textContent = `Rp ${orderData.totalHarga.toLocaleString()}`;
             activateStep(3);
         };
-
-        // Tambahkan event listener untuk tombol "Lanjut ke Konfirmasi" di langkah 2
-        document.addEventListener('DOMContentLoaded', function() {
-            const btnLanjutStep2 = document.getElementById('btnLanjutStep2');
-            if (btnLanjutStep2) {
-                btnLanjutStep2.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    step2Complete();
-                });
-            }
-        });
 
         // ==================== STEP 3: KONFIRMASI WA ====================
         window.sendWA = function() {
